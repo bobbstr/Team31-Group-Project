@@ -1,3 +1,6 @@
+<?php
+    include("database.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,5 +12,7 @@
   </head>
   <body>
     <script src="index.js"></script>
+
+
   </body>
 </html>
