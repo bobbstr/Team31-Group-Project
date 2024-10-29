@@ -1,0 +1,90 @@
+
+body {
+    background-color: #e6f7ff; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+#main-header {
+    position: relative;
+    background-color: #ffcccb;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+#main-header .logo {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    height: 150px; 
+}
+
+#main-header h1 {
+    margin-left: 70px; 
+    font-size: 24px;
+}
+
+
+.signup h2 {
+    text-align: center;
+    color: #333;
+}
+
+
+.signup label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.signup input[type="text"],
+.signup input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+
+.signup input[type="submit"] {
+    background-color: #ffcccb; 
+    color: #333;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.signup input[type="submit"]:hover {
+    background-color: #ffb3b0; 
+}
+
+
+.signup p {
+    text-align: center;
+}
+
+.signup a {
+    color: #007acc; 
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+
