@@ -1,3 +1,24 @@
+<?php
+require 'database.php';
+
+//sign up
+if (isset($_POST["submit"])) {
+    $name = $_POST["username"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $query = "INSERT INTO userid (username, email, password) VALUES (?, ?, ?);";
+    $insert = $db->prepare($query);
+    $result = $insert->execute([$name, $email, $password]);
+
+    if ($result) {
+        echo 'Successfully created an account';
+    } else {
+        echo 'NO!';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
