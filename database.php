@@ -2,7 +2,7 @@
         $server = "localhost";
         $username = "user";
         $password = "password";
-        $db_name = "Products";
+        $db_name = "SugarRush";
 
         try{
             $conn = mysqli_connect($server, $username, $password, $db_name);
