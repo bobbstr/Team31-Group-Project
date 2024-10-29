@@ -3,18 +3,19 @@ require 'database.php';
 
 //sign up
 if (isset($_POST["submit"])) {
-    $name = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    $fname = $_POST["FirstName"];
+    $lname = $_POST["LastName"];
+    $email = $_POST["Email"];
+    $password = $_POST["Password"];
 
-    $query = "INSERT INTO userid (username, email, password) VALUES (?, ?, ?);";
+    $query = "INSERT INTO userid (username, email, password) VALUES (?, ?, ?, ?, ?);";
     $insert = $db->prepare($query);
     $result = $insert->execute([$name, $email, $password]);
 
     if ($result) {
         echo 'Successfully created an account';
     } else {
-        echo 'NO!';
+        echo 'Falied to create account!';
     }
 }
 ?>
@@ -42,11 +43,11 @@ if (isset($_POST["submit"])) {
             </div>
             <div>
                 <label for="lname">Last Name</label>
-               <input type="text" id="lname" name="lastname" placeholder="Last Name" required>
+               <input type="text" id="lname" name="LastName" placeholder="Last Name" required>
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Email" pattern=".+(\.ac\.uk|\.edu)" required>
+                <input type="text" id="email" name="Email" placeholder="Email" pattern=".+(\.ac\.uk|\.edu)" required>
             </div>
             <div>
                 <label for="Password">Password</label>
