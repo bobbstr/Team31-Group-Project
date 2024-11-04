@@ -1,23 +1,34 @@
 <?php
-require 'database.php';
+require 'database.php'; // Ensure this path is correct
 
-//sign up
+// Sign up
 if (isset($_POST["submit"])) {
     $fname = $_POST["FirstName"];
     $lname = $_POST["LastName"];
     $email = $_POST["Email"];
-    $password = $_POST["Password"];
+    $password = password_hash($_POST["Password"], PASSWORD_DEFAULT); // Hash the password
 
-    $query = "INSERT INTO userid (username, email, password) VALUES (?, ?, ?, ?, ?);";
-    $insert = $db->prepare($query);
-    $result = $insert->execute([$name, $email, $password]);
-
-    if ($result) {
-        echo 'Successfully created an account';
+    // Prepare and bind
+    $query = "INSERT INTO userid (username, email, password) VALUES (?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $query);
+    
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "sss", $fname, $email, $password); // Bind variables to the prepared statement
+        $result = mysqli_stmt_execute($stmt); // Execute the prepared statement
+        
+        if ($result) {
+            echo 'Successfully created an account';
+        } else {
+            echo 'Failed to create account!';
+        }
+        
+        mysqli_stmt_close($stmt); // Close the statement
     } else {
-        echo 'Falied to create account!';
+        echo 'Failed to prepare statement!';
     }
 }
+
+mysqli_close($conn); // Close the connection
 ?>
 
 <!DOCTYPE html>
@@ -33,23 +44,22 @@ if (isset($_POST["submit"])) {
         <h1>Sugar Rush</h1>
     </header>
 
-    
     <main class="content">
         <section class="signup">
             <h2>Sign up</h2>
         
-            <form action="/action_page.php">
+            <form action="" method="POST">
                 <div>
                     <label for="FirstName">First Name</label>
-                    <input type="text" id="FirstName" name="FirstName" placeholder="Name" required>
+                    <input type="text" id="FirstName" name="FirstName" placeholder="First Name" required>
                 </div>
                 <div>
                     <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="LastName" placeholder="Last Name" required>
+                    <input type="text" id="lname" name="LastName" placeholder="Last Name" required>
                 </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="Email" placeholder="Email" pattern=".+(\.ac\.uk|\.edu)" required>
+                    <input type="text" id="email" name="Email" placeholder="Email" required>
                 </div>
                 <div>
                     <label for="Password">Password</label>
@@ -57,12 +67,12 @@ if (isset($_POST["submit"])) {
                 </div>
                 
                 <div class="Sign up">
-                    <input type="submit" value="Sign up" id="regSubmit">
+                    <input type="submit" name="submit" value="Sign up" id="regSubmit">
                 </div>
 
                 <p id="loginLink">Already have an account? <a href="login.html">Log in now</a></p>
             </form>
         </section>
-    <main class="content">
+    </main>
 </body>
 </html>
