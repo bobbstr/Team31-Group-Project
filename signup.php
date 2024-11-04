@@ -60,7 +60,7 @@ if (isset($_POST["submit"])) {
                     <input type="submit" value="Sign up" id="regSubmit">
                 </div>
 
-                <p id="loginLink">Already have an account? <a href="login.html">Log in now</a></p>
+                <p id="loginLink">Already have an account? <a href="login.php">Log in now</a></p>
             </form>
         </section>
     <main class="content">
