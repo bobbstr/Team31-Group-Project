@@ -1,6 +1,6 @@
     <?php
         $server = "localhost";
-        $username = "user";
+        $username = "db_user";
         $password = "password";
         $db_name = "SugarRush";
 
