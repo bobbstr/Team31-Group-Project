@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Sugar Rush</title>
-    <link rel="stylesheet" type="text/css" href="signupc.css" />
+    <link rel="stylesheet" type="text/css" href="loginc.css" />
 </head>
 <body>
     
@@ -11,18 +11,10 @@
         <h1>Sugar Rush</h1>
     </header>
 
-    <section class="signup">
-        <h2>Sign up</h2>
+    <section class="login">
+        <h2>Log in</h2>
     
         <form action="/action_page.php">
-            <div>
-                <label for="FirstName">First Name</label>
-                <input type="text" id="FirstName" name="FirstName" placeholder="Name" required>
-            </div>
-            <div>
-                <label for="lname">Last Name</label>
-               <input type="text" id="lname" name="lastname" placeholder="Last Name" required>
-            </div>
             <div>
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Email" pattern=".+(\.ac\.uk|\.edu)" required>
@@ -32,12 +24,14 @@
                 <input type="password" id="Password" name="Password" placeholder="Password" required>
             </div>
             
-            <div class="Sign up">
-                <input type="submit" value="Sign up">
+            <div class="Sign in">
+                <input type="submit" value="Sign in">
             </div>
 
-            <p>Already have an account? <a href="login.html">Log in now</a></p>
+            <p>New customer? <a href="signup.php">Create an account</a></p>
         </form>
     </section>
 </body>
 </html>
+
+
