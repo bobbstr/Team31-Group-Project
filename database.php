@@ -1,7 +1,7 @@
 <?php
     $server = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "db_user";
+    $password = "password";
     $db_name = "sugarrush";
 
     // Attempt to connect to the database
