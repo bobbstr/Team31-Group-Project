@@ -28,7 +28,7 @@
                 <input type="submit" value="Sign in">
             </div>
 
-            <p>New customer? <a href="signup.html">Create an account</a></p>
+            <p>New customer? <a href="signup.php">Create an account</a></p>
         </form>
     </section>
 </body>
