@@ -40,7 +40,7 @@
         </p>
         </div>  
         <div class = "pic_buy">
-            <img src="Screenshot 2024-11-04 at 17.38.31.png" alt="into_img" class="log1">
+            <img src="Screenshot5.png" alt="into_img" class="log1">
             <p class="buy">Special Sweet pack<br>£20<br>BUY NOW</p>
         </div>
 
@@ -62,15 +62,15 @@
             </p>
         </div>
         <div class = "pic_img">
-            <img src="Screenshot 2024-11-04 at 16.20.14.png" alt="Pick-a-mix" class="log2">
+            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20<br>BUY NOW</p>
         </div> 
         <div class = "pic_img">
-            <img src="Screenshot 2024-11-04 at 16.20.14.png" alt="Pick-a-mix" class="log2">
+            <img src="Screenshot2.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20<br>BUY NOW</p>
         </div> 
         <div class = "pic_img">
-            <img src="Screenshot 2024-11-04 at 16.20.14.png" alt="Pick-a-mix" class="log2">
+            <img src="Screenshot3.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20<br>BUY NOW</p>
         </div> 
         </div>
@@ -79,7 +79,7 @@
 
     <div class = "description2">
         <div class = "pic_buy2">
-            <img src="Screenshot 2024-11-04 at 21.15.34.png" alt="into_img" class="log3">
+            <img src="Screenshot4.png" alt="into_img" class="log3">
             <p class="buy3">Special Sweet pack<br>£20<br>BUY NOW</p>
         </div>  
         <div class = "desc2">
@@ -104,19 +104,19 @@
             </p>
         </div> -->
         <div class = "pic_img">
-            <img src="Screenshot 2024-11-04 at 21.36.27.png" alt="Pick-a-mix" class="log2">
+            <img src="Screenshot5.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20<br>BUY NOW</p>
         </div> 
         <div class = "pic_img">
-            <img src="Screenshot 2024-11-04 at 21.36.09.png" alt="Pick-a-mix" class="log2">
+            <img src="Screenshot6.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20<br>BUY NOW</p>
         </div> 
         <div class = "pic_img">
-            <img src="Screenshot 2024-11-04 at 21.13.41.png" alt="Pick-a-mix" class="log2">
+            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20<br>BUY NOW</p>
         </div> 
         <div class = "pic_img">
-            <img src="Screenshot 2024-11-04 at 21.36.27.png" alt="Pick-a-mix" class="log2">
+            <img src="Screenshot4.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20<br>BUY NOW</p>
         </div> 
         </div>
