@@ -5,18 +5,19 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+    justify-content: center;
+    align-items: center;
 }
-
 
 #main-header {
     position: relative;
-    background-color: #ffcccb;
+    background-color: #FB5AA6;
     color: #fff;
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
-
 
 #main-header .logo {
     position: absolute;
@@ -27,26 +28,44 @@ body {
 }
 
 #main-header h1 {
-    margin-left: 70px; 
     font-size: 24px;
+    text-align: center;
 }
 
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
+    box-sizing: border-box;
+}
 
+.signup {
+    width: 80%; 
+    max-width: 400px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    text-align: center;
+}
+    
 .signup h2 {
     text-align: center;
     color: #333;
+    margin-bottom: 20px; 
 }
-
-
+    
 .signup label {
+    text-align: center; 
     display: block;
     margin-bottom: 5px;
     color: #333;
 }
-
-.signup input[type="text"],
-.signup input[type="password"] {
-    width: 100%;
+    
+.signup input[type="text"],.signup input[type="password"] {
+    width: 100%; 
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -54,25 +73,21 @@ body {
     box-sizing: border-box;
     font-size: 16px;
 }
-
-
-.signup input[type="submit"] {
-    background-color: #ffcccb; 
-    color: #333;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
+    
+#regSubmit {
+    background-color: #FB5AA6; 
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s;
+    display: block; 
+    margin: 0 auto; 
 }
 
-.signup input[type="submit"]:hover {
-    background-color: #ffb3b0; 
+#regSubmit:hover{
+    font-size: 20px;
+    background-color: #333;
 }
-
 
 .signup p {
     text-align: center;
@@ -81,8 +96,4 @@ body {
 .signup a {
     color: #007acc; 
     text-decoration: none;
-}
-
-.signup a:hover {
-    text-decoration: underline;
 }
