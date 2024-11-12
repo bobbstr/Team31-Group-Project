@@ -6,7 +6,7 @@
 </head>
 <body>
     
-    <header id="main-header">
+    <header id="mainHeader">
         <img src="Logo.jpg.png" alt="Sugar Rush Logo" class="logo">
         <h1>Sugar Rush</h1>
     </header>
@@ -17,7 +17,7 @@
         <form action="/action_page.php">
             <div>
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Email" pattern=".+(\.ac\.uk|\.edu)" required>
+                <input type="text" id="email" name="email" placeholder="Email" required>
             </div>
             <div>
                 <label for="Password">Password</label>
