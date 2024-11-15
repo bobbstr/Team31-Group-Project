@@ -85,3 +85,44 @@ body {
 .login a:hover {
     text-decoration: underline;
 }
+
+footer {
+    background-color: #f0f0f0;
+    padding: 2px;
+    text-align: center;   
+}
+.footerNav {
+    margin-top: 5px;
+}
+.footerNav p {
+    font-size: 14px;
+    text-align: center;
+}
+.footerNav ul {
+    padding: 0;
+}
+.footerNav ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.footerNav ul li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: black;
+}
+.footerNav ul li a:hover {
+    background-color: lightpink ;
+}
+.footerSocial {
+    margin-top: 10px;
+}
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.footerCopyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+}
