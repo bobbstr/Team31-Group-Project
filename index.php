@@ -19,10 +19,13 @@
                 <p>bar</p>
             </div>
             <div>
-                <img src="real.png" alt="Sugar Rush Logo" class="log">
+                <a href="/index.php"><img src="real.png" alt="Sugar Rush Logo" class="log"></a>
             </div>
             <div class="search">
-                <input type="text" class="search_i" placeholder="Search...">
+                <form action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value; return false;">
+                    <input id="search" type="text" class="search_i" placeholder="Search...">
+                    <input type="submit" value="Send">
+                </form>
             </div>
             <div class="section">
                 <p>Home      Snack     Snack      Pick-a-mix       Snack</p>
