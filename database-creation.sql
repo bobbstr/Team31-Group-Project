@@ -67,7 +67,10 @@ VALUES
 ('Haribo', 'Haribo Tangfastics', 'Sweets', 'images/Sweets/Haribo-Tangfastics.avif', 180, 1.50, 1),
 ('Maynards Bassets', 'Liqourice Allsorts', 'Sweets', 'images/Sweets/Maynards-Liquorice-Allsorts.avif', 300, 1.50,1),
 ('Nerds', 'Nerds Gummy Clusters', 'Sweets', 'images/Sweets/Nerds-Gummy-Clusters.avif', 200, 1.70, 1),
-('Rowntrees', 'Rowntrees Randoms', 'Sweets', 'images/Sweets/Rowntrees-Randoms.avif', 300, 1.70, 1);
+('Rowntrees', 'Rowntrees Randoms', 'Sweets', 'images/Sweets/Rowntrees-Randoms.avif', 300, 1.70, 1),
+('Sugar Rush', 'Sour Sweets Mix 1kg', 'Mix', 'images/Mix/Sour-Mix.jpg', 1000, 9.00, 1),
+('Sugar Rush', 'Hard Sweets Mix 1kg', 'Mix', 'images/Mix/Hard-Sweets.jpg', 1000, 9.00, 1),
+('Sugar Rush', 'Liquorice Sweets Mix 1kg', 'Mix', 'images/Mix/Liquorice-Mix.jpg', 1000, 9.00, 1); 
 
 /* CREATION OF USER ACCOUNTS TABLE */
 
