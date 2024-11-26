@@ -29,7 +29,7 @@ include("database.php");
         <div class="search">
             <form action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                 <input id="search" type="text" class="search_i" placeholder="Search...">
-                <input type="submit" value="Send">
+                <input type="submit" value="Search">
             </form>
         </div>
         <div class="section">
@@ -37,6 +37,5 @@ include("database.php");
         </div>
 
     </div>
-
 </body>
 </html>
