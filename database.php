@@ -1,11 +1,11 @@
 <?php
     $server = "localhost";
     $username = "root";
-    $password = "";
+    $db_password = "";
     $db_name = "sugarrush";
 
     // Attempt to connect to the database
-    $conn = mysqli_connect($server, $username, $password, $db_name);
+    $conn = mysqli_connect($server, $username, $db_password, $db_name);
 
     // Check database connection
     if ($conn) {
