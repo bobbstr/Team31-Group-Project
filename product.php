@@ -48,8 +48,9 @@
                     echo "<table style='width: 100%'>";
                     echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' class='product-image'/></td>";
                     echo "<td><b>".$row['ProductName']."</b>";
-                    echo "\n\nPrice: £".$row['ProductPrice']." ";
-                    echo "<button>Add To Basket</button></td>";
+                    echo "\n\n<b>Price</b>: £".$row['ProductPrice']." ";
+                    echo "<button>Add To Basket</button>";
+                    echo "\n\n<b>Description: </b>".$row['ProductDescription']."</td>";
                     echo "</table>";
                 }
 
@@ -57,7 +58,7 @@
             }
             else
             {
-                echo "Product Not Found";
+                echo "Product Not Found.";
             }
         }
         else
