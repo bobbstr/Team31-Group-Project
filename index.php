@@ -28,7 +28,7 @@
                 </form>
             </div>
             <div class="section">
-                <p>Home      Snack     Snack      Pick-a-mix       Snack</p>
+                <p><a href="/search.php?q=sweets">Sweets</a>      <a href="/search.php?q=chocolate">Chocolate</a>     <a href="/search.php?q=savoury">Savoury</a>      <a href="/search.php?q=mix">Pick-N-mix</a>       <a href="/search.php?q=drinks">Drinks</a></p>
             </div>
 
         </div>

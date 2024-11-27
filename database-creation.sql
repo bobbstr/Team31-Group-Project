@@ -39,7 +39,6 @@ VALUES
 ('Kinder', 'Kinder Bueno', 'Chocolate', 'images/Chocolate/Kinder-Bueno.avif', 43, 2.39, 1),
 ('Lindt', 'Lindt Chocolate', 'Chcolate', 'images/Chocolate/Lindt-Chocolate.avif', 100, 3.00, 1),
 ('Malteasers', 'Malteasers', 'Chocolate', 'images/Chocolate/Maltesers.avif', 214, 4.00, 1),
-('Fruit Shoot', 'Fruit Shoot Apple and Blackcurrent', 'Drinks', 'images/Drinks/Fruit-Shoot-Apple-Blackcurrent.avif', 400, 2.00, 1),
 ('Monster', 'Monster Energy', 'Drinks', 'images/Drinks/Monster.avif', 500, 1.90, 1),
 ('Red Bull', 'Red Bull Energy Drink', 'Drinks', 'images/Drinks/Red-Bull.avif', 355, 2.00, 1),
 ('Jacob''s', 'Mini Cheddars', 'Savoury', 'images/Savoury/Mini-Cheddars.avif', 138, 1.75, 1),

@@ -1,0 +1,11 @@
+.query-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1.2px));
+    gap: 7rem;
+    padding: 1rem;
+}
+
+.product-image {
+    height: 150;
+    width: 150;
+}

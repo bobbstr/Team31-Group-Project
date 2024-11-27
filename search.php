@@ -10,9 +10,7 @@ include("database.php");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="home.css" />
-    <style>
-        .query-results { height: 15em; width: 150em; overflow: auto; }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/styles/search.css" />
 </head>
 <body>
 
@@ -37,7 +35,7 @@ include("database.php");
             </form>
         </div>
         <div class="section">
-            <p>Home      Snack     Snack      Pick-a-mix       Snack</p>
+            <p><a href="/search.php?q=sweets">Sweets</a>      <a href="/search.php?q=chocolate">Chocolate</a>     <a href="/search.php?q=savoury">Savoury</a>      <a href="/search.php?q=mix">Pick-N-mix</a>       <a href="/search.php?q=drinks">Drinks</a></p>
         </div>
     </div>
     <div class="query-results">
@@ -50,18 +48,14 @@ include("database.php");
             {
                 if (mysqli_num_rows($result) > 0)
                 {
-                    echo "<table>";
-                    echo "<tr>";
-                    echo "<th>Brand</th>";
-                    echo "</tr>";
                     while ($row = mysqli_fetch_array($result))
                     {
-
-                        echo "<td>".$row['ProductBrand'] . "</td>";
-                        echo "<td>".$row['ProductName']."</td>";
-                        echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' height='100' width='100' /></td>";
+                        echo "<table>";
+                        echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' class='product-image'/></td>";
+                        echo "<th>".$row['ProductName']."</th>";
+                        echo "</table>";
                     }
-                    echo "</table>";
+
                     mysqli_free_result($result);
                 }
                 else
