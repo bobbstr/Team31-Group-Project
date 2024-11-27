@@ -10,6 +10,9 @@ include("database.php");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="home.css" />
+    <style>
+        .query-results { height: 15em; width: 150em; overflow: auto; }
+    </style>
 </head>
 <body>
 
@@ -53,10 +56,10 @@ include("database.php");
                     echo "</tr>";
                     while ($row = mysqli_fetch_array($result))
                     {
-                        echo "<tr>";
+
                         echo "<td>".$row['ProductBrand'] . "</td>";
                         echo "<td>".$row['ProductName']."</td>";
-                        echo "</tr>";
+                        echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' height='100' width='100' /></td>";
                     }
                     echo "</table>";
                     mysqli_free_result($result);
