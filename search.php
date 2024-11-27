@@ -54,10 +54,10 @@ include("database.php");
                         echo "<table style='width: 100%'>";
                         echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' class='product-image'/></td>";
                         echo "<td><b>".$row['ProductName']."</b>";
+                        echo "</a>";
                         echo "\n\nPrice: £".$row['ProductPrice'];
                         echo "<button>Add To Basket</button></td>";
                         echo "</table>";
-                        echo "</a>";
                     }
 
                     mysqli_free_result($result);

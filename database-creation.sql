@@ -70,6 +70,22 @@ VALUES
 ('Sugar Rush', 'Hard Sweets Mix 1kg', 'Mix', 'images/Mix/Hard-Sweets.jpg', 1000, 9.00, 1),
 ('Sugar Rush', 'Liquorice Sweets Mix 1kg', 'Mix', 'images/Mix/Liquorice-Mix.png', 1000, 9.00, 1);
 
+
+CREATE TABLE product_descriptions (
+    DescriptionID int NOT NULL PRIMARY KEY,
+    DescriptionContent varchar(255),
+    CONSTRAINT fk_product_association
+        FOREIGN KEY (DescriptionID)
+        REFERENCES products (ProductID)
+        ON DELETE CASCADE
+);
+
+INSERT INTO product_descriptions (DESCRIPTIONID, DESCRIPTIONCONTENT)
+VALUES
+(1, "Test Description");
+
+
+
 /* CREATION OF USER ACCOUNTS TABLE */
 
 -- phpMyAdmin SQL Dump

@@ -214,3 +214,8 @@ header {
     gap: 20px; */
     
 }
+
+a, u {
+    text-decoration: none;
+    color: black;
+}

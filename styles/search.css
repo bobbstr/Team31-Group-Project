@@ -6,10 +6,15 @@
 }
 
 .product-image {
-    height: 185;
-    width: 185;
+    height: 185px;
+    width: 185px;
 }
 
 td, th {
     white-space: pre-wrap;
 }
+
+a, u {
+    text-decoration: none;
+}
+

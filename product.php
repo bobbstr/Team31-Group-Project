@@ -30,7 +30,7 @@
             </form>
         </div>
         <div class="section">
-            <p><a href="/search.php?q=sweets">Sweets</a>      <a href="/search.php?q=chocolate">Chocolate</a>     <a href="/search.php?q=savoury">Savoury</a>      <a href="/search.php?q=mix">Pick-N-mix</a>       <a href="/search.php?q=drinks">Drinks</a></p>
+            <p><a href="/search.php?q=sweets">Sweets</a>      <a href="/search.php?q=chocolate">Chocolate</a>     <a href="/search.php?q=savoury">Savoury</a>      <a href="/search.php?q=sweets mix">Pick-N-mix</a>       <a href="/search.php?q=drinks">Drinks</a>       <a href="/search.php?q=biscuits">Biscuits</a></p>
         </div>
     </div>
     <div class="product-zone">
@@ -45,6 +45,8 @@
             {
                 while ($row = mysqli_fetch_array($result))
                 {
+                    $sqlQueryDescription = "SELECT * FROM product_description WHERE ProductID = $productIdentifier";
+
                     echo "<table style='width: 100%'>";
                     echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' class='product-image'/></td>";
                     echo "<td><b>".$row['ProductName']."</b>";

@@ -13,3 +13,9 @@
 td, th {
     white-space: pre-wrap;
 }
+
+a, u {
+    text-decoration: none;
+    color: black;
+}
+
