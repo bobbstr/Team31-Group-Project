@@ -1,4 +1,5 @@
 <?php
+global $conn;
 include("database.php");
 ?>
 <!DOCTYPE html>
@@ -35,7 +36,42 @@ include("database.php");
         <div class="section">
             <p>Home      Snack     Snack      Pick-a-mix       Snack</p>
         </div>
+    </div>
+    <div class="query-results">
+        <?php
+            $searchQuery =  $_GET['q'];
 
+            $sqlQuery = "SELECT * FROM products WHERE ProductBrand LIKE '%$searchQuery%' OR ProductName LIKE '%$searchQuery%' OR ProductCategory LIKE '%$searchQuery%'";
+
+            if ($result = mysqli_query($conn, $sqlQuery))
+            {
+                if (mysqli_num_rows($result) > 0)
+                {
+                    echo "<table>";
+                    echo "<tr>";
+                    echo "<th>Brand</th>";
+                    echo "</tr>";
+                    while ($row = mysqli_fetch_array($result))
+                    {
+                        echo "<tr>";
+                        echo "<td>".$row['ProductBrand'] . "</td>";
+                        echo "<td>".$row['ProductName']."</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                    mysqli_free_result($result);
+                }
+                else
+                {
+                    echo "No results found";
+                }
+            }
+            else
+            {
+                echo "Error with execution of query. ".mysqli_error($conn);
+            }
+            mysqli_close($conn);
+        ?>
     </div>
 </body>
 </html>

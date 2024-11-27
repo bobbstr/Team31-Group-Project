@@ -4,6 +4,8 @@
     $password = "password";
     $db_name = "sugarrush";
 
+    global $conn;
+
     // Attempt to connect to the database
     $conn = mysqli_connect($server, $username, $password, $db_name);
 
