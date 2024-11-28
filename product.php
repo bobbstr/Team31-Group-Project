@@ -33,6 +33,8 @@
             <p><a href="/search.php?q=sweets">Sweets</a>      <a href="/search.php?q=chocolate">Chocolate</a>     <a href="/search.php?q=savoury">Savoury</a>      <a href="/search.php?q=sweets mix">Pick-N-mix</a>       <a href="/search.php?q=drinks">Drinks</a>       <a href="/search.php?q=biscuits">Biscuits</a>	<a href="/search.php?q=">Everything</a></p>
         </div>
     </div>
+    <br/>
+    <br/>
     <div class="product-zone">
         <?php
         $productIdentifier =  $_GET['id'];
