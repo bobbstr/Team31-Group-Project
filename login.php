@@ -1,5 +1,10 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 require 'database.php';
 
 $message = "";
@@ -18,17 +23,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->bind_result($db_password);
         $stmt->fetch();
 
-        if($password === $db_password){
-            $message = "LOGIN SUCCESS";
-            $toastClass = "bg-success";
-
+        if (password_verify($password, $db_password)) {
             session_start();
             $_SESSION['email'] =$email;
             header("Location: index.php");
+            echo($email);
             exit();
         } else{
-            $message = "Inccorect Password";
+            $message = "Inccorect password";
             $toastClass ="bg-danger";
+            echo($message);
         }
         $stmt->close();
         $conn->close();
@@ -58,8 +62,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="text" id="email" name="email" placeholder="Email" required>
             </div>
             <div>
-                <label for="Password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" placeholder="password" required>
             </div>
             
             <div class="Sign in">
