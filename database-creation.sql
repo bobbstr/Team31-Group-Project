@@ -28,18 +28,17 @@ InStock '0' = insufficient stock to order.
 INSERT INTO products (ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight, ProductPrice, InStock)
 VALUES
 ('Haribo', 'Starmix', 'Sweets', 'images/Sweets/Haribo-Starmix.avif',175, 1.25, 1),
-('Maynards Bassetts', 'Wine Gums', 'Sweets', 'images/Sweets/MaynardsBassetts-Wine-Gums.avif', 130, 1.35, 1),
+('Maynards Bassetts', 'Wine Gums', 'Sweets', 'images/Sweets/Maynards-Bassetts-Wine-Gums.avif', 130, 1.35, 1),
 ('Swizzels', 'Squashies', 'Sweets', 'images/Sweets/Swizzels-Squashies.avif', 140, 0.99, 1),
 ('Cadbury', 'Dairy Milk Buttons', 'Chocolate', 'images/Chocolate/Cadbury-Dairy-Milk-Buttons.avif', 119, 1.75, 1),
-('Maynards Bassetts', 'Sherbet Lemons', 'Sweets','images/Sweets/Maynards-Bassets-Sherbet-Lemons.webp', 192, 1.52, 1),
+('Maynards Bassetts', 'Sherbet Lemons', 'Sweets','images/Sweets/Maynards-Bassetts-Sherbet-Lemons.webp', 192, 1.52, 1),
 ('Galaxy', 'Galaxy Cookies', 'Biscuits', 'images/Biscuits/Galaxy-Cookies.avif', 180, 1.35, 1),
 ('Oreo''s', 'Oreo Vanilla', 'Biscuits', 'images/Biscuits/Oreos.avif', 154, 0.90, 1),
 ('Cadbury', 'Dairy Milk', 'Chocolate', 'images/Chocolate/Dairy-Milk.avif', 180, 2.50, 1),
 ('Hersheys', 'Hershey''s Cookies N Creme', 'Chocolate', 'images/Chocolate/Hersheys-Cookies-N-Creme.webp', 90, 1.25, 1),
 ('Kinder', 'Kinder Bueno', 'Chocolate', 'images/Chocolate/Kinder-Bueno.avif', 43, 2.39, 1),
 ('Lindt', 'Lindt Chocolate', 'Chcolate', 'images/Chocolate/Lindt-Chocolate.avif', 100, 3.00, 1),
-('Malteasers.avif', 'Malteasers', 'Chocolate', 'images/Chocolate/Malteasers.avif', 214, 4.00, 1),
-('Fruit Shoot', 'Fruit Shoot Apple and Blackcurrent', 'Drinks', 'images/Drinks/Fruit-Shoot-Apple-Blackcurrent.avif', 400, 2.00, 1),
+('Malteasers', 'Malteasers', 'Chocolate', 'images/Chocolate/Maltesers.avif', 214, 4.00, 1),
 ('Monster', 'Monster Energy', 'Drinks', 'images/Drinks/Monster.avif', 500, 1.90, 1),
 ('Red Bull', 'Red Bull Energy Drink', 'Drinks', 'images/Drinks/Red-Bull.avif', 355, 2.00, 1),
 ('Jacob''s', 'Mini Cheddars', 'Savoury', 'images/Savoury/Mini-Cheddars.avif', 138, 1.75, 1),
@@ -65,12 +64,31 @@ VALUES
 ('Doritos', 'Doritos Chilli Heatwave','Savoury', 'images/Savoury/Doritos-Chilli-Heatwave.avif', 200, 1.50, 1),
 ('Haribo', 'Haribo Supermix', 'Sweets', 'images/Sweets/Haribo-Supermix.avif', 180, 1.50, 1),
 ('Haribo', 'Haribo Tangfastics', 'Sweets', 'images/Sweets/Haribo-Tangfastics.avif', 180, 1.50, 1),
-('Maynards Bassets', 'Liqourice Allsorts', 'Sweets', 'images/Sweets/Maynards-Liquorice-Allsorts.avif', 300, 1.50,1),
 ('Nerds', 'Nerds Gummy Clusters', 'Sweets', 'images/Sweets/Nerds-Gummy-Clusters.avif', 200, 1.70, 1),
 ('Rowntrees', 'Rowntrees Randoms', 'Sweets', 'images/Sweets/Rowntrees-Randoms.avif', 300, 1.70, 1),
 ('Sugar Rush', 'Sour Sweets Mix 1kg', 'Mix', 'images/Mix/Sour-Mix.jpg', 1000, 9.00, 1),
 ('Sugar Rush', 'Hard Sweets Mix 1kg', 'Mix', 'images/Mix/Hard-Sweets.jpg', 1000, 9.00, 1),
+<<<<<<< HEAD
 ('Sugar Rush', 'Liquorice Sweets Mix 1kg', 'Mix', 'images/Mix/Liquorice-Mix.jpg', 1000, 9.00, 1); 
+=======
+('Sugar Rush', 'Liquorice Sweets Mix 1kg', 'Mix', 'images/Mix/Liquorice-Mix.png', 1000, 9.00, 1);
+
+
+CREATE TABLE product_descriptions (
+    DescriptionID int NOT NULL PRIMARY KEY,
+    DescriptionContent varchar(255),
+    CONSTRAINT fk_product_association
+        FOREIGN KEY (DescriptionID)
+        REFERENCES products (ProductID)
+        ON DELETE CASCADE
+);
+
+INSERT INTO product_descriptions (DESCRIPTIONID, DESCRIPTIONCONTENT)
+VALUES
+(1, "Test Description");
+
+
+>>>>>>> test/home-search-filter
 
 /* CREATION OF USER ACCOUNTS TABLE */
 

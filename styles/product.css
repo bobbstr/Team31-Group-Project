@@ -1,0 +1,21 @@
+.product-zone {
+    margin: auto;
+    width: 50%;
+    border: 3px solid #FB5AA6;
+    padding: 10px;
+}
+
+.product-image {
+    height: 500px;
+    width: 500px;
+}
+
+td, th {
+    white-space: pre-wrap;
+}
+
+a, u {
+    text-decoration: none;
+    color: black;
+}
+
