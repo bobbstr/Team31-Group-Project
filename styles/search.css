@@ -7,7 +7,17 @@
 
 .product-image {
     height: 185px;
-    width: 185px;
+    width: 185px;   
+    border-radius: 5%;
+}
+
+.product-image:hover {
+  -webkit-filter: brightness(90%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 td, th {
@@ -16,5 +26,6 @@ td, th {
 
 a, u {
     text-decoration: none;
+    color: black;
 }
 
