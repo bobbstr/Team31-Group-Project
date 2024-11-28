@@ -68,9 +68,6 @@ VALUES
 ('Rowntrees', 'Rowntrees Randoms', 'Sweets', 'images/Sweets/Rowntrees-Randoms.avif', 300, 1.70, 1),
 ('Sugar Rush', 'Sour Sweets Mix 1kg', 'Mix', 'images/Mix/Sour-Mix.jpg', 1000, 9.00, 1),
 ('Sugar Rush', 'Hard Sweets Mix 1kg', 'Mix', 'images/Mix/Hard-Sweets.jpg', 1000, 9.00, 1),
-<<<<<<< HEAD
-('Sugar Rush', 'Liquorice Sweets Mix 1kg', 'Mix', 'images/Mix/Liquorice-Mix.jpg', 1000, 9.00, 1); 
-=======
 ('Sugar Rush', 'Liquorice Sweets Mix 1kg', 'Mix', 'images/Mix/Liquorice-Mix.png', 1000, 9.00, 1);
 
 
