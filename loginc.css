@@ -66,7 +66,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: background-color 0.3s;
+
 }
 
 .login input[type="submit"]:hover {
