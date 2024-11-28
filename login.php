@@ -1,3 +1,45 @@
+<?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+require 'database.php';
+
+$message = "";
+$toastClass = "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt =$conn->prepare("SELECT password FROM userid WHERE email =?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if($stmt->num_rows >0){
+        $stmt->bind_result($db_password);
+        $stmt->fetch();
+
+        if (password_verify($password, $db_password)) {
+            session_start();
+            $_SESSION['email'] =$email;
+            header("Location: index.php");
+            echo($email);
+            exit();
+        } else{
+            $message = "Inccorect password";
+            $toastClass ="bg-danger";
+            echo($message);
+        }
+        $stmt->close();
+        $conn->close();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,14 +56,14 @@
     <section class="login">
         <h2>Log in</h2>
     
-        <form action="/action_page.php">
+        <form action="login.php" method="POST">
             <div>
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Email" required>
             </div>
             <div>
-                <label for="Password">Password</label>
-                <input type="password" id="Password" name="Password" placeholder="Password" required>
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" placeholder="password" required>
             </div>
             
             <div class="Sign in">
