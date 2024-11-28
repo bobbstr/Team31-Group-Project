@@ -84,8 +84,6 @@ INSERT INTO product_descriptions (DESCRIPTIONID, DESCRIPTIONCONTENT)
 VALUES
 (1, "Test Description");
 
-
-
 /* CREATION OF USER ACCOUNTS TABLE */
 
 -- phpMyAdmin SQL Dump

@@ -1,35 +1,49 @@
 <?php
-require 'database.php'; // Ensure this path is correct
+require 'database.php'; // Include the database connection
 
-// Sign up
 if (isset($_POST["submit"])) {
-    $fname = $_POST["FirstName"];
-    $lname = $_POST["LastName"];
-    $email = $_POST["Email"];
-    $password = password_hash($_POST["Password"], PASSWORD_DEFAULT); // Hash the password
+    $fname = trim($_POST["FirstName"]);
+    $lname = trim($_POST["LastName"]);
+    $email = trim($_POST["Email"]);
+    $password = $_POST["Password"];
 
-    // Prepare and bind
-    $query = "INSERT INTO userid (username, email, password) VALUES (?, ?, ?)";
+    // Validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format!";
+        exit;
+    }
+
+    // Validate password (e.g., minimum 8 characters)
+    if (strlen($password) < 8) {
+        echo "Password must be at least 8 characters long!";
+        exit;
+    }
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Securely hash password
+
+    // Prepare and bind the MySQLi statement
+    $query = "INSERT INTO userid (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
-    
+
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sss", $fname, $email, $password); // Bind variables to the prepared statement
-        $result = mysqli_stmt_execute($stmt); // Execute the prepared statement
-        
-        if ($result) {
-            echo 'Successfully created an account';
+        mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $email, $hashed_password);
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Successfully created an account!";
         } else {
-            echo 'Failed to create account!';
+            echo "Failed to create account: " . mysqli_error($conn);
         }
-        
-        mysqli_stmt_close($stmt); // Close the statement
+
+        mysqli_stmt_close($stmt); // Close the prepared statement
     } else {
-        echo 'Failed to prepare statement!';
+        echo "Failed to prepare statement: " . mysqli_error($conn);
     }
 }
 
-mysqli_close($conn); // Close the connection
+mysqli_close($conn); // Close the database connection
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
