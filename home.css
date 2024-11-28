@@ -2,7 +2,7 @@
     background-color: #38B6FF; /* Set the background color to blue */
     /* text-align: center; Center-align text */
     /* padding: 20px; Add some padding for better spacing */
-    min-height: 100px;
+    min-height: 70px;
     word-spacing: 50px;
     
     
@@ -44,6 +44,7 @@ header {
     display: flex; */
     width: 50%;
     margin-left: 50px;
+    border-radius: 10px;
 
 }
 
@@ -54,54 +55,92 @@ header {
     padding-bottom: 20px;
     /* margin: ; */
 }
+
+.pick_header{
+    margin-left: 70px;
+
+}
 .description{
-    align-items:center;
     display: flex;
-    margin-top: 70px;
+    justify-content: center; /* Centers the content horizontally */
+    margin-top: 50px;
+    padding: 20px; /* Adds space around the container */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 15px; /* Smooth rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 80%; /* Restricts the container width */
+    margin-left: auto;
+    margin-right: auto; /* Centers the container on the page */
 
 }
 .desc1{
-    display: flex;
-    margin-left: 80px;
-    margin-right: 200px;
+    font-family: Impact, fantasy;
+    font-size: 1.2em; /* Slightly larger text for readability */
+    color: #333; /* Neutral text color for better readability */
+    line-height: 1.8; /* Improves spacing between lines */
+    text-align: justify; /* Makes the text more structured */
+    margin-left: 10px;
+    margin-right: 10px; /* Adds spacing within the container */
+}
+
     
-    /* font-family: "Brush Script MT", cursive; */
-    /* font-family: "Pacifico", cursive; */
-    /* font-family: "Great Vibes", cursive; */
-    font-family: "Dancing Script", cursive;
-    font-size: larger;
-    /* align-items:center; */
+    .log1 {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+
+.buy {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
 }
-.log1{
-    width:400px;
-    height: 300px;
-    /* margin-right: 80px; */
-    border: 2px solid #38B6FF;
-   
-    /* justify-items: center; */
-    /* padding-left: 200px;  */
-    /* margin-left: 800px; */
-    
-}
-.buy{
-    text-align: center;
-    color: aliceblue;
-    margin-left: 80px;
-    /* background-color: #38B6FF; */
-    margin-right: 80px;
-    top:0%;
-}
-.pic_buy{
+/* .price {
+    color: #ff4d4d;
+    font-weight: bold;
+} */
+
+
+.now {
     background-color: #38B6FF;
-    margin-right: 80px;
-   
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.now:hover {
+    background-color: #1d87cc;
+}
+
+
+   
+
+
+.pic_buy {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+
+
 .log2{
-    width: 400px;
-    height: 300px;
-    width: 100%; /* Adjust as needed */
-    /*
-    border: 2px solid #38B6FF;*/
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
 
 }
 
@@ -110,88 +149,120 @@ header {
     align-items: center; 
     align-items:center;
     display: flex;
-    margin: 70px;
+    margin: 0,0,0,0;
     /* display: flex;
     align-items: center;
     gap: 20px; */
     
 }
 .pick_desc{
-    display: flex;
-    color: aliceblue;
-    margin-left: 20px;
-    margin-right: 80px;
-    font-size: larger;
-    background-color: #38B6FF; 
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-left: 10px;
-    
-   
+    background-color: #fff; /* White background to create contrast */
+    padding: 40px 50px; /* Ample padding for comfort */
+    border-radius: 15px; /* Rounded corners for modern look */
+    max-width: 80%; /* Keep width within reasonable limits */
+    color: #333; /* Dark color for text */
+    font-family: 'Poppins', sans-serif; /* Clean, modern sans-serif font */
+    font-size: 1.2em; /* Larger text for readability */
+    text-align: center; /* Center text */
+    line-height: 1.8; /* Increase line height for better spacing */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative;
+    z-index: 1;
 }
-
+.pick_desc:hover {
+    color: #ff3399; /* Change text color on hover */
+    text-shadow: 0 0 10px rgba(255, 51, 153, 0.5); /* Soft glow effect around text */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Subtle upward movement on hover */
+}
 
 .pic_img{
-    background-color: #38B6FF;
-    margin-right: 40px;
-    border: 2px solid #38B6FF;
-    /* flex: 1; /* Ensures the image section also takes up equal space */
-    /*text-align: center; */
-
-}
-.buy1{
     text-align: center;
-    color: aliceblue;
-    margin-left: 80px;
-    margin-right: 80px;
-    top:0%;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin:20px;
+}
+.pic_img:hover{
+    transform: translateY(-5px); /* Subtle upward movement on hover */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.buy1{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
     
+}
+
+.now2{
+    background-color: #38B6FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.now2:hover {
+    background-color: #1d87cc;
 }
 
 
 /* tfgyuiouutyfughiojuytuuyuiouiytuyghuijouiy */
 
 .description2{
-    align-items:center;
     display: flex;
-    margin-top: 70px;
-
+    justify-content: center; /* Centers the content horizontally */
+    margin-top: 50px;
+    padding: 20px; /* Adds space around the container */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 15px; /* Smooth rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 80%; /* Restricts the container width */
+    margin-left: auto;
+    margin-right: auto; /* Centers the container on the page */
+}
+.description2:hover{
+    transform: translateY(-5px); /* Subtle upward movement on hover */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 .desc2{
-    display: flex;
-    margin-left: 80px;
-    margin-right: 200px;
-    
-    /* font-family: "Brush Script MT", cursive; */
-    /* font-family: "Pacifico", cursive; */
-    /* font-family: "Great Vibes", cursive; */
-    font-family: "Dancing Script", cursive;
-    font-size: larger;
-    /* align-items:center; */
+    font-family: Impact, fantasy;
+    font-size: 1.2em; /* Slightly larger text for readability */
+    color: #333; /* Neutral text color for better readability */
+    line-height: 1.8; /* Improves spacing between lines */
+    text-align: justify; /* Makes the text more structured */
+    margin-left: 50px;
+    margin-right: 10px; /* Adds spacing within the container */
 }
+
 .log3{
-    width:400px;
-    height: 300px;
-    /* margin-right: 80px; */
-    border: 2px solid #38B6FF;
-   
-    /* justify-items: center; */
-    /* padding-left: 200px;  */
-    /* margin-left: 800px; */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
     
 }
 .buy3{
-    text-align: center;
-    color: aliceblue;
-    margin-left: 80px;
-    background-color: #38B6FF;
-    margin-right: 80px;
-    top:0%;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
 .pic_buy2{
-    background-color: #38B6FF;
-    margin-left: 80px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin-left: 100px;
 }
 
 /* tfgyuiouutyfughiojuytuuyuiouiytuyghuijouiy */
@@ -213,4 +284,51 @@ header {
     align-items: center;
     gap: 20px; */
     
+}
+.order{
+    color:#FB5AA6;
+    text-align: center;
+    font-family:Impact, fantasy ;
+}
+
+/* this is the footer */
+footer {
+    background-color: #f0f0f0;
+    padding: 2px;
+    text-align: center;   
+}
+.footerNav {
+    margin-top: 5px;
+}
+.footerNav p {
+    font-size: 14px;
+    text-align: center;
+}
+.footerNav ul {
+    padding: 0;
+}
+.footerNav ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.footerNav ul li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: black;
+}
+.footerNav ul li a:hover {
+    background-color: lightpink ;
+}
+.footerSocial {
+    margin-top: 10px;
+}
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.footerCopyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
 }
