@@ -57,14 +57,14 @@ include("database.php");
                 {
                     while ($row = mysqli_fetch_array($result))
                     {
+                        echo "<div class = 'pic_img'>";
                         echo "<a href='product.php?id=".$row['ProductID']."'>";
-                        echo "<table style='width: 100%'>";
-                        echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' class='product-image'/></td>";
-                        echo "<td><b>".$row['ProductName']."</b>";
-                        echo "</a>";
+                        echo "<img src='".$row['ProductImage']."' alt='".$row['ProductName']."' class='log2'/></td>";
+                        echo "<p class='buy1'>".$row['ProductName']."</p>";
+                        echo "</a></br>";
                         echo "\n\nPrice: £".$row['ProductPrice'];
-                        echo "<button>Add To Basket</button></td>";
-                        echo "</table>";
+                        echo "<p class='now2'>Add To Basket</p>";
+                        echo "</div>";
                     }
 
                     mysqli_free_result($result);

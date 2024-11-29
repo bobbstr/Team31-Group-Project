@@ -1,7 +1,7 @@
 .query-results {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1.2px));
-    gap: 10rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1px));
+    gap: 1rem;
     padding: 1rem;
 }
 
