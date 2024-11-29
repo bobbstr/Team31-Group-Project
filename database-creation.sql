@@ -116,12 +116,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `userid`
 --
 
-CREATE TABLE `userid` (
-    `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `firstname` varchar(30) NOT NULL,
-    'lastname' varchar(30) NOT NULL,
-    `email` varchar(75) NOT NULL,
-    `password` varchar(75) NOT NULL
+CREATE TABLE userid (
+    id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstname varchar(30) NOT NULL,
+    lastname varchar(30) NOT NULL,
+    email varchar(75) NOT NULL,
+    password varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
