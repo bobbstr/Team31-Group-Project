@@ -16,7 +16,6 @@ $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
     <h3>Payment Information</h3>
 
     <!-- Display Email and Delivery Address -->
-    <label for="deliveryDetails">Email and Delivery Address:</label>
     <h4 id="deliveryDetails" rows="4" cols="50" readonly>
     Email: <?= $email ?><br>
     Address: <?= $address ?>
