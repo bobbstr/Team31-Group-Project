@@ -121,7 +121,8 @@ CREATE TABLE userid (
     firstname varchar(30) NOT NULL,
     lastname varchar(30) NOT NULL,
     email varchar(75) NOT NULL,
-    password varchar(75) NOT NULL
+    password varchar(75) NOT NULL,
+    admin tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
