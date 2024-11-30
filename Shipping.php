@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping</title>
 </head>
 <body>
 
 <div class="row">
-    <from action="payment.php">
-        
+    <form action="payment.php" method="POST">
         <h1>Payment Page</h3>
         <div class ="contact">
             <h3>Contact</h3>
@@ -28,7 +29,7 @@
             <input class ="payInput" name="postcode" placeholder="Postcode"><br>
             <input class ="payInput" name="phone" placeholder="Phone">
             </div>
-            <button type="submit">Submit</button>
+            <input type="submit"></input>
     </form>
 </div>
 </body>
