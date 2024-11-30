@@ -1,6 +1,21 @@
 <?php
     include("database.php");
     global $conn;
+
+    session_start();
+
+    $anAdmin = isset($_SESSION['admin']) && $_SESSION['admin'];
+    $productIdentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    if($productIdentifier > 0){
+        $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight, ProductPrice, InStock FROM products WHERE ProductID = ?"); $stmt->bind_param("i", $productIdentifier);
+        $stmt->bind_param("i", $productIdentifier);
+        $stmt->execute();
+        $stmt->bind_result($productID, $productBrand, $productName, $productCategory, $productImage, $productWeight, $productPrice, $inStock);
+        $stmt->fetch();
+        $productDetails = array( 'ProductID' => $productID, 'ProductBrand' => $productBrand, 'ProductName' => $productName, 'ProductCategory' => $productCategory, 'ProductImage' => $productImage, 'ProductWeight' => $productWeight, 'ProductPrice' => $productPrice, 'InStock' => $inStock );
+        $stmt->close();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +33,7 @@
 <header>
     <div class="mbar">
         <div class = "bar">
-            <p></p>
+            <button><a href="logout.php">Logout</a></button>
         </div>
         <div>
             <a href="/index.php"><img src="real.png" alt="Sugar Rush Logo" class="log"></a>
@@ -37,39 +52,39 @@
     <br/>
     <div class="product-zone">
         <?php
-        $productIdentifier =  $_GET['id'];
-
-        $sqlQuery = "SELECT * FROM products WHERE ProductID = $productIdentifier";
-
-        if ($result = mysqli_query($conn, $sqlQuery))
-        {
-            if (mysqli_num_rows($result) > 0)
-            {
-                while ($row = mysqli_fetch_array($result))
-                {
-                    $sqlQueryDescription = "SELECT * FROM product_description WHERE ProductID = $productIdentifier";
-
-                    echo "<table style='width: 100%'>";
-                    echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' class='product-image'/></td>";
-                    echo "<td><b>".$row['ProductName']."</b>";
-                    echo "\n\n<b>Price</b>: £".$row['ProductPrice']." ";
-                    echo "<button>Add To Basket</button>";
-                    echo "\n\n<b>Description: </b>".$row['ProductDescription']."</td>";
-                    echo "</table>";
+            if ($productDetails) {
+                echo "<table style='width: 100%; border-collapse: collapse;'>";
+                echo "<tr>";
+                
+                // Product Image
+                echo "<td style='width: 30%;'>";
+                echo "<img src='" . htmlspecialchars($productDetails['ProductImage']) . "' 
+                          alt='" . htmlspecialchars($productDetails['ProductBrand'] . " image") . "' 
+                          class='product-image' />";
+                echo "</td>";
+            
+                // Product Details
+                echo "<td style='vertical-align: top; padding-left: 15px;'>";
+                echo "<b>" . htmlspecialchars($productDetails['ProductName']) . "</b><br/>";
+                echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
+                echo "<button>Add To Basket</button>";
+            
+                // Admin Tools
+                if ($anAdmin) {
+                    echo "<h4>Admin Tools</h4>";
+                    echo "<p><b>Product ID:</b> " . htmlspecialchars($productDetails['ProductID']) . "</p>";
+                    echo "<p><b>Product Brand:</b> " . htmlspecialchars($productDetails['ProductBrand']) . "</p>";
+                    echo "<p><b>Product Category:</b> " . htmlspecialchars($productDetails['ProductCategory']) . "</p>";
+                    echo "<p><b>Product Weight:</b> " . htmlspecialchars($productDetails['ProductWeight']) . "</p>";
+                    echo "<p><b>In Stock:</b> " . htmlspecialchars($productDetails['InStock']) . "</p>";
                 }
-
-                mysqli_free_result($result);
-            }
-            else
-            {
+            
+                echo "</td>";
+                echo "</tr>";
+                echo "</table>";
+            } else {
                 echo "Product Not Found.";
             }
-        }
-        else
-        {
-            echo "Error with execution of query. ".mysqli_error($conn);
-        }
-        mysqli_close($conn);
         ?>
     </div>
 </header>
