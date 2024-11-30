@@ -1,22 +1,34 @@
 <?php
     include("database.php");
+    session_start();
     global $conn;
 
-    session_start();
-
+    $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
     $anAdmin = isset($_SESSION['admin']) && $_SESSION['admin'];
     $productIdentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
+    $productDetails = null;
     if($productIdentifier > 0){
-        $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight, ProductPrice, InStock FROM products WHERE ProductID = ?"); $stmt->bind_param("i", $productIdentifier);
+        $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight, ProductPrice, InStock FROM products WHERE ProductID = ?");
         $stmt->bind_param("i", $productIdentifier);
         $stmt->execute();
         $stmt->bind_result($productID, $productBrand, $productName, $productCategory, $productImage, $productWeight, $productPrice, $inStock);
-        $stmt->fetch();
-        $productDetails = array( 'ProductID' => $productID, 'ProductBrand' => $productBrand, 'ProductName' => $productName, 'ProductCategory' => $productCategory, 'ProductImage' => $productImage, 'ProductWeight' => $productWeight, 'ProductPrice' => $productPrice, 'InStock' => $inStock );
+        if ($stmt->fetch()) {
+            $productDetails = array(
+                'ProductID' => $productID,
+                'ProductBrand' => $productBrand,
+                'ProductName' => $productName,
+                'ProductCategory' => $productCategory,
+                'ProductImage' => $productImage,
+                'ProductWeight' => $productWeight,
+                'ProductPrice' => $productPrice,
+                'InStock' => $inStock
+            );
+        }
         $stmt->close();
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +45,11 @@
 <header>
     <div class="mbar">
         <div class = "bar">
-            <button><a href="logout.php">Logout</a></button>
+             <?php if (isset($_SESSION['email'])):?>
+                <button><a href="logout.php">Logout</a></button>
+            <?php else: ?>
+                <button><a href="login.php">Log In</a></button>    
+            <?php endif; ?>
         </div>
         <div>
             <a href="/index.php"><img src="real.png" alt="Sugar Rush Logo" class="log"></a>
