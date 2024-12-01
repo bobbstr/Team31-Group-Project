@@ -52,10 +52,14 @@
             <?php endif; ?>
         </div>
         <div>
-            <a href="/index.php"><img src="real.png" alt="Sugar Rush Logo" class="log"></a>
+            <a href="index.php"><img src="real.png" alt="Sugar Rush Logo" class="log"></a>
         </div>
         <div class="search">
+<<<<<<< HEAD
             <form action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+=======
+            <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+>>>>>>> payment
                 <input id="search" type="text" class="search_i" placeholder="Search...">
                 <input type="submit" value="Search">
             </form>

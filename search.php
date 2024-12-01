@@ -100,7 +100,7 @@ include("database.php");
                 <ul>
                     <li><a href="">Home</a></li>
                     <li><a href="">Pick-a-mix</a></li>
-                    <li><a href="">Contact us</a></li>
+                    <li><a href="contactUs.php">Contact us</a></li>
                     <li><a href="">snack</a></li>
                     <li><a href="">snack</a></li>
                 </ul>
