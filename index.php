@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="image.css" />
 </head>
 <body>
     <!-- <script src="index.js"></script>
@@ -42,7 +43,7 @@
         </div>
     </header>
 
-    <div >
+    <div>
     <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
     <script>
         // Array of image paths
