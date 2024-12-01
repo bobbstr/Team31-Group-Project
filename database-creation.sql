@@ -125,26 +125,6 @@ VALUES
 (41, "A mixture of hard sweets.", "Glucose Syrup, Sugar, Gelling Agent: Gelatine, Modified Starch, Acidity Regulators: Citric Acid, Trisodium Citrate, Flavourings, Pectin, Glazing Agent: Carnaubawax, Colour: Anthocyanin."),
 (42, "A mixture of liquorice sweets.", "Sugar, Molasses, Glucose Syrup (contains Sulphites), Wheat Flour (with added Calcium, Niacin, Iron, Thiamin), Desiccated Coconut, Starch, Gelatine, Fat-Reduced Cocoa Powder, Liquorice Extract, Colours (Plain Caramel, Beetroot Red, Paprika Extract, Curcumin, Vegetable Carbon, Anthocyanins, Lutein), Caramel Sugar Syrup, Flavourings, Coconut Oil, Concentrated Vegetable Extract (Spirulina), Glazing Agent (Carnauba Wax).");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* CREATION OF USER ACCOUNTS TABLE */
 
 -- phpMyAdmin SQL Dump
