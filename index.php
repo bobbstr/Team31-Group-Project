@@ -42,6 +42,32 @@
         </div>
     </header>
 
+    <div >
+    <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
+    <script>
+        // Array of image paths
+        const images = [
+            "Untitled1.png",
+            "Untitled2.png",
+            "Untitled3.png"
+        ];
+
+        // Index of the current image
+        let currentIndex = 0;
+
+        // Function to switch images
+        function switchImage() {
+            currentIndex = (currentIndex + 1) % images.length; // Increment and loop back
+            document.getElementById('image').src = images[currentIndex];
+        }
+
+        // Switch images every 3 seconds (3000 milliseconds)
+        setInterval(switchImage, 3000);
+    </script>
+    </div>
+
+
+
     <div class = "description">
         <div class = "desc1">
         <p>
