@@ -71,7 +71,21 @@
             if ($productDetails) {
                 echo "<table style='width: 100%; border-collapse: collapse;'>";
                 echo "<tr>";
-                
+
+                // Retrieving description and ingredients from product_descriptions table.
+
+                $descriptionQuery = "SELECT * FROM product_descriptions WHERE DescriptionID = $productIdentifier";
+                $resultArray = $conn -> query($descriptionQuery);
+                $description = $resultArray -> fetch_array()['DescriptionContent'];
+
+                mysqli_free_result($resultArray);
+
+                $ingredientsQuery = "SELECT * FROM product_descriptions WHERE DescriptionID = $productIdentifier";
+                $resultArray = $conn -> query($ingredientsQuery);
+                $ingredients = $resultArray -> fetch_array()['Ingredients'];
+
+                mysqli_free_result($resultArray);
+
                 // Product Image
                 echo "<td style='width: 30%;'>";
                 echo "<img src='" . htmlspecialchars($productDetails['ProductImage']) . "' 
@@ -83,6 +97,8 @@
                 echo "<td style='vertical-align: top; padding-left: 15px;'>";
                 echo "<b>" . htmlspecialchars($productDetails['ProductName']) . "</b><br/>";
                 echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
+                echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
+                echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
                 echo "<button>Add To Basket</button>";
             
                 // Admin Tools
