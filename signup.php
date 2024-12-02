@@ -1,5 +1,5 @@
 <?php
-// require 'database.php'; // Include the database connection
+require 'database.php'; // Include the database connection
 
 if (isset($_POST["submit"])) {
     $fname = trim($_POST["FirstName"]);
