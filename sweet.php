@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
                 <input type="text" class="search_i" placeholder="Search...">
             </div>
             <div class="section">
-                <p><a href="index.html">Home</a>      <a href="sweet.html">Sweets</a>     <a href="chocolate.html">Chocolates</a>     <a href="pick.html">Pick-a-mix</a>       <a href="drink.html">Drinks</a></p>
+                <p><a href="index.php">Home</a>      <a href="sweet.php">Sweets</a>     <a href="chocolate.php">Chocolates</a>     <a href="pick.php">Pick-a-mix</a>       <a href="drink.php">Drinks</a></p>
             </div>
 
         </div>
@@ -128,7 +129,7 @@
 
         
                     <div class="footerLogo">
-                        <a href="Home.HTML">
+                        <a href="Home.php">
                             <img src="Logo.jpg.png" alt="logo" width="100" height="100">
                         </a>
                     </div>

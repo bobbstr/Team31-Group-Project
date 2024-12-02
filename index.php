@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +22,36 @@
                 <p></p>
             </div>
             <div>
-            	<a href="/index.php">
+            	<a href="index.php">
+                <?php if (isset($_SESSION['email'])):?>
+                    <button><a href="logout.php">Logout</a></button>
+                <?php else: ?>
+                    <button><a href="login.php">Log In</a></button>    
+                <?php endif; ?>                    
             	    <img src="real.png" alt="Sugar Rush Logo" class="log">
             	</a>
+                <a href="signup.php">
+                    <button>sign up</button>
+                </a>
             </div>
             <div class="search">
+<<<<<<< HEAD
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+=======
+                <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+>>>>>>> b79b508dfded5573d2c7f10595746b7661452382
                     <input id="search" type="text" class="search_i" placeholder="Search...">
                     <input type="submit" value="Search">
                 </form>
             </div>
             <div class="section">
-                <p><a href="/search.php?q=sweets">Sweets</a>      <a href="/search.php?q=chocolate">Chocolate</a>     <a href="/search.php?q=savoury">Savoury</a>      <a href="/search.php?q=sweets mix">Pick-N-mix</a>       <a href="/search.php?q=drinks">Drinks</a>       <a href="/search.php?q=biscuits">Biscuits</a>	<a href="/search.php?q=">Everything</a></p>
+                <p><a href="search.php?q=sweets">Sweets</a>
+                <a href="search.php?q=chocolate">Chocolate</a>
+                <a href="search.php?q=savoury">Savoury</a>
+                <a href="search.php?q=sweets mix">Pick-N-mix</a>       
+                <a href="search.php?q=drinks">Drinks</a>       
+                <a href="search.php?q=biscuits">Biscuits</a>	
+                <a href="search.php?q=">Everything</a></p>
             </div>
 
         </div>

@@ -1,0 +1,59 @@
+.container{
+    background-color: #f0f0f0;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-bottom: 150px;
+    margin-top: 150px;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+
+
+
+
+}
+
+.inf{
+   margin-left: 30%;
+   border-radius: 15px;
+}
+
+.e_a{
+    margin-left: 30%;
+}
+
+.pay_inf{
+    padding-left: 30%;
+    background-color: grey;
+}
+.footerLogo1{
+    margin-left: 40%;
+
+
+
+}
+
+.num{
+    border-radius: 15px;
+    
+}
+.exp{
+    border-radius: 15px;
+}
+.cvv{
+    border-radius: 15px;
+}
+
+.sub{
+    background-color:  #FB5AA6;
+    color: aliceblue;
+    margin-left: 20%;
+    border-radius: 10px;
+    border-color: #FB5AA6;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+.sub:hover{
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}

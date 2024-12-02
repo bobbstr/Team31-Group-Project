@@ -35,7 +35,14 @@ include("database.php");
             </form>
         </div>
         <div class="section">
-            <p><a href="/search.php?q=sweets">Sweets</a>      <a href="/search.php?q=chocolate">Chocolate</a>     <a href="/search.php?q=savoury">Savoury</a>      <a href="/search.php?q=sweets mix">Pick-N-mix</a>       <a href="/search.php?q=drinks">Drinks</a>       <a href="/search.php?q=biscuits">Biscuits</a>	<a href="/search.php?q=">Everything</a></p>
+                <p><a href="search.php?q=sweets">Sweets</a>
+                <a href="search.php?q=chocolate">Chocolate</a>
+                <a href="search.php?q=savoury">Savoury</a>
+                <a href="search.php?q=sweets mix">Pick-N-mix</a>       
+                <a href="search.php?q=drinks">Drinks</a>       
+                <a href="search.php?q=biscuits">Biscuits</a>	
+                <a href="search.php?q=">Everything</a></p>
+            </div>
         </div>
     </div>
     <div class="query-results">
@@ -50,14 +57,14 @@ include("database.php");
                 {
                     while ($row = mysqli_fetch_array($result))
                     {
+                        echo "<div class = 'pic_img'>";
                         echo "<a href='product.php?id=".$row['ProductID']."'>";
-                        echo "<table style='width: 100%'>";
-                        echo "<td> <img src='".$row['ProductImage']."' alt='".$row['ProductBrand']."' class='product-image'/></td>";
-                        echo "<td><b>".$row['ProductName']."</b>";
-                        echo "</a>";
+                        echo "<img src='".$row['ProductImage']."' alt='".$row['ProductName']."' class='log2'/></td>";
+                        echo "<p class='buy1'>".$row['ProductName']."</p>";
+                        echo "</a></br>";
                         echo "\n\nPrice: £".$row['ProductPrice'];
-                        echo "<button>Add To Basket</button></td>";
-                        echo "</table>";
+                        echo "<p class='now2'>Add To Basket</p>";
+                        echo "</div>";
                     }
 
                     mysqli_free_result($result);
@@ -93,7 +100,7 @@ include("database.php");
                 <ul>
                     <li><a href="">Home</a></li>
                     <li><a href="">Pick-a-mix</a></li>
-                    <li><a href="">Contact us</a></li>
+                    <li><a href="contactUs.php">Contact us</a></li>
                     <li><a href="">snack</a></li>
                     <li><a href="">snack</a></li>
                 </ul>
