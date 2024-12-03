@@ -35,11 +35,8 @@
                 </a>
             </div>
             <div class="search">
-<<<<<<< HEAD
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value.replace(/ /g, '+'); return false;">
-=======
                 <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
->>>>>>> b79b508dfded5573d2c7f10595746b7661452382
                     <input id="search" type="text" class="search_i" placeholder="Search...">
                     <input type="submit" value="Search">
                 </form>
