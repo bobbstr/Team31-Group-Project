@@ -28,7 +28,7 @@
                 <?php else: ?>
                     <button><a href="login.php">Log In</a></button>    
                 <?php endif; ?>                    
-            	    <img src="real.png" alt="Sugar Rush Logo" class="log">
+            	    <img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log">
             	</a>
                 <a href="signup.php">
                     <button>sign up</button>

@@ -18,11 +18,8 @@ header {
 
 }
 .log {
-    /* display: block; Ensure the logo is treated as a block element */
-    /* position: absolute; */
-    /* margin: 10px auto; Center the logo horizontally */
-    width: 200px; /* Set a width for the logo */
-    height: 100px; /*Maintain aspect ratio */
+    width: 200px; 
+    height: 100px; 
     left: 0; 
     bottom: 0;
     padding-top: 30px;
