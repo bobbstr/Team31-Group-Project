@@ -34,6 +34,7 @@
                     <button>sign up</button>
                 </a>
             </div>
+	    <center>
             <div class="search">
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                 <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
@@ -41,6 +42,7 @@
                     <input type="submit" value="Search">
                 </form>
             </div>
+	    </center>
             <div class="section">
                 <p><a href="search.php?q=sweets">Sweets</a>
                 <a href="search.php?q=chocolate">Chocolate</a>
