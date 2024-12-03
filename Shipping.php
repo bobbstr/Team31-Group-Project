@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="index.css" />
+<link rel="stylesheet" type="text/css" href="shipping.css" />
 <title>Shipping</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
                     <input type="submit" value="Search">
                 </form>
             </div>
-            <div class="section">
+            <!-- <div class="section">
                 <p><a href="search.php?q=sweets">Sweets</a>
                 <a href="search.php?q=chocolate">Chocolate</a>
                 <a href="search.php?q=savoury">Savoury</a>
@@ -36,14 +37,14 @@
                 <a href="search.php?q=drinks">Drinks</a>       
                 <a href="search.php?q=biscuits">Biscuits</a>	
                 <a href="search.php?q=">Everything</a></p>
-            </div>
+            </div> -->
 
         </div>
     </header>
 
 
 <div class="row">
-    <form action="payment.php" method="POST">
+    <form action="payment.php" method="POST" class="ship_log">
         <h1>Payment Page</h3>
         <div class ="contact">
             <h3>Contact</h3>
