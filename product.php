@@ -44,24 +44,31 @@
 -->
 <header>
     <div class="mbar">
-        <div class = "bar">
-             <?php if (isset($_SESSION['email'])):?>
-                <button><a href="logout.php">Logout</a></button>
-            <?php else: ?>
-                <button><a href="login.php">Log In</a></button>    
-            <?php endif; ?>
-        </div>
-        <div>
-            <a href="index.php"><img src="real.png" alt="Sugar Rush Logo" class="log"></a>
-        </div>
+        <div class = "bar"></div>
+        <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
 	<center>
         <div class="search">
             <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
             <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
-                <input id="search" type="text" class="search_i" placeholder="Search...">
-                <input type="submit" value="Search">
+                <div id="searchFunc">
+                    <input id="search" type="text" class="search_i" placeholder="Search...">
+                    <input type="submit" value="Search" class="account">
+                </div>
             </form>
         </div>
+
+        
+
+        <div id="flexLogo">
+
+                <div class="log_sin">
+                <?php if (isset($_SESSION['email'])):?>
+                    <a href="logout.php"><button class="account">Log Out</button></a>
+                <?php else: ?>
+                    <a href="login.php"><button class="account">Log In</button></a>  
+                <?php endif; ?>                    
+                <a href="signup.php"><button class="account">sign Up</button></a>
+            </div>
 	</center>
         <div class="section">
             <p><a href="search.php?q=sweets">Sweets</a>      <a href="search.php?q=chocolate">Chocolate</a>     <a href="search.php?q=savoury">Savoury</a>      <a href="search.php?q=sweets mix">Pick-N-mix</a>       <a href="search.php?q=drinks">Drinks</a>       <a href="search.php?q=biscuits">Biscuits</a>	<a href="search.php?q=">Everything</a></p>
