@@ -21,19 +21,24 @@
             <div class = "bar">
                 <p></p>
             </div>
-            <div>
-            	<a href="index.php">
+
+
+
+            <div id="flexLogo">
+            	<a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
+                <div class="log_sin">
                 <?php if (isset($_SESSION['email'])):?>
-                    <button><a href="logout.php">Logout</a></button>
+                    <button class="account"><a href="logout.php">Logout</a></button>
                 <?php else: ?>
-                    <button><a href="login.php">Log In</a></button>    
+                    <button class="account"><a href="login.php">Log In</a></button>    
                 <?php endif; ?>                    
-            	    <img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log">
-            	</a>
-                <a href="signup.php">
-                    <button>sign up</button>
-                </a>
+                <a href="signup.php"><button class="account">sign up</button></a>
             </div>
+                
+            </div>
+
+
+
 	    <center>
             <div class="search">
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value.replace(/ /g, '+'); return false;">
@@ -41,6 +46,7 @@
                     <input id="search" type="text" class="search_i" placeholder="Search...">
                     <input type="submit" value="Search">
                 </form>
+               
             </div>
 	    </center>
             <div class="section">

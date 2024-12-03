@@ -8,6 +8,43 @@
     
 }
 
+.account{
+    font-weight: 600;
+    margin: 0 10px;
+    width: 100px;
+    padding: 10px 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    transition: 0.4s;
+    color: white;
+    background-color: #FB5AA6;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.account:hover {
+    color: white;
+    width:110px;
+    box-shadow: 0 0 20px #FB5AA6;
+  }
+
+#login{
+    position: relative;
+    top: 20px;
+    right: 200px;
+}
+
+.log_sin{
+    margin-left: 50px;
+}
+
+ #flexLogo{
+    flex: content;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+} 
+
 header {
     position: relative; /* Keep header relative */
 }
@@ -41,7 +78,8 @@ header {
     display: flex; */
     width: 50%;
     /* margin-left: 10px; */
-    border-radius: 10px;
+    border-radius: 5px;
+    padding: 10px;
 
 }
 
