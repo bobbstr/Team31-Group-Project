@@ -28,12 +28,14 @@ include("database.php");
         <div>
             <a href="index.php"><img src="real.png" alt="Sugar Rush Logo" class="log"></a>
         </div>
+	<center>
         <div class="search">
-            <form action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+            <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = '/search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                 <input id="search" type="text" class="search_i" placeholder="Search...">
                 <input type="submit" value="Search">
             </form>
         </div>
+        </center>
         <div class="section">
                 <p><a href="search.php?q=sweets">Sweets</a>
                 <a href="search.php?q=chocolate">Chocolate</a>
