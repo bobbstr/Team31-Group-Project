@@ -28,11 +28,11 @@
             	<a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
                 <div class="log_sin">
                 <?php if (isset($_SESSION['email'])):?>
-                    <button class="account"><a href="logout.php">Logout</a></button>
+                    <a href="logout.php"><button class="account">Log Out</button></a>
                 <?php else: ?>
-                    <button class="account"><a href="login.php">Log In</a></button>    
+                    <a href="login.php"><button class="account">Log In</button></a>  
                 <?php endif; ?>                    
-                <a href="signup.php"><button class="account">sign up</button></a>
+                <a href="signup.php"><button class="account">sign Up</button></a>
             </div>
                 
             </div>
