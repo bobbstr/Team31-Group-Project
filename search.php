@@ -30,7 +30,11 @@ include("database.php");
         </div>
 	<center>
         <div class="search">
+<<<<<<< HEAD
             <form class="search_i" action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+=======
+            <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+>>>>>>> 05098b0253a7aecdb9a3d986b1e390ea9da7bce6
                 <input id="search" type="text" class="search_i" placeholder="Search...">
                 <input type="submit" value="Search">
             </form>

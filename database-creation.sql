@@ -14,7 +14,7 @@ CREATE TABLE products (
     ProductImage varchar(255) NOT NULL,
     ProductWeight int NOT NULL,
     ProductPrice decimal(8, 2) NOT NULL,
-    InStock bit NOT NULL
+    InStock int NOT NULL
 );
 
 /*
