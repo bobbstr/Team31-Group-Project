@@ -54,16 +54,15 @@ $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
     <h3 class="pay_inf">Payment Information</h3>
 
     <!-- Display Email and Delivery Address -->
-    <label for="deliveryDetails" class="e_a">Email and Delivery Address:</label>
-    <h4 id="deliveryDetails" rows="4" cols="50" readonly>
-    <!-- Email: <?= $email ?><br>
-    Address: <?= $address ?> -->
+    <h4 class="e_a" rows="4" cols="50" readonly>
+    Email: <?= $email ?><br>
+    Address: <?= $address ?>
     </h4><br>
 
     <!-- Payment Form -->
     <form action="process_payment.php" method="POST" class="inf">
-      <!-- <input type="hidden" name="email" value="<?= $email ?>">
-      <input type="hidden" name="address" value="<?= $address ?>"> -->
+      <?= $email ?>
+      <input type="hidden" name="address" value="<?= $address ?>"> 
 
       <input type="hidden" name="email" >
       <input type="hidden" name="address" >
