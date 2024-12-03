@@ -47,6 +47,7 @@ include("database.php");
             </div>
         </div>
     </div>
+    <center>
     <div class="query-results">
         <?php
             $searchQuery =  $_GET['q'];
@@ -83,6 +84,7 @@ include("database.php");
             mysqli_close($conn);
         ?>
     </div>
+    </center>
 </body>
 
 <br/>
