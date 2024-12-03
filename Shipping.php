@@ -45,7 +45,7 @@
 
 <div class="row">
     <form action="payment.php" method="POST" class="ship_log">
-        <h1>Payment Page</h3>
+        <h1 class="pay_pag">Payment Page</h3>
         <div class ="contact">
             <h3>Contact</h3>
             <input class ="payInput" name="email" placeholder="Email"></input><br>
@@ -65,7 +65,7 @@
             <input class ="payInput" name="postcode" placeholder="Postcode"><br>
             <input class ="payInput" name="phone" placeholder="Phone">
             </div>
-            <input type="submit"></input>
+            <input type="submit" class="sub1"></input>
     </form>
 </div>
 
