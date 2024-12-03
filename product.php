@@ -37,7 +37,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/product.css" />
+    <link rel="stylesheet" type="text/css" href="styles/product.css" />
 </head>
 <body>
 <!-- <script src="index.js"></script>
