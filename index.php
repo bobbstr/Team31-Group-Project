@@ -33,8 +33,7 @@
                     <a href="login.php"><button class="account">Log In</button></a>  
                 <?php endif; ?>                    
                 <a href="signup.php"><button class="account">sign Up</button></a>
-            </div>
-                
+                </div>   
             </div>
 
 
@@ -56,7 +55,7 @@
                 <a href="search.php?q=sweets mix">Pick-N-mix</a>       
                 <a href="search.php?q=drinks">Drinks</a>       
                 <a href="search.php?q=biscuits">Biscuits</a>	
-                <a href="search.php?q=">Everything</a></p>
+                <a href="search.php?q=">All</a></p>
             </div>
 
         </div>

@@ -9,24 +9,46 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
-    <header>
+<header>
         <div class="mbar">
             <div class = "bar">
-                <p>bar</p>
+                <p></p>
             </div>
-            <div>
-                <img src="real.png" alt="Sugar Rush Logo" class="log">
+
+            <div id="flexLogo">
+            	<a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
+                <div class="log_sin">
+                <?php if (isset($_SESSION['email'])):?>
+                    <a href="logout.php"><button class="account">Log Out</button></a>
+                <?php else: ?>
+                    <a href="login.php"><button class="account">Log In</button></a>  
+                <?php endif; ?>                    
+                <a href="signup.php"><button class="account">sign Up</button></a>
+                </div>   
             </div>
+
+	    <center>
             <div class="search">
-                <input type="text" class="search_i" placeholder="Search...">
+                <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+                <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+                    <input id="search" type="text" class="search_i" placeholder="Search...">
+                    <input type="submit" value="Search" class="account">
+                </form>
+               
             </div>
+	    </center>
             <div class="section">
-                <p><a href="index.php">Home</a>      <a href="sweet.php">Sweets</a>     <a href="chocolate.php">Chocolates</a>     <a href="pick.php">Pick-a-mix</a>       <a href="drink.php">Drinks</a></p>
+                <p><a href="search.php?q=sweets">Sweets</a>
+                <a href="search.php?q=chocolate">Chocolate</a>
+                <a href="search.php?q=savoury">Savoury</a>
+                <a href="search.php?q=sweets mix">Pick-N-mix</a>       
+                <a href="search.php?q=drinks">Drinks</a>       
+                <a href="search.php?q=biscuits">Biscuits</a>	
+                <a href="search.php?q=">Everything</a></p>
             </div>
 
         </div>
     </header>
-
 
     <div class = "pick_section1">
         
