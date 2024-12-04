@@ -109,7 +109,7 @@
                 echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
                 echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
                 echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
-                echo "<button>Add To Basket</button>";
+                echo "<button class='account'>Add To Basket</button>";
             
                 // Admin Tools
                 if ($anAdmin) {

@@ -1,17 +1,15 @@
 <!-- payment.php -->
-<<<<<<< HEAD
+
 <?php
 // Retrieve submitted data
 $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
 $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
 ?>
-=======
-<!-- <?php
+<?php
 // Retrieve submitted data
 $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
 $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
-?> -->
->>>>>>> b79b508dfded5573d2c7f10595746b7661452382
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,27 +60,26 @@ $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
     <h3 class="pay_inf">Payment Information</h3>
 
     <!-- Display Email and Delivery Address -->
-<<<<<<< HEAD
+
     <label for="deliveryDetails" class="e_a">Email and Delivery Address:</label>
     <h4 id="deliveryDetails" rows="4" cols="50" readonly>
     <!-- Email: <?= $email ?><br>
     Address: <?= $address ?> -->
-=======
+
     <h4 class="e_a" rows="4" cols="50" readonly>
     Email: <?= $email ?><br>
     Address: <?= $address ?>
->>>>>>> b79b508dfded5573d2c7f10595746b7661452382
     </h4><br>
 
     <!-- Payment Form -->
     <form action="process_payment.php" method="POST" class="inf">
-<<<<<<< HEAD
+
       <input type="hidden" name="email" value="<?= $email ?>">
       <input type="hidden" name="address" value="<?= $address ?>">
-=======
+
       <?= $email ?>
       <input type="hidden" name="address" value="<?= $address ?>"> 
->>>>>>> b79b508dfded5573d2c7f10595746b7661452382
+
 
       <input type="hidden" name="email" >
       <input type="hidden" name="address" >
