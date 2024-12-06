@@ -1,0 +1,51 @@
+.query-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1px));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.product-image {
+    height: 185px;
+    width: 185px;   
+    border-radius: 5%;
+}
+
+.product-image:hover {
+  -webkit-filter: brightness(90%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+td, th {
+    white-space: pre-wrap;
+}
+
+a, u {
+    text-decoration: none;
+    color: black;
+}
+
+.account{
+    font-weight: 600;
+    margin: 0 10px;
+    width: 100px;
+    padding: 10px 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    transition: 0.4s;
+    color: white;
+    background-color: #FB5AA6;
+    border-radius: 4px;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.account:hover {
+    font: white;
+    width:110px;
+    box-shadow: 0 0 20px #FB5AA6;
+  }

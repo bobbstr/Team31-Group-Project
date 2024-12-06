@@ -1,0 +1,128 @@
+
+body {
+    background-color: #e6f7ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+#mainHeader {
+    position: relative;
+    background-color: #FB5AA6; 
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+#mainHeader .logo {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    height: 150px; 
+}
+
+#mainHeader h1 {
+    margin-left: 70px; 
+    font-size: 24px;
+}
+
+
+.login h2 {
+    text-align: center;
+    color: #333;
+}
+
+
+.login label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+
+.login input[type="submit"] {
+    background-color: #FB5AA6; 
+    color: #333;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.login input[type="submit"]:hover {
+    background-color: #FB5AA6; 
+}
+
+
+.login p {
+    text-align: center;
+}
+
+.login a {
+    color: #007acc; 
+    
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 2px;
+    text-align: center;   
+}
+.footerNav {
+    margin-top: 5px;
+}
+.footerNav p {
+    font-size: 14px;
+    text-align: center;
+}
+.footerNav ul {
+    padding: 0;
+}
+.footerNav ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.footerNav ul li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: black;
+}
+.footerNav ul li a:hover {
+    background-color: lightpink ;
+}
+.footerSocial {
+    margin-top: 10px;
+}
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.footerCopyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+}

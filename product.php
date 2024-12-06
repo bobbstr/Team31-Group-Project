@@ -1,6 +1,32 @@
 <?php
+    include("database.php");
     session_start();
+    global $conn;
+
     $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+    $anAdmin = isset($_SESSION['admin']) && $_SESSION['admin'];
+    $productIdentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    $productDetails = null;
+    if($productIdentifier > 0){
+        $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight, ProductPrice, InStock FROM products WHERE ProductID = ?");
+        $stmt->bind_param("i", $productIdentifier);
+        $stmt->execute();
+        $stmt->bind_result($productID, $productBrand, $productName, $productCategory, $productImage, $productWeight, $productPrice, $inStock);
+        if ($stmt->fetch()) {
+            $productDetails = array(
+                'ProductID' => $productID,
+                'ProductBrand' => $productBrand,
+                'ProductName' => $productName,
+                'ProductCategory' => $productCategory,
+                'ProductImage' => $productImage,
+                'ProductWeight' => $productWeight,
+                'ProductPrice' => $productPrice,
+                'InStock' => $inStock
+            );
+        }
+        $stmt->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +37,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="image.css" />
+    <link rel="stylesheet" type="text/css" href="styles/product.css" />
 </head>
 <body>
-    <!-- <script src="index.js"></script>
-   -->
-    <header>
+<!-- <script src="index.js"></script>
+-->
+<header>
         <div class="mbar">
             <div class = "bar">
                 <p></p>
@@ -40,7 +66,7 @@
 
 	    <center>
             <div class="search">
-                <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+                <form class="search_i" action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                 <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                     <input id="search" type="text" class="search_i" placeholder="Search...">
                     <input type="submit" value="Search" class="account">
@@ -48,184 +74,70 @@
                
             </div>
 	    </center>
-            <div class="section">
-                <p><a href="search.php?q=sweets">Sweets</a>
-                <a href="search.php?q=chocolate">Chocolate</a>
-                <a href="search.php?q=savoury">Savoury</a>
-                <a href="search.php?q=sweets mix">Pick-N-mix</a>       
-                <a href="search.php?q=drinks">Drinks</a>       
-                <a href="search.php?q=biscuits">Biscuits</a>	
-                <a href="search.php?q=">All</a></p>
-            </div>
-
+        <div class="section">
+            <p><a href="search.php?q=sweets">Sweets</a>      <a href="search.php?q=chocolate">Chocolate</a>     <a href="search.php?q=savoury">Savoury</a>      <a href="search.php?q=sweets mix">Pick-N-mix</a>       <a href="search.php?q=drinks">Drinks</a>       <a href="search.php?q=biscuits">Biscuits</a>	<a href="search.php?q=">All</a></p>
         </div>
-    </header>
-
-
-    <div >
-    <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
-    <script>
-        // Array of image paths
-        const images = [
-            "Untitled1.png",
-            "Untitled2.png",
-            "Untitled3.png"
-        ];
-
-        // Index of the current image
-        let currentIndex = 0;
-
-        // Function to switch images
-        function switchImage() {
-            currentIndex = (currentIndex + 1) % images.length; // Increment and loop back
-            document.getElementById('image').src = images[currentIndex];
-        }
-
-        // Switch images every 3 seconds (3000 milliseconds)
-        setInterval(switchImage, 3000);
-    </script>
     </div>
+    <br/>
+    <br/>
+    <div class="product-zone">
+        <?php
+            if ($productDetails) {
+                echo "<table style='width: 100%; border-collapse: collapse;'>";
+                echo "<tr>";
 
+                // Retrieving description and ingredients from product_descriptions table.
 
+                $descriptionQuery = "SELECT * FROM product_descriptions WHERE DescriptionID = $productIdentifier";
+                $resultArray = $conn -> query($descriptionQuery);
+                $description = $resultArray -> fetch_array()['DescriptionContent'];
 
+                mysqli_free_result($resultArray);
 
-    <div class = "description">
-        <div class = "desc1">
-        <p>
-            Welcome to SugarRush, your ultimate online destination for all things delicious! Discover a world of irresistible treats,<br> 
-            from classic candies and gourmet chocolates to unique, handcrafted sweets. Whether you're looking to indulge, gift, or celebrate,<br>
-             our curated collection has something to delight every sweet tooth. Shop now and let the sweetness come to you!
-        </p>
-        </div>  
-        <div class = "pic_buy">
-            <img src="Screenshot2.png" alt="into_img" class="log1">
-            <p class="buy">Special Sweet pack<br>£20</p>
-            <p class="now">BUY NOW</p>
-        </div>
+                $ingredientsQuery = "SELECT * FROM product_descriptions WHERE DescriptionID = $productIdentifier";
+                $resultArray = $conn -> query($ingredientsQuery);
+                $ingredients = $resultArray -> fetch_array()['Ingredients'];
 
-    </div>
+                mysqli_free_result($resultArray);
 
-    <div>
-        <div>
-        <h1 class = "sec_header">
-            Pick-n-Mix
-        </h1>
-        </div> 
-        <div class = "pick_section">
-        <div class= "pick_desc">
-            <p>
-                Explore our Pick-n-Mix section and create your perfect sweet blend!<br>
-                Choose from a wide selection of candies—from chewy gummies and fizzy sour treats to classic chocolates.<br>
-                Mix and match your favorites for a personalized treat,<br>
-                packed just the way you like it.
-            </p>
-        </div>
-        <div class = "pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        </div>
-
-    </div>
-
-    <div>
-        
-        <div class = "pick_section">
-        <div class = "pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        </div>
-
-    </div>
-    
-
-    <div class = "description2">
-        <div class = "pic_buy2">
-            <img src="Screenshot4.png" alt="into_img" class="log3">
-            <p class="buy1">Special Sweet pack<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div>  
-        <div class = "desc2">
-            <p>
-                Quench your thirst with our Drink section! Discover a range of unique, refreshing beverages,<br>
-                 from classic sodas and fruity fizz to rare international flavors.<br>
-                  Perfect for pairing with your favorite sweets or enjoying on their own,<br>
-                   these drinks add an extra splash of fun to your treat experience.
-            </p>
+                // Product Image
+                echo "<td style='width: 30%;'>";
+                echo "<img src='" . htmlspecialchars($productDetails['ProductImage']) . "' 
+                          alt='" . htmlspecialchars($productDetails['ProductBrand'] . " image") . "' 
+                          class='product-image' />";
+                echo "</td>";
             
-        </div>
-
+                // Product Details
+                echo "<td style='vertical-align: top; padding-left: 15px;'>";
+                echo "<b>" . htmlspecialchars($productDetails['ProductName']) . "</b><br/>";
+                echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
+                echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
+                echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
+                echo "<button class='account'>Add To Basket</button>";
+            
+                // Admin Tools
+                if ($anAdmin) {
+                    echo "<h4>Admin Tools</h4>";
+                    echo "<p><b>Product ID:</b> " . htmlspecialchars($productDetails['ProductID']) . "</p>";
+                    echo "<p><b>Product Brand:</b> " . htmlspecialchars($productDetails['ProductBrand']) . "</p>";
+                    echo "<p><b>Product Category:</b> " . htmlspecialchars($productDetails['ProductCategory']) . "</p>";
+                    echo "<p><b>Product Weight:</b> " . htmlspecialchars($productDetails['ProductWeight']) . "</p>";
+                    echo "<p><b>In Stock:</b> " . htmlspecialchars($productDetails['InStock']) . "</p>";
+                }
+            
+                echo "</td>";
+                echo "</tr>";
+                echo "</table>";
+            } else {
+                echo "Product Not Found.";
+            }
+        ?>
     </div>
+</header>
 
-    <div>
-        <h1 class = "sec_header">
-            Chocolates
-        </h1>
-    </div>
-    
-    <div class = "pick_section1">
-        
-        <!-- <div class= "pick_desc">
-            <p>
-                Explore our Pick-n-Mix section and create your perfect sweet blend!<br>
-                Choose from a wide selection of candies—from chewy gummies and fizzy sour treats to classic chocolates.<br>
-                Mix and match your favorites for a personalized treat,<br>
-                packed just the way you like it.
-            </p>
-        </div> -->
-        <div class = "pic_img">
-            <img src="Screenshot4.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot3.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot5.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot6.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        </div>
-    
-
-    <h1 class="order"> ORDER SWEETS AND TREATS NOW AND GET THEM DELIVERED IN A RUSH</h1>
-
-    <footer>
-
-        
+<br/>
+<br/>
+    <footer>        
         <div class="footerLogo">
             <a href="index.php">
                 <img src="Logo.jpg.png" alt="logo" width="100" height="100">

@@ -1,0 +1,98 @@
+
+body {
+    background-color: #e6f7ff; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainHeader {
+    position: relative;
+    background-color: #FB5AA6;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+#mainHeader .logo {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    height: 150px; 
+}
+
+#mainHeader h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
+    box-sizing: border-box;
+}
+
+.signup {
+    width: 80%; 
+    max-width: 400px;  
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    text-align: center;
+}
+    
+.signup h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px; 
+}
+    
+.signup label {
+    text-align: center; 
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+    
+.signup input[type="text"],
+.signup input[type="password"] {
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+    
+#regSubmit {
+    background-color: #FB5AA6; 
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: block; 
+    margin: 0 auto; 
+}
+
+#regSubmit:hover{
+    font-size: 20px;
+    background-color: #333;
+}
+
+.signup p {
+    text-align: center;
+}
+
+.signup a {
+    color: #007acc; 
+    
+}

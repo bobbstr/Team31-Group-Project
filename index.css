@@ -1,0 +1,378 @@
+.mbar {
+    background-color: #38B6FF; /* Set the background color to blue */
+    /* text-align: center; Center-align text */
+    /* padding: 20px; Add some padding for better spacing */
+    min-height: 70px;
+    word-spacing: 50px;
+    
+    
+}
+
+.account{
+    font-weight: 600;
+    margin: 0 10px;
+    width: 100px;
+    padding: 10px 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    transition: 0.4s;
+    color: white;
+    background-color: #FB5AA6;
+    border-radius: 4px;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.account:hover {
+    font: white;
+    width:110px;
+    box-shadow: 0 0 20px #FB5AA6;
+  }
+
+#login{
+    position: relative;
+    top: 20px;
+    right: 200px;
+}
+
+.log_sin{
+    display: flex;
+    margin-left: 65%;
+    margin-top: 4%;
+    gap: 5px;
+    flex-direction: row;
+}
+
+ #flexLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: auto;
+} 
+
+header {
+    position: relative; /* Keep header relative */
+}
+.bar{
+    background-color: #FB5AA6;
+    color:#FB5AA6;
+    height: 10px;
+
+}
+.log {
+    width: 200px; 
+    height: 100px; 
+    left: 0; 
+    bottom: 0;
+    padding-top: 30px;
+    
+}
+
+.section p {
+    margin: 0; /* Remove default margin from paragraph */
+    /* Add some padding if needed */
+    word-spacing: 100px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    
+}
+
+.search_i{
+    /* align-items: center;
+    display: flex; */
+    width: 50%;
+    /* margin-left: 10px; */
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+.search{
+    align-items: center;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    padding-bottom: 20px;
+    /* margin: ; */
+}
+
+.pick_header{
+    margin-left: 70px;
+
+}
+.description{
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    margin-top: 50px;
+    padding: 20px; /* Adds space around the container */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 15px; /* Smooth rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 80%; /* Restricts the container width */
+    margin-left: auto;
+    margin-right: auto; /* Centers the container on the page */
+
+}
+.desc1{
+    font-family: Impact, fantasy;
+    font-size: 1.2em; /* Slightly larger text for readability */
+    color: #333; /* Neutral text color for better readability */
+    line-height: 1.8; /* Improves spacing between lines */
+    text-align: justify; /* Makes the text more structured */
+    margin-left: 10px;
+    margin-right: 10px; /* Adds spacing within the container */
+}
+
+    
+    .log1 {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+
+.buy {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+/* .price {
+    color: #ff4d4d;
+    font-weight: bold;
+} */
+
+
+.now {
+    background-color: #38B6FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.now:hover {
+    background-color: #1d87cc;
+}
+
+
+   
+
+
+.pic_buy {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+
+
+.log2{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+
+}
+
+.pick_section{
+    display: flex;
+    align-items: center; 
+    align-items:center;
+    display: flex;
+    margin: 0,0,0,0;
+    /* display: flex;
+    align-items: center;
+    gap: 20px; */
+    
+}
+.pick_desc{
+    background-color: #fff; /* White background to create contrast */
+    padding: 40px 50px; /* Ample padding for comfort */
+    border-radius: 15px; /* Rounded corners for modern look */
+    max-width: 80%; /* Keep width within reasonable limits */
+    color: #333; /* Dark color for text */
+    font-family: 'Poppins', sans-serif; /* Clean, modern sans-serif font */
+    font-size: 1.2em; /* Larger text for readability */
+    text-align: center; /* Center text */
+    line-height: 1.8; /* Increase line height for better spacing */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative;
+    z-index: 1;
+}
+.pick_desc:hover {
+    color: #ff3399; /* Change text color on hover */
+    text-shadow: 0 0 10px rgba(255, 51, 153, 0.5); /* Soft glow effect around text */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Subtle upward movement on hover */
+}
+
+.pic_img{
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin:20px;
+}
+.pic_img:hover{
+    transform: translateY(-5px); /* Subtle upward movement on hover */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.buy1{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+    
+}
+
+.now2{
+    background-color: #38B6FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.now2:hover {
+    background-color: #1d87cc;
+}
+
+
+/* tfgyuiouutyfughiojuytuuyuiouiytuyghuijouiy */
+
+.description2{
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    margin-top: 50px;
+    padding: 20px; /* Adds space around the container */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 15px; /* Smooth rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 80%; /* Restricts the container width */
+    margin-left: auto;
+    margin-right: auto; /* Centers the container on the page */
+}
+.description2:hover{
+    transform: translateY(-5px); /* Subtle upward movement on hover */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+.desc2{
+    font-family: Impact, fantasy;
+    font-size: 1.2em; /* Slightly larger text for readability */
+    color: #333; /* Neutral text color for better readability */
+    line-height: 1.8; /* Improves spacing between lines */
+    text-align: justify; /* Makes the text more structured */
+    margin-left: 50px;
+    margin-right: 10px; /* Adds spacing within the container */
+}
+
+.log3{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    
+}
+.buy3{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.pic_buy2{
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin-left: 100px;
+}
+
+/* tfgyuiouutyfughiojuytuuyuiouiytuyghuijouiy */
+
+/* .pic_row{
+    align-items: center;
+    width: auto;
+    height: 200px;
+
+} */
+
+.pick_section1{
+    display: flex;
+    align-items: center; 
+    align-items:center;
+    display: flex;
+    margin: 70px;
+    /* display: flex;
+    align-items: center;
+    gap: 20px; */
+    
+}
+.order{
+    color:#FB5AA6;
+    text-align: center;
+    font-family:Impact, fantasy ;
+}
+
+/* this is the footer */
+footer {
+    background-color: #f0f0f0;
+    padding: 2px;
+    text-align: center;   
+}
+.footerNav {
+    margin-top: 5px;
+}
+.footerNav p {
+    font-size: 14px;
+    text-align: center;
+}
+.footerNav ul {
+    padding: 0;
+}
+.footerNav ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.footerNav ul li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: black;
+}
+.footerNav ul li a:hover {
+    background-color: lightpink ;
+}
+.footerSocial {
+    margin-top: 10px;
+}
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.footerCopyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+}
+
+a, u {
+    text-decoration: none;
+    color: black;
+}

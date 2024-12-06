@@ -1,0 +1,156 @@
+body {
+    background-color: #e6f7ff;
+    font-family: Arial, sans-serif;
+    color: #333;
+    
+  }
+  
+  input[type=text] {
+      width: 50%;
+      padding: 12px 20px;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-left: auto; 
+      margin-right: auto;  
+  }
+    
+  input[type=submit] {
+      width: 30%;
+      background-color:  #FB5AA6;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 4px;
+  }
+    
+    input[type=submit]:hover {
+      background-color:  pink;
+      
+    }
+    
+    .contactform {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      width: 50%; 
+      margin-left: auto; 
+      margin-right: auto; 
+    }
+      
+    .contactme h1{
+      text-align: center;
+    }
+  
+    .contactform h2{
+      text-align: center;
+    }
+  
+    .contactform p{
+      text-align: center;
+    }
+    
+    #mainHeader {
+      position: relative;
+      background-color: #FB5AA6; 
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .mbar {
+    background-color: #38B6FF; 
+    min-height: 100px;
+    word-spacing: 50px;
+    
+    
+  }
+  
+  header {
+    position: relative; 
+  }
+  .bar{
+    background-color: #FB5AA6;
+    color:#FB5AA6;
+    height: 10px;
+  
+  }
+  .log {
+    width: 200px; 
+    height: 100px; 
+    left: 0; 
+    bottom: 0;
+    padding-top: 30px;
+    
+  }
+  
+  .section p {
+    margin: 0; 
+    word-spacing: 100px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    
+  }
+  
+  .search_i{
+    width: 50%;
+    margin-left: 50px;
+  
+  }
+  
+  .search{
+    align-items: center;
+    display: flex;
+    justify-content: center; 
+    padding-bottom: 20px;
+    
+  }
+  footer {
+    background-color: #f0f0f0;
+    padding: 2px;
+    text-align: center;   
+  }
+  .footerNav {
+    margin-top: 5px;
+  }
+  .footerNav p {
+    font-size: 14px;
+    text-align: center;
+  }
+  .footerNav ul {
+    padding: 0;
+  }
+  .footerNav ul li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .footerNav ul li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: black;
+  }
+  .footerNav ul li a:hover {
+    background-color: lightpink ;
+  }
+  .footerSocial {
+    margin-top: 10px;
+  }
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .footerCopyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+  }
