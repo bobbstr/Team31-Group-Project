@@ -60,7 +60,7 @@ header {
 }
 .log {
     width: 200px; 
-    height: 100px; 
+    height: auto; 
     left: 0; 
     bottom: 0;
     padding-top: 30px;
