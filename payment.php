@@ -135,7 +135,7 @@ if (!isset($_SESSION['basket'])) {
             </tbody>
           </table>
           <h4>Total: $<?= number_format($totalPrice, 2) ?></h4>
-          <button type="submit" class="update-basket">Update Basket</button>
+          <button type="submit" class="account">Update Basket</button>
         </form>
       </div>
 
@@ -154,7 +154,7 @@ if (!isset($_SESSION['basket'])) {
           <label for="cvv">CVV:</label>
           <input type="text" id="cvv" name="cvv" required class="cvv"><br><br>
 
-          <button type="submit" class="sub">Submit Payment</button>
+          <button type="submit" class="account">Submit Payment</button>
         </form>
       </div>
     </div>

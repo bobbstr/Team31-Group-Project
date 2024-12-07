@@ -73,7 +73,7 @@
             <input class ="payInput" name="postcode" placeholder="Postcode" required><br>
             <input class ="payInput" name="phone" placeholder="Phone" required>
             </div>
-            <input type="submit" class="sub1"></input>
+            <input type="submit" class="account" style="margin: 10px;"></input>
     </form>
 </div>
 

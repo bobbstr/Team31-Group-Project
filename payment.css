@@ -79,21 +79,6 @@ input[type="number"] {
     text-align: center;
 }
 
-button[type="submit"] {
-    background-color: #FB5AA6;
-    color: aliceblue;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-button[type="submit"]:hover {
-    cursor: pointer;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
-
-
 .account{
     font-weight: 600;
     margin: 0 10px;
