@@ -69,6 +69,19 @@ VALUES
 ('Sugar Rush', 'Sour Sweets Mix 1kg', 'Mix', 'images/Mix/Sour-Mix.jpg', 1000, 9.00, 1),
 ('Sugar Rush', 'Hard Sweets Mix 1kg', 'Mix', 'images/Mix/Hard-Sweets.jpg', 1000, 9.00, 1),
 ('Sugar Rush', 'Liquorice Sweets Mix 1kg', 'Mix', 'images/Mix/Liquorice-Mix.png', 1000, 9.00, 1);
+('Sugar Rush', 'Blue and pink Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
+('Sugar Rush', 'Blue and red Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
+('Sugar Rush', 'red and pink Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
+('Sugar Rush', 'Blue and pink Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
+('Sugar Rush', 'Blue and red Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
+('Sugar Rush', 'red and pink Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
+
+
+
+
+
+
+
 
 CREATE TABLE product_descriptions (
     DescriptionID int NOT NULL PRIMARY KEY,
