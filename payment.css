@@ -1,51 +1,38 @@
-.container{
+.container {
     background-color: #f0f0f0;
-    margin-left: 500px;
-    margin-right: 500px;
-    margin-bottom: 150px;
-    margin-top: 150px;
-    align-items: center;
+    margin: 150px auto;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-
-
-
-
+    width: auto; /* Adjusts the width automatically */
+    max-width: 900px; /* Max width to prevent overflowing */
 }
 
-.inf{
-   margin-left: 30%;
-   border-radius: 15px;
+.inf {
+    margin-left: 30%;
+    border-radius: 15px;
 }
 
-.e_a{
+.e_a {
     margin-left: 30%;
 }
 
-.pay_inf{
+.pay_inf {
     padding-left: 30%;
     background-color: grey;
 }
-.footerLogo1{
+
+.footerLogo1 {
     margin-left: 40%;
-
-
-
 }
 
-.num{
+.num, .exp, .cvv {
     border-radius: 15px;
-    
-}
-.exp{
-    border-radius: 15px;
-}
-.cvv{
-    border-radius: 15px;
+    padding: 5px;
 }
 
-.sub{
-    background-color:  #FB5AA6;
+.sub {
+    background-color: #FB5AA6;
     color: aliceblue;
     margin-left: 20%;
     border-radius: 10px;
@@ -53,7 +40,55 @@
     margin-bottom: 30px;
     padding: 10px;
 }
-.sub:hover{
+
+.sub:hover {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
+}
+
+.payment-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.basket {
+    width: 45%;
+}
+
+.payment-form {
+    width: 45%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+input[type="number"] {
+    width: 50px;
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-color: #FB5AA6;
+    color: aliceblue;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    cursor: pointer;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
