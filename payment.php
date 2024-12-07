@@ -56,7 +56,6 @@ if (!isset($_SESSION['basket'])) {
     <header>
         <div class="mbar">
             <div class="bar">
-                <p>bar</p>
             </div>
             <div id="flexLogo">
             <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
