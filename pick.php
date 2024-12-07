@@ -11,7 +11,7 @@
     <header>
         <div class="mbar">
             <div class = "bar">
-                <p>bar</p>
+                
             </div>
             <div>
                 <img src="real.png" alt="Sugar Rush Logo" class="log">
@@ -20,7 +20,7 @@
                 <input type="text" class="search_i" placeholder="Search...">
             </div>
             <div class="section">
-                <p><a href="index.html">Home</a>      <a href="sweet.html">Sweets</a>     <a href="chocolate.html">Chocolates</a>     <a href="pick.html">Pick-a-mix</a>       <a href="drink.html">Drinks</a></p>
+                <p><a href="index.php">Home</a>      <a href="sweet.html">Sweets</a>     <a href="chocolate.html">Chocolates</a>     <a href="pick.html">Pick-a-mix</a>       <a href="drink.html">Drinks</a></p>
             </div>
 
         </div>
@@ -128,7 +128,7 @@
 
         
                     <div class="footerLogo">
-                        <a href="Home.HTML">
+                        <a href="index.php">
                             <img src="Logo.jpg.png" alt="logo" width="100" height="100">
                         </a>
                     </div>
@@ -139,11 +139,11 @@
                         <p>Use the links below to navigate between different pages:</p>
                         <nav>
                             <ul>
-                                <li><a href="">Home</a></li>
-                                <li><a href="">Pick-a-mix</a></li>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="">Contact Us</a></li>
                                 <li><a href="">Contact us</a></li>
-                                <li><a href="">snack</a></li>
-                                <li><a href="">snack</a></li>
+                                
+                                
                             </ul>
                         </nav>
                     </div>

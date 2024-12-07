@@ -14,16 +14,11 @@
     <link rel="stylesheet" type="text/css" href="image.css" />
 </head>
 <body>
-    <!-- <script src="index.js"></script>
-   -->
     <header>
         <div class="mbar">
             <div class = "bar">
                 <p></p>
             </div>
-
-
-
             <div id="flexLogo">
             	<a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
                 <div class="log_sin">
@@ -238,11 +233,11 @@
             <p>Use the links below to navigate between different pages:</p>
             <nav>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Pick-a-mix</a></li>
-                    <li><a href="">Contact us</a></li>
-                    <li><a href="">snack</a></li>
-                    <li><a href="">snack</a></li>
+                    <li><a href="index.php">Home</a></li>
+            <li><a href="contactUs.php">Contact Us</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+                    
+                    
                 </ul>
             </nav>
         </div>

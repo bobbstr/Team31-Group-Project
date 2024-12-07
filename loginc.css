@@ -18,12 +18,13 @@ body {
 }
 
 
-#mainHeader .logo {
+.logo {
     position: absolute;
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
-    height: 150px; 
+    height: 100px;
+    width: auto; 
 }
 
 #mainHeader h1 {
@@ -31,7 +32,24 @@ body {
     font-size: 24px;
 }
 
+form {
+    width: 100%;                
+    max-width: 400px;           
+    padding: 20px;
+    box-sizing: border-box;     
+    border-radius: 8px;
+    background-color: #fff;     
+    border: 1px solid #ddd;     
+}
 
+.login{
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    text-align: center;
+    padding: 100px;
+    right: 20px;
+}
 .login h2 {
     text-align: center;
     color: #333;
@@ -125,4 +143,30 @@ footer {
     margin-top: 10px;
     font-size: 12px;
     color: #888;
+}
+
+.account{
+    font-weight: 600;
+    margin: 0 10px;
+    width: 100px;
+    padding: 10px 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    transition: 0.4s;
+    color: white;
+    background-color: #FB5AA6;
+    border-radius: 4px;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.account:hover {
+    font: white;
+    width:110px;
+    box-shadow: 0 0 20px #FB5AA6;
+  }
+
+#SignIn{
+    align-items: center;
+
 }

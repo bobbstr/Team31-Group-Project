@@ -46,9 +46,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </header>
 
     <section class="login">
-        <h2>Log in</h2>
-    
+
         <form action="login.php" method="POST">
+        <h2>Log in</h2>
             <div>
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Email" required>
@@ -58,8 +58,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" id="password" name="password" placeholder="password" required>
             </div>
             
-            <div class="Sign in">
-                <input type="submit" value="Sign in">
+            <div id="SignIn">
+                <button type="submit" value="Sign in" class="account">Log in</button>
             </div>
 
             <p>New customer? <a href="signup.php">Create an account</a></p>
@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         
 <div class="footerLogo">
-    <a href="Home.HTML">
+    <a href="index.php">
         <img src="Logo.jpg.png" alt="logo" width="100" height="100">
     </a>
 </div>
@@ -80,11 +80,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <p>Use the links below to navigate between different pages:</p>
     <nav>
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Pick-a-mix</a></li>
-            <li><a href="">Contact us</a></li>
-            <li><a href="">snack</a></li>
-            <li><a href="">snack</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="contactUs.php">Contact Us</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+            
+            
         </ul>
     </nav>
 </div>

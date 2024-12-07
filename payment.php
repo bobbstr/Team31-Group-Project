@@ -110,7 +110,7 @@ if (!isset($_SESSION['basket'])) {
                   <td><input type="number" name="quantity[<?= $index ?>]" value="<?= $item['quantity'] ?>" min="1"></td>
                   <td>$<?= number_format($item['price'], 2) ?></td>
                   <td>$<?= number_format($item['quantity'] * $item['price'], 2) ?></td>
-                  <td><button type="submit" name="remove" value="<?= $index ?>">Remove</button></td>
+                  <td><button type="submit" class="account" name="remove" value="<?= $index ?>">Remove</button></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
@@ -143,7 +143,7 @@ if (!isset($_SESSION['basket'])) {
 
   <footer>
     <div class="footerLogo">
-        <a href="Home.HTML">
+        <a href="index.php">
             <img src="Logo.jpg.png" alt="logo" width="100" height="100">
         </a>
     </div>
@@ -153,10 +153,10 @@ if (!isset($_SESSION['basket'])) {
         <p>Use the links below to navigate between different pages:</p>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Pick-a-mix</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="">Contact Us</a></li>
                 <li><a href="">Contact us</a></li>
-                <li><a href="">Snack</a></li>
+                
             </ul>
         </nav>
     </div>

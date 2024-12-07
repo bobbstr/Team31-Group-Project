@@ -81,7 +81,7 @@ mysqli_close($conn); // Close the database connection
                 </div>
                 
                 <div class="Sign up">
-                    <input type="submit" name="submit" value="Sign up" id="regSubmit">
+                    <input type="submit" name="submit" value="Sign up" class="account">
                 </div>
 
                 <p id="loginLink">Already have an account? <a href="login.php">Log in now</a></p>

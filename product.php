@@ -146,11 +146,11 @@ if ($productIdentifier > 0) {
         <p>Use the links below to navigate between different pages:</p>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Pick-a-mix</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="">Contact Us</a></li>
                 <li><a href="">Contact us</a></li>
-                <li><a href="">snack</a></li>
-                <li><a href="">snack</a></li>
+                
+                
             </ul>
         </nav>
     </div>
