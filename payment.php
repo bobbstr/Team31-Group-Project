@@ -76,7 +76,7 @@ if (!isset($_SESSION['basket'])) {
 
   <div class="container">
     <div class="footerLogo1">
-        <a href="Home.HTML">
+        <a href="index.php">
             <img src="Logo.jpg.png" alt="logo" width="100" height="100">
         </a>
     </div>
