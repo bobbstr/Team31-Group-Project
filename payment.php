@@ -1,8 +1,6 @@
 <?php
-// Start session to access basket data
 session_start();
 
-// Example basket data - this should normally be retrieved from the session or database
 if (!isset($_SESSION['basket'])) {
     $_SESSION['basket'] = [
         ['name' => 'Chocolate Bar', 'quantity' => 2, 'price' => 1.99],

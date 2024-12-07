@@ -6,20 +6,16 @@ if (!isset($_SESSION['email'])) {
     header("Location: login.php");
     exit;
 }
-
-// Initialize the basket if it doesn't exist
 if (!isset($_SESSION['basket'])) {
     $_SESSION['basket'] = [];
 }
 
-// Handle quantity update or item removal
+
 if (isset($_POST['update_cart'])) {
     $productID = $_POST['product_id'];
     $quantity = $_POST['quantity'];
-
-    // Update the quantity of the product in the basket
     if ($quantity <= 0) {
-        unset($_SESSION['basket'][$productID]); // Remove item if quantity is 0 or less
+        unset($_SESSION['basket'][$productID]); 
     } else {
         $_SESSION['basket'][$productID]['quantity'] = $quantity;
     }
@@ -27,10 +23,10 @@ if (isset($_POST['update_cart'])) {
 
 if (isset($_POST['remove_item'])) {
     $productID = $_POST['product_id'];
-    unset($_SESSION['basket'][$productID]); // Remove item from basket
+    unset($_SESSION['basket'][$productID]); 
 }
 
-// Get product details from the database
+
 $productDetails = [];
 foreach ($_SESSION['basket'] as $productID => $basketItem) {
     $stmt = $conn->prepare("SELECT ProductID, ProductName, ProductPrice, ProductImage FROM products WHERE ProductID = ?");
@@ -40,15 +36,13 @@ foreach ($_SESSION['basket'] as $productID => $basketItem) {
     if ($stmt->fetch()) {
         $productDetails[$productID] = [
             'name' => $productName,
-            'price' => (float)$productPrice, // Ensure it's a float
+            'price' => (float)$productPrice, 
             'image' => $productImage,
-            'quantity' => $basketItem['quantity'] // Use the quantity from the session basket
+            'quantity' => $basketItem['quantity'] 
         ];
     }
     $stmt->close();
 }
-
-// Calculate the total price
 $totalPrice = 0;
 foreach ($productDetails as $product) {
     $totalPrice += $product['price'] * $product['quantity'];
@@ -66,7 +60,7 @@ foreach ($productDetails as $product) {
 <body>
     <div class="basket-container">
         <header class="basket-header">
-            <img src="Logo.jpg.png" alt="Sugar Rush Logo" class="basket-logo">
+           <a href='index.php'><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="basket-logo"></a>
             <h1 class="basket-title">Your Basket</h1>
         </header>
 
@@ -84,7 +78,7 @@ foreach ($productDetails as $product) {
                                     <label for="quantity-<?= $productID ?>" class="quantity-label">Qty:</label>
                                     <input type="number" id="quantity-<?= $productID ?>" name="quantity" value="<?= $product['quantity'] ?>" min="1" class="quantity-input">
                                     <input type="hidden" name="product_id" value="<?= $productID ?>">
-                                    <button type="submit" name="update_cart" class="update-btn">Update</button>
+                                    <button type="submit" name="update_cart" class="account">Update</button>
                                 </form>
                             </div>
                         </div>
@@ -105,5 +99,10 @@ foreach ($productDetails as $product) {
             <a href="shipping.php"><button class="checkout-btn">Proceed to Checkout</button></a>
         </div>
     </div>
+    <div class="back-button-container">
+            <a href='index.php'>
+                <button class="account">Back</button>
+            </a>
+        </div>
 </body>
 </html>
