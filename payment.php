@@ -53,26 +53,45 @@ if (!isset($_SESSION['basket'])) {
 </head>
 <body>
 
-    <header>
-        <div class="mbar">
-            <div class="bar">
-            </div>
-            <div id="flexLogo">
+<header>
+    <div class="mbar">
+        <div class="bar">
+            <p></p>
+        </div>
+        <div id="flexLogo">
             <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
             <div class="log_sin">
-                <?php if (isset($_SESSION['email'])):?>
+                <?php if (isset($_SESSION['email'])): ?>
                     <a href="logout.php"><button class="account">Log Out</button></a>
                 <?php else: ?>
                     <a href="login.php"><button class="account">Log In</button></a>  
                 <?php endif; ?>                    
-                <a href="signup.php"><button class="account">sign Up</button></a>
+                <a href="signup.php"><button class="account">Sign Up</button></a>
             </div>   
         </div>
+
+        <center>
             <div class="search">
-                <input type="text" class="search_i" placeholder="Search...">
+                <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+                    <input id="search" type="text" class="search_i" placeholder="Search...">
+                    <input type="submit" value="Search" class="account">
+                </form>
             </div>
+        </center>
+
+        <div class="section">
+            <p>
+                <a href="search.php?q=sweets">Sweets</a>
+                <a href="search.php?q=chocolate">Chocolate</a>
+                <a href="search.php?q=savoury">Savoury</a>
+                <a href="search.php?q=sweets mix">Pick-N-mix</a>       
+                <a href="search.php?q=drinks">Drinks</a>       
+                <a href="search.php?q=biscuits">Biscuits</a>    
+                <a href="search.php?q=">All</a>
+            </p>
         </div>
-    </header>
+    </div>
+</header>
 
   <div class="container">
     <div class="footerLogo1">
