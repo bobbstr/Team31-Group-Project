@@ -75,6 +75,14 @@ VALUES
 ('Sugar Rush', 'Blue and pink Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
 ('Sugar Rush', 'Blue and red Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
 ('Sugar Rush', 'red and pink Mix 1kg', 'Mix', 'Screenshot1.png', 1000, 9.00, 1);
+('Sugar Rush', 'special pack 1kg', 'sweets', 'Screenshot2.png', 1000, 5.00, 1);
+('Sugar Rush', 'cold mix 1kg', 'Drinks', 'Screenshot4.png', 1000, 4.50, 1);
+('Sugar Rush', 'cold mix 1kg', 'Drinks', 'Screenshot4.png', 1000, 4.50, 1);
+('Sugar Rush', 'fizzy mix 1kg', 'Drinks', 'Screenshot3.png', 1000, 4.50, 1);
+('Sugar Rush', 'chocolate mix 1kg', 'Chocolate', 'Screenshot5.png', 1000, 7.50, 1);
+('Sugar Rush', 'chocolate mix 1kg', 'Chocolate', 'Screenshot6.png', 1000, 7.50, 1);
+
+
 
 
 
