@@ -94,8 +94,8 @@
         </div>  
         <div class = "pic_buy">
             <img src="Screenshot2.png" alt="into_img" class="log1">
-            <p class="buy">Special Sweet pack<br>£20</p>
-            <p class="now">BUY NOW</p>
+            <p class="buy">Special Sweet pack<br>£25</p>
+            <button class="account">BUY NOW</button>
         </div>
 
     </div>
@@ -117,19 +117,19 @@
         </div>
         <div class = "pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
+            <p class="buy1">Blue and Pink Mix 1kg<br>£20</p>
+            <button class="account">BUY NOW</button>
         </div> 
         <div class = "pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
+            <p class="buy1">Blue and Red Mix 1kg<br>£20</p>
+            <button class="account">BUY NOW</button>
 
         </div> 
         <div class = "pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
+            <p class="buy1">Red and Pink Mix 1kg<br>£20</p>
+            <button class="account">BUY NOW</button>
         </div> 
         </div>
 
@@ -140,19 +140,19 @@
         <div class = "pick_section">
         <div class = "pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
+            <p class="buy1">Cold Mix 1kg<br>£15</p>
+            <button class="account">BUY NOW</button>
         </div> 
         <div class = "pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
+            <p class="buy1">Fizzy Mix 1kg<br>£15</p>
+            <button class="account">BUY NOW</button>
 
         </div> 
         <div class = "pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
+            <p class="buy1">Sour Mix 1kg<br>£15</p>
+            <button class="account">BUY NOW</button>
         </div> 
         </div>
 
@@ -162,8 +162,8 @@
     <div class = "description2">
         <div class = "pic_buy2">
             <img src="Screenshot4.png" alt="into_img" class="log3">
-            <p class="buy1">Special Sweet pack<br>£20</p>
-            <p class="now2">BUY NOW</p>
+            <p class="buy1">Drink Mix 1kg<br>£25</p>
+            <button class="account">BUY NOW</button>
         </div>  
         <div class = "desc2">
             <p>
@@ -176,45 +176,6 @@
         </div>
 
     </div>
-
-    <div>
-        <h1 class = "sec_header">
-            Chocolates
-        </h1>
-    </div>
-    
-    <div class = "pick_section1">
-        
-        <!-- <div class= "pick_desc">
-            <p>
-                Explore our Pick-n-Mix section and create your perfect sweet blend!<br>
-                Choose from a wide selection of candies—from chewy gummies and fizzy sour treats to classic chocolates.<br>
-                Mix and match your favorites for a personalized treat,<br>
-                packed just the way you like it.
-            </p>
-        </div> -->
-        <div class = "pic_img">
-            <img src="Screenshot4.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot3.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot5.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        <div class = "pic_img">
-            <img src="Screenshot6.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Blue,Red,Pink combination<br>£20</p>
-            <p class="now2">BUY NOW</p>
-        </div> 
-        </div>
-    
 
     <h1 class="order"> ORDER SWEETS AND TREATS NOW AND GET THEM DELIVERED IN A RUSH</h1>
 

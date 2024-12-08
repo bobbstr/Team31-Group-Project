@@ -74,6 +74,7 @@ VALUES
 ('Sugar Rush', 'Special Pack 1kg', 'Mix', 'images/Mix/Special-Pack.jpg', 1000, 25.00, 1),
 ('Sugar Rush', 'Cold Mix 1kg', 'Mix', 'images/Mix/Cold-Mix.jpg', 1000,15.00, 1),
 ('Sugar Rush', 'Fizzy Mix 1kg', 'Mix', 'images/Mix/Fizzy-Mix.jpg', 1000, 15.00, 1),
+('Sugar Rush', 'Sour Mix 1kg', 'Mix', 'images/Mix/Fizzy-Mix.jpg', 1000, 15.00, 1),
 ('Sugar Rush', 'Drink Mix 1kg', 'Drinks', 'images/Mix/Chocolate-Mix.jpg', 1000, 25.00, 1);
 
 
