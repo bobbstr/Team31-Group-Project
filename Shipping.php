@@ -76,7 +76,6 @@
     </form>
 </div>
 
-<<<<<<< HEAD
 <footer>
 
         
@@ -147,12 +146,10 @@
 
 
 
-=======
 <!-- Basket section -->
 <div>
     <!-- TODO -->
 </div>
->>>>>>> ea1e6e49097e7e4a43d40c4fd3d0b8431eed091f
 
 </body>
 </html>
