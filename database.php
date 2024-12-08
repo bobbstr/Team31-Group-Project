@@ -1,8 +1,8 @@
 <?php
     $server = "localhost";
-    $username = "db_user";
-    $db_password = "password";
-    $db_name = "sugarrush";
+    $username = "cs2team31";
+    $db_password = "eXLMpE0LPGNmdjR";
+    $db_name = "cs2team31_db";
 
     global $conn;
     $conn = mysqli_connect($server, $username, $db_password, $db_name);

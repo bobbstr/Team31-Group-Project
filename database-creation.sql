@@ -1,10 +1,5 @@
-CREATE OR REPLACE USER 'db_user'@'localhost' IDENTIFIED BY 'password';
 
-CREATE OR REPLACE DATABASE sugarrush;
-
-GRANT SELECT, ALTER, CREATE,CREATE VIEW, DELETE, INDEX, INSERT, REFERENCES, SELECT, SHOW VIEW, TRIGGER, UPDATE, DROP on sugarrush.* to 'db_user'@'localhost';
-
-USE sugarrush;
+USE cs2team31_db;
 
 CREATE TABLE products (
     ProductID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
