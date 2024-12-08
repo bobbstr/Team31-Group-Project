@@ -1,0 +1,5 @@
+.aboutUs h2, .aboutUs p i {
+    text-align: center;
+    padding: 5px;
+    display: block; 
+}
