@@ -12,7 +12,7 @@ $totalPrice = isset($_SESSION['total_price']) ? $_SESSION['total_price'] : 0;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush - Payment Successful</title>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="success.css">
 </head>
 <body>
 <header>

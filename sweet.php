@@ -52,14 +52,7 @@
 
     <div class = "pick_section1">
         
-        <!-- <div class= "pick_desc">
-            <p>
-                Explore our Pick-n-Mix section and create your perfect sweet blend!<br>
-                Choose from a wide selection of candies—from chewy gummies and fizzy sour treats to classic chocolates.<br>
-                Mix and match your favorites for a personalized treat,<br>
-                packed just the way you like it.
-            </p>
-        </div> -->
+         
         <div class = "pic_img">
             <img src="Screenshot 2024-11-04 at 21.36.27.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue,Red,Pink combination<br>£20</p>
@@ -117,14 +110,7 @@
 
             <div class = "pick_section1">
         
-                <!-- <div class= "pick_desc">
-                    <p>
-                        Explore our Pick-n-Mix section and create your perfect sweet blend!<br>
-                        Choose from a wide selection of candies—from chewy gummies and fizzy sour treats to classic chocolates.<br>
-                        Mix and match your favorites for a personalized treat,<br>
-                        packed just the way you like it.
-                    </p>
-                </div> -->
+                
                 <div class = "pic_img">
                     <img src="Screenshot 2024-11-04 at 21.36.27.png" alt="Pick-a-mix" class="log2">
                     <p class="buy1">Blue,Red,Pink combination<br>£20</p>
