@@ -143,14 +143,17 @@ if (!isset($_SESSION['basket'])) {
           <input type="hidden" name="email" value="<?= $email ?>">
           <input type="hidden" name="address" value="<?= $address ?>">
 
+          <label for="cardNumber">Card Holder Name:</label>
+          <input type="text" id="cardName" name="cardName" required class="exp"><br><br>
+
           <label for="cardNumber">Card Number:</label>
-          <input type="text" id="cardNumber" name="cardNumber" required class="num"><br><br>
+          <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234 1234" required class="num" pattern="\d{4} \d{4} \d{4} \d{4}"><br><br>
 
-          <label for="expiry">Expiry Date:</label>
-          <input type="text" id="expiry" name="expiry" required class="exp"><br><br>
+          <label for="expiry">Expiry Date:</label><br>
+          <input type="month" id="expiry" name="expiry" required class="exp"  placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}"><br><br>
 
-          <label for="cvv">CVV:</label>
-          <input type="text" id="cvv" name="cvv" required class="cvv"><br><br>
+          <label for="cvv">CVV:</label><br>
+          <input type="text" id="cvv" name="cvv" required class="cvv" placeholder="123" pattern="\d{3}"><br><br>
 
           <a href="success.php"><button type="submit" class="account">Submit Payment</button></a>
         </form>

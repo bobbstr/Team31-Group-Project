@@ -1,5 +1,6 @@
 <?php
-require 'database.php'; // Include the database connection
+require 'database.php'; 
+session_start();
 
 if (isset($_POST["submit"])) {
     $fname = trim($_POST["FirstName"]);
@@ -7,13 +8,12 @@ if (isset($_POST["submit"])) {
     $email = trim($_POST["Email"]);
     $password = $_POST["Password"];
 
-    // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email format!";
         exit;
     }
 
-    // Validate password (e.g., minimum 8 characters)
+ 
     if (strlen($password) < 8) {
         echo "Password must be at least 8 characters long!";
         exit;
@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Securely hash password
 
-    // Prepare and bind the MySQLi statement
+    // bind the MySQLi statement
     $query = "INSERT INTO userid (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
 
@@ -29,14 +29,21 @@ if (isset($_POST["submit"])) {
         mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $email, $hashed_password);
 
         if (mysqli_stmt_execute($stmt)) {
-            echo "Successfully created an account!";
+            $_SESSION['user'] = [
+                'firstname' => $fname,
+                'lastname' => $lname,
+                'email' => $email
+            ];
+            echo "<script> alert('Successfully creatd an account!');
+            window.location.href = 'index.php';
+            </script>";
         } else {
-            echo "Failed to create account: " . mysqli_error($conn);
+            echo "<script> alert('Error creating account');
+            window.location.href = 'index.php';
+            </script>"; 
         }
-
-        mysqli_stmt_close($stmt); // Close the prepared statement
     } else {
-        echo "Failed to prepare statement: " . mysqli_error($conn);
+        echo "Failed to prepare statement: ";
     }
 }
 
