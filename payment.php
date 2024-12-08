@@ -101,7 +101,6 @@ if (!isset($_SESSION['basket'])) {
 
     <h3 class="pay_inf">Payment Information</h3>
 
-    <label for="deliveryDetails" class="e_a">Email and Delivery Address:</label>
     <h4 id="deliveryDetails" rows="4" cols="50" readonly>
       Email: <?= $email ?><br>
       Address: <?= $address ?>
