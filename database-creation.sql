@@ -183,6 +183,9 @@ CREATE TABLE userid (
     admin tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `userid` (`id`, `firstname`, `lastname`, `email`, `password`, `admin`) VALUES
+(1, 'Admin', 'Account', 'admin@admin.com', '$2y$10$UjH0ueH4My0PHPREOXChi.wFcKBIr3QbsAR8mH95kps7QqvPBXND6', 1); -- Email: admin@admin.com, Password: admin123!
+
 --
 -- Indexes for dumped tables
 --
