@@ -59,24 +59,20 @@
     <div >
     <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
     <script>
-        // Array of image paths
         const images = [
             "Untitled1.png",
             "Untitled2.png",
             "Untitled3.png"
         ];
 
-        // Index of the current image
-        let currentIndex = 0;
+        let currenti = 0;
 
-        // Function to switch images
-        function switchImage() {
-            currentIndex = (currentIndex + 1) % images.length; // Increment and loop back
-            document.getElementById('image').src = images[currentIndex];
+        function changImages() {
+            currenti = (currenti + 1) % images.length; 
+            document.getElementById('image').src = images[currenti];
         }
 
-        // Switch images every 3 seconds (3000 milliseconds)
-        setInterval(switchImage, 3000);
+        interval(changImages, 3000);
     </script>
     </div>
 
@@ -98,7 +94,7 @@
             <input type="hidden" name="product_id" value="43" />
             <input type="hidden" name="product_name" value="Special Sweet pack" />
             <input type="hidden" name="product_price" value="25" />
-            <button class="account" type="submit">BUY NOW</button>
+     <button class="account" type="submit">BUY NOW</button>
         </form>
     </div>
 </div>
@@ -107,7 +103,7 @@
     <div>
         <h1 class="sec_header">
             Pick-n-Mix
-        </h1>
+   </h1>
     </div> 
     <div class="pick_section">
         <div class="pick_desc">
@@ -115,14 +111,14 @@
                 Explore our Pick-n-Mix section and create your perfect sweet blend!<br>
                 Choose from a wide selection of candies—from chewy gummies and fizzy sour treats to classic chocolates.<br>
                 Mix and match your favorites for a personalized treat,<br>
-                packed just the way you like it.
+             packed just the way you like it.
             </p>
         </div>
         <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue and Pink Mix 1kg<br>£20</p>
             <form action="basketAdd.php" method="POST">
-                <input type="hidden" name="product_id" value="40" />
+               <input type="hidden" name="product_id" value="40" />
                 <input type="hidden" name="product_name" value="Blue and Pink Mix 1kg" />
                 <input type="hidden" name="product_price" value="20" />
                 <button class="account" type="submit">BUY NOW</button>
@@ -132,7 +128,7 @@
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue and Red Mix 1kg<br>£20</p>
             <form action="basketAdd.php" method="POST">
-                <input type="hidden" name="product_id" value="41" />
+             <input type="hidden" name="product_id" value="41" />
                 <input type="hidden" name="product_name" value="Blue and Red Mix 1kg" />
                 <input type="hidden" name="product_price" value="20" />
                 <button class="account" type="submit">BUY NOW</button>
@@ -144,7 +140,7 @@
             <form action="basketAdd.php" method="POST">
                 <input type="hidden" name="product_id" value="42" />
                 <input type="hidden" name="product_name" value="Red and Pink Mix 1kg" />
-                <input type="hidden" name="product_price" value="20" />
+              <input type="hidden" name="product_price" value="20" />
                 <button class="account" type="submit">BUY NOW</button>
             </form>
         </div> 
@@ -155,12 +151,12 @@
     <div class="pick_section">
         <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Cold Mix 1kg<br>£15</p>
+           <p class="buy1">Cold Mix 1kg<br>£15</p>
             <form action="basketAdd.php" method="POST">
                 <input type="hidden" name="product_id" value="44" />
                 <input type="hidden" name="product_name" value="Cold Mix 1kg" />
                 <input type="hidden" name="product_price" value="15" />
-                <button class="account" type="submit">BUY NOW</button>
+             <button class="account" type="submit">BUY NOW</button>
             </form>
         </div> 
         <div class="pic_img">

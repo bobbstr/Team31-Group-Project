@@ -12,31 +12,31 @@ if (!isset($_SESSION['basket'])) {
 
 
 if (isset($_POST['update_cart'])) {
-    $productID = $_POST['product_id'];
+    $prodID = $_POST['product_id'];
     $quantity = $_POST['quantity'];
     if ($quantity <= 0) {
-        unset($_SESSION['basket'][$productID]); 
+        unset($_SESSION['basket'][$prodID]); 
     } else {
-        $_SESSION['basket'][$productID]['quantity'] = $quantity;
+        $_SESSION['basket'][$prodID]['quantity'] = $quantity;
     }
 }
 
 if (isset($_POST['remove_item'])) {
-    $productID = $_POST['product_id'];
-    unset($_SESSION['basket'][$productID]); 
+    $prodID = $_POST['product_id'];
+    unset($_SESSION['basket'][$prodID]); 
 }
 
 
 $productDetails = [];
-foreach ($_SESSION['basket'] as $productID => $basketItem) {
-    $stmt = $conn->prepare("SELECT ProductID, ProductName, ProductPrice, ProductImage FROM products WHERE ProductID = ?");
-    $stmt->bind_param("i", $productID);
+foreach ($_SESSION['basket'] as $prodID => $basketItem) {
+    $stmt = $conn->prepare("SELECT ProductID, ProductName,  prodPrices, ProductImage FROM products WHERE ProductID = ?");
+    $stmt->bind_param("i", $prodID);
     $stmt->execute();
-    $stmt->bind_result($productID, $productName, $productPrice, $productImage);
+    $stmt->bind_result($prodID, $prodNames,  $prodPrices, $productImage);
     if ($stmt->fetch()) {
-        $productDetails[$productID] = [
-            'name' => $productName,
-            'price' => (float)$productPrice, 
+        $productDetails[$prodID] = [
+            'name' => $prodNames,
+            'price' => (float) $prodPrices, 
             'image' => $productImage,
             'quantity' => $basketItem['quantity'] 
         ];
@@ -67,7 +67,7 @@ foreach ($productDetails as $product) {
         <!-- Basket Items -->
         <div class="basket-items">
             <?php if (!empty($productDetails)): ?>
-                <?php foreach ($productDetails as $productID => $product): ?>
+                <?php foreach ($productDetails as $prodID => $product): ?>
                     <div class="basket-item">
                         <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="basket-item-img">
                         <div class="item-details">
@@ -75,15 +75,15 @@ foreach ($productDetails as $product) {
                             <p class="item-price">£<?= number_format($product['price'], 2) ?></p>
                             <div class="quantity-container">
                                 <form action="basket.php" method="POST">
-                                    <label for="quantity-<?= $productID ?>" class="quantity-label">Qty:</label>
-                                    <input type="number" id="quantity-<?= $productID ?>" name="quantity" value="<?= $product['quantity'] ?>" min="1" class="quantity-input">
-                                    <input type="hidden" name="product_id" value="<?= $productID ?>">
+                                    <label for="quantity-<?= $prodID ?>" class="quantity-label">Qty:</label>
+                                    <input type="number" id="quantity-<?= $prodID ?>" name="quantity" value="<?= $product['quantity'] ?>" min="1" class="quantity-input">
+                                    <input type="hidden" name="product_id" value="<?= $prodID ?>">
                                     <button type="submit" name="update_cart" class="account">Update</button>
                                 </form>
                             </div>
                         </div>
                         <form action="basket.php" method="POST">
-                            <input type="hidden" name="product_id" value="<?= $productID ?>">
+                            <input type="hidden" name="product_id" value="<?= $prodID ?>">
                             <button type="submit" name="remove_item" class="remove-btn">Remove</button>
                         </form>
                     </div>

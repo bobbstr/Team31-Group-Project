@@ -1,7 +1,6 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+
 
 require 'database.php';
 
@@ -38,14 +37,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" type="text/css" href="loginc.css" />
 </head>
 <body>
-    
     <header id="mainHeader">
         <img src="Logo.jpg.png" alt="Sugar Rush Logo" class="logo">
         <h1>Sugar Rush</h1>
     </header>
-
     <section class="login">
-
         <form action="login.php" method="POST">
         <h2>Log in</h2>
             <div>
@@ -56,11 +52,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="password">password</label>
                 <input type="password" id="password" name="password" placeholder="password" required>
             </div>
-            
             <div id="SignIn">
                 <button type="submit" value="Sign in" class="account">Log in</button>
-            </div>
-
+    </div>
             <p>New customer? <a href="signup.php">Create an account</a></p>
         </form>
     </section>
@@ -120,7 +114,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </a>
     </div>
 </div>
-
 
 <div class="footerCopyright">
     <p>© Copyright - SugarRush.com 2024. All rights reserved.</p>

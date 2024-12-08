@@ -1,35 +1,34 @@
 <?php
 session_start();
 
+// Here I am checking if all needed variables have been given
 if (isset($_POST['product_id'], $_POST['product_name'], $_POST['product_price'])) {
-    $productID = $_POST['product_id'];
-    $productName = $_POST['product_name'];
-    $productPrice = $_POST['product_price'];
+    // and now storing all data into local variables
+    $prodID = $_POST['product_id'];
+    $prodNames = $_POST['product_name'];
+    $prodPrices = $_POST['product_price'];
 
+    // starts basket as empty array if it doesn't already exsits
     if (!isset($_SESSION['basket'])) {
         $_SESSION['basket'] = [];
-    }
-    if (isset($_SESSION['basket'][$productID])) {
-        $_SESSION['basket'][$productID]['quantity'] += 1;
+        } 
+        // checks if product is already in basket
+        if (isset($_SESSION['basket'][$prodID])) {
+            // add to quantity if it is
+        $_SESSION['basket'][$prodID]['quantity'] += 1;
     } else {
-
-        $_SESSION['basket'][$productID] = [
-            'id' => $productID,
-            'name' => $productName,
-            'price' => $productPrice,
+        //  other wise add it as new
+        $_SESSION['basket'][$prodID] = [
+            'id' => $prodID,
+            'name' => $prodNames,
+            'price' =>  $prodPrices,
             'quantity' => 1
         ];
-    }
-
-    
-    echo "<pre>";
-    print_r($_SESSION['basket']);
-    echo "</pre>";
-
+        }
     header('Location: Basket.php');
     exit();
 } else {
-    echo "Error: Missing product data.";
+    echo "Error: Missing Dataa ";
     exit();
 }
 
