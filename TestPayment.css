@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #EBF0F5;
+    text-align: center;
+    padding: 40px 0;
+    margin: 0;
+    color: #404F5E;
+    /* General text color */
+}
+
+.success-card {
+    background: white;
+    padding: 60px;
+    border-radius: 10px;
+    /* Rounded corners for a softer look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Slightly deeper shadow for modern look */
+    display: inline-block;
+    margin: 0 auto;
+    max-width: 400px;
+    /* To ensure responsiveness */
+}
+
+.success-icon {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    background: #F8FAF5;
+    margin: 0 auto 20px;
+    line-height: 200px;
+    font-size: 100px;
+    color: #38b6ff;
+}
+
+.success-heading {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #38b6ff;
+}
+
+.success-details {
+    font-size: 18px;
+    margin: 0 20px;
+    /* Slight horizontal padding for better readability */
+}
