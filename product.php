@@ -3,13 +3,17 @@ include("database.php");
 session_start();
 global $conn;
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
 $anAdmin = isset($_SESSION['admin']) && $_SESSION['admin'];
 $prodIDentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 $productDetails = null;
 if ($prodIDentifier > 0) {
-    $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight,  prodPrices, InStock FROM products WHERE ProductID = ?");
+    $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight,  productPrice, InStock FROM products WHERE ProductID = ?");
     $stmt->bind_param("i", $prodIDentifier);
     $stmt->execute();
     $stmt->bind_result($prodID, $productBrand, $prodNames, $productCategory, $productImage, $productWeight,  $prodPrices, $inStock);
@@ -35,14 +39,14 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $updatedProductCategory = $_POST['ProductCategory'];
     $updatedProductImage = $_POST['ProductImage'];
     $updatedProductWeight = $_POST['ProductWeight'];
-    $updated prodPrices = $_POST[' prodPrices'];
+    $updatedprodPrices = $_POST[' prodPrices'];
     $updatedInStock = $_POST['InStock'];
 
     $updateQuery = "UPDATE products 
                     SET ProductName = ?, ProductBrand = ?, ProductCategory = ?, ProductImage = ?, ProductWeight = ?,  prodPrices = ?, InStock = ?
                     WHERE ProductID = ?";
     $stmt = $conn->prepare($updateQuery);
-    $stmt->bind_param("ssssdiis", $updatedProductName, $updatedProductBrand, $updatedProductCategory, $updatedProductImage, $updatedProductWeight, $updated prodPrices, $updatedInStock, $prodIDentifier);
+    $stmt->bind_param("ssssdiis", $updatedProductName, $updatedProductBrand, $updatedProductCategory, $updatedProductImage, $updatedProductWeight, $updatedprodPrices, $updatedInStock, $prodIDentifier);
     $stmt->execute();
     $stmt->close();
 
