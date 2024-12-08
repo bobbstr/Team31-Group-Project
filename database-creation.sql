@@ -13,7 +13,7 @@ CREATE TABLE products (
     ProductCategory varchar(255) NOT NULL,
     ProductImage varchar(255) NOT NULL,
     ProductWeight int NOT NULL,
-     prodPrices decimal(8, 2) NOT NULL,
+    ProductPrice decimal(8, 2) NOT NULL,
     InStock int NOT NULL
 );
 
@@ -25,7 +25,7 @@ SweetCategory will be used in product filtering.
 InStock '0' = insufficient stock to order.
 */
 
-INSERT INTO products (ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight,  prodPrices, InStock)
+INSERT INTO products (ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight, ProductPrice, InStock)
 VALUES
 ('Haribo', 'Starmix', 'Sweets', 'images/Sweets/Haribo-Starmix.avif', 175, 1.25, 1),
 ('Maynards Bassetts', 'Wine Gums', 'Sweets', 'images/Sweets/Maynards-Bassetts-Wine-Gums.avif', 130, 1.35, 1),

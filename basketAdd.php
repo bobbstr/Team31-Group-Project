@@ -6,7 +6,7 @@ if (isset($_POST['product_id'], $_POST['product_name'], $_POST['product_price'])
     // and now storing all data into local variables
     $prodID = $_POST['product_id'];
     $prodNames = $_POST['product_name'];
-    $prodPrices = $_POST['product_price'];
+    $ProductPrice = $_POST['product_price'];
 
     // starts basket as empty array if it doesn't already exsits
     if (!isset($_SESSION['basket'])) {
@@ -21,7 +21,7 @@ if (isset($_POST['product_id'], $_POST['product_name'], $_POST['product_price'])
         $_SESSION['basket'][$prodID] = [
             'id' => $prodID,
             'name' => $prodNames,
-            'price' =>  $prodPrices,
+            'price' =>  $ProductPrice,
             'quantity' => 1
         ];
         }

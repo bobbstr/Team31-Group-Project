@@ -72,13 +72,13 @@ session_start();
                     echo "<img src='".$row['ProductImage']."' alt='".$row['ProductName']."' class='log2'/>";
                     echo "<p class='buy1'>".$row['ProductName']."</p>";
                     echo "</a></br>";
-                    echo "\n\nPrice: £".$row[' prodPrices'];
+                    echo "\n\nPrice: £".$row['ProductPrice'];
                     
                     // Debugging: Output hidden inputs
                     echo "<form action='basketAdd.php' method='POST'>";
                     echo "<input type='hidden' name='product_id' value='".$row['ProductID']."' />";
                     echo "<input type='hidden' name='product_name' value='".htmlspecialchars($row['ProductName'])."' />";
-                    echo "<input type='hidden' name='product_price' value='".htmlspecialchars($row[' prodPrices'])."' />";
+                    echo "<input type='hidden' name='product_price' value='".htmlspecialchars($row['ProductPrice'])."' />";
                     echo "<button class='account' type='submit'>Add to Basket</button>";
                     echo "</form>";
 

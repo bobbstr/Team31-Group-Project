@@ -13,10 +13,10 @@ $prodIDentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 $productDetails = null;
 if ($prodIDentifier > 0) {
-    $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight,  productPrice, InStock FROM products WHERE ProductID = ?");
+    $stmt = $conn->prepare("SELECT ProductID, ProductBrand, ProductName, ProductCategory, ProductImage, ProductWeight, ProductPrice, InStock FROM products WHERE ProductID = ?");
     $stmt->bind_param("i", $prodIDentifier);
     $stmt->execute();
-    $stmt->bind_result($prodID, $productBrand, $prodNames, $productCategory, $productImage, $productWeight,  $prodPrices, $inStock);
+    $stmt->bind_result($prodID, $productBrand, $prodNames, $productCategory, $productImage, $productWeight,  $ProductPrice, $inStock);
     if ($stmt->fetch()) {
         $productDetails = array(
             'ProductID' => $prodID,
@@ -25,7 +25,7 @@ if ($prodIDentifier > 0) {
             'ProductCategory' => $productCategory,
             'ProductImage' => $productImage,
             'ProductWeight' => $productWeight,
-            ' prodPrices' =>  $prodPrices,
+            'ProductPrice' =>  $ProductPrice,
             'InStock' => $inStock
         );
     }
@@ -39,14 +39,14 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $updatedProductCategory = $_POST['ProductCategory'];
     $updatedProductImage = $_POST['ProductImage'];
     $updatedProductWeight = $_POST['ProductWeight'];
-    $updatedprodPrices = $_POST[' prodPrices'];
+    $updatedProductPrice = $_POST['ProductPrice'];
     $updatedInStock = $_POST['InStock'];
 
     $updateQuery = "UPDATE products 
-                    SET ProductName = ?, ProductBrand = ?, ProductCategory = ?, ProductImage = ?, ProductWeight = ?,  prodPrices = ?, InStock = ?
+                    SET ProductName = ?, ProductBrand = ?, ProductCategory = ?, ProductImage = ?, ProductWeight = ?, ProductPrice = ?, InStock = ?
                     WHERE ProductID = ?";
     $stmt = $conn->prepare($updateQuery);
-    $stmt->bind_param("ssssdiis", $updatedProductName, $updatedProductBrand, $updatedProductCategory, $updatedProductImage, $updatedProductWeight, $updatedprodPrices, $updatedInStock, $prodIDentifier);
+    $stmt->bind_param("ssssdiis", $updatedProductName, $updatedProductBrand, $updatedProductCategory, $updatedProductImage, $updatedProductWeight, $updatedProductPrice, $updatedInStock, $prodIDentifier);
     $stmt->execute();
     $stmt->close();
 
@@ -128,7 +128,7 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Product Details (for Admin, show input fields)
                 echo "<td style='vertical-align: top; padding-left: 15px;'>";
                 echo "<b>" . htmlspecialchars($productDetails['ProductName']) . "</b><br/>";
-                echo "<b>Price:</b> £" . htmlspecialchars($productDetails[' prodPrices']) . "<br/>";
+                echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
                 echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
                 echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
 
@@ -140,7 +140,7 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "<b>Product Category:</b> <input type='text' name='ProductCategory' value='" . htmlspecialchars($productDetails['ProductCategory']) . "' required /><br/>";
                     echo "<b>Product Image URL:</b> <input type='text' name='ProductImage' value='" . htmlspecialchars($productDetails['ProductImage']) . "' required /><br/>";
                     echo "<b>Product Weight:</b> <input type='number' name='ProductWeight' value='" . htmlspecialchars($productDetails['ProductWeight']) . "' required /><br/>";
-                    echo "<b>Price (£):</b> <input type='number' name=' prodPrices' value='" . htmlspecialchars($productDetails[' prodPrices']) . "' required /><br/>";
+                    echo "<b>Price (£):</b> <input type='number' name='ProductPrice' value='" . htmlspecialchars($productDetails['ProductPrice']) . "' required /><br/>";
                     echo "<b>In Stock:</b> <input type='number' name='InStock' value='" . htmlspecialchars($productDetails['InStock']) . "' required /><br/>";
                     echo "<button class='account' type='submit'>Save Changes</button>";
                     echo "</form>";
@@ -149,7 +149,7 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "<form action='basketAdd.php' method='POST'>
                             <input type='hidden' name='product_id' value='" . $productDetails['ProductID']."'/>
                             <input type='hidden' name='product_name' value='" . htmlspecialchars($productDetails['ProductName'])."' />
-                            <input type='hidden' name='product_price' value='" . htmlspecialchars($productDetails[' prodPrices'])."'/>
+                            <input type='hidden' name='product_price' value='" . htmlspecialchars($productDetails['ProductPrice'])."'/>
                             <button class='account' type='submit'>Add to Basket</button>
                           </form>";
                 }

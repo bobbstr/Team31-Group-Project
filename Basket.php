@@ -29,14 +29,14 @@ if (isset($_POST['remove_item'])) {
 
 $productDetails = [];
 foreach ($_SESSION['basket'] as $prodID => $basketItem) {
-    $stmt = $conn->prepare("SELECT ProductID, ProductName,  prodPrices, ProductImage FROM products WHERE ProductID = ?");
+    $stmt = $conn->prepare("SELECT ProductID, ProductName, ProductPrice, ProductImage FROM products WHERE ProductID = ?");
     $stmt->bind_param("i", $prodID);
     $stmt->execute();
-    $stmt->bind_result($prodID, $prodNames,  $prodPrices, $productImage);
+    $stmt->bind_result($prodID, $prodNames,  $ProductPrice, $productImage);
     if ($stmt->fetch()) {
         $productDetails[$prodID] = [
             'name' => $prodNames,
-            'price' => (float) $prodPrices, 
+            'price' => (float) $ProductPrice, 
             'image' => $productImage,
             'quantity' => $basketItem['quantity'] 
         ];
