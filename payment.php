@@ -101,7 +101,6 @@ if (!isset($_SESSION['basket'])) {
 
     <h3 class="pay_inf">Payment Information</h3>
 
-    <label for="deliveryDetails" class="e_a">Email and Delivery Address:</label>
     <h4 id="deliveryDetails" rows="4" cols="50" readonly>
       Email: <?= $email ?><br>
       Address: <?= $address ?>
@@ -140,7 +139,7 @@ if (!isset($_SESSION['basket'])) {
 
       <!-- Payment Form -->
       <div class="payment-form">
-        <form action="process_payment.php" method="POST" class="inf">
+        <form action="success.php" method="POST" class="inf">
           <input type="hidden" name="email" value="<?= $email ?>">
           <input type="hidden" name="address" value="<?= $address ?>">
 
@@ -153,7 +152,7 @@ if (!isset($_SESSION['basket'])) {
           <label for="cvv">CVV:</label>
           <input type="text" id="cvv" name="cvv" required class="cvv"><br><br>
 
-          <button type="submit" class="account">Submit Payment</button>
+          <a href="success.php"><button type="submit" class="account">Submit Payment</button></a>
         </form>
       </div>
     </div>
