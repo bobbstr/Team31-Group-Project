@@ -74,7 +74,7 @@ foreach ($productDetails as $product) {
                             <h3 class="item-title"><?= htmlspecialchars($product['name']) ?></h3>
                             <p class="item-price">£<?= number_format($product['price'], 2) ?></p>
                             <div class="quantity-container">
-                                <form action="basket.php" method="POST">
+                                <form action="Basket.php" method="POST">
                                     <label for="quantity-<?= $prodID ?>" class="quantity-label">Qty:</label>
                                     <input type="number" id="quantity-<?= $prodID ?>" name="quantity" value="<?= $product['quantity'] ?>" min="1" class="quantity-input">
                                     <input type="hidden" name="product_id" value="<?= $prodID ?>">
@@ -82,7 +82,7 @@ foreach ($productDetails as $product) {
                                 </form>
                             </div>
                         </div>
-                        <form action="basket.php" method="POST">
+                        <form action="Basket.php" method="POST">
                             <input type="hidden" name="product_id" value="<?= $prodID ?>">
                             <button type="submit" name="remove_item" class="remove-btn">Remove</button>
                         </form>
@@ -96,7 +96,7 @@ foreach ($productDetails as $product) {
         <!-- Basket Summary -->
         <div class="basket-summary">
             <h3>Total: <span class="total-price">£<?= number_format($totalPrice, 2) ?></span></h3>
-            <a href="shipping.php"><button class="checkout-btn">Proceed to Checkout</button></a>
+            <a href="Shipping.php"><button class="checkout-btn">Proceed to Checkout</button></a>
         </div>
     </div>
     <div class="back-button-container">
