@@ -140,7 +140,7 @@ if (!isset($_SESSION['basket'])) {
 
       <!-- Payment Form -->
       <div class="payment-form">
-        <form action="process_payment.php" method="POST" class="inf">
+        <form action="success.php" method="POST" class="inf">
           <input type="hidden" name="email" value="<?= $email ?>">
           <input type="hidden" name="address" value="<?= $address ?>">
 
