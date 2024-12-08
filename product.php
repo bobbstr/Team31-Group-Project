@@ -27,6 +27,30 @@ if ($productIdentifier > 0) {
     }
     $stmt->close();
 }
+
+if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Handle admin form submission to update the product details
+    $updatedProductName = $_POST['ProductName'];
+    $updatedProductBrand = $_POST['ProductBrand'];
+    $updatedProductCategory = $_POST['ProductCategory'];
+    $updatedProductImage = $_POST['ProductImage'];
+    $updatedProductWeight = $_POST['ProductWeight'];
+    $updatedProductPrice = $_POST['ProductPrice'];
+    $updatedInStock = $_POST['InStock'];
+
+    $updateQuery = "UPDATE products 
+                    SET ProductName = ?, ProductBrand = ?, ProductCategory = ?, ProductImage = ?, ProductWeight = ?, ProductPrice = ?, InStock = ?
+                    WHERE ProductID = ?";
+    $stmt = $conn->prepare($updateQuery);
+    $stmt->bind_param("ssssdiis", $updatedProductName, $updatedProductBrand, $updatedProductCategory, $updatedProductImage, $updatedProductWeight, $updatedProductPrice, $updatedInStock, $productIdentifier);
+    $stmt->execute();
+    $stmt->close();
+
+    // Reload the product details after update
+    header("Location: product.php?id=$productIdentifier");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -97,31 +121,35 @@ if ($productIdentifier > 0) {
                           class='product-image' />";
                 echo "</td>";
             
-                // Product Details
+                // Product Details (for Admin, show input fields)
                 echo "<td style='vertical-align: top; padding-left: 15px;'>";
                 echo "<b>" . htmlspecialchars($productDetails['ProductName']) . "</b><br/>";
                 echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
                 echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
                 echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
 
-                // Add to Basket form
-                echo "<form action='basketAdd.php' method='POST'>
-                        <input type='hidden' name='product_id' value='" . $productDetails['ProductID']."'/>
-                        <input type='hidden' name='product_name' value='" . htmlspecialchars($productDetails['ProductName'])."' />
-                        <input type='hidden' name='product_price' value='" . htmlspecialchars($productDetails['ProductPrice'])."'/>
-                        <button class='account' type='submit'>Add to Basket</button>
-                      </form>";
-
-                // Admin Tools
                 if ($anAdmin) {
-                    echo "<h4>Admin Tools</h4>";
-                    echo "<p><b>Product ID:</b> " . htmlspecialchars($productDetails['ProductID']) . "</p>";
-                    echo "<p><b>Product Brand:</b> " . htmlspecialchars($productDetails['ProductBrand']) . "</p>";
-                    echo "<p><b>Product Category:</b> " . htmlspecialchars($productDetails['ProductCategory']) . "</p>";
-                    echo "<p><b>Product Weight:</b> " . htmlspecialchars($productDetails['ProductWeight']) . "</p>";
-                    echo "<p><b>In Stock:</b> " . htmlspecialchars($productDetails['InStock']) . "</p>";
+                    // Admin can edit product details
+                    echo "<form action='product.php?id=$productIdentifier' method='POST'>";
+                    echo "<b>Product Name:</b> <input type='text' name='ProductName' value='" . htmlspecialchars($productDetails['ProductName']) . "' required /><br/>";
+                    echo "<b>Product Brand:</b> <input type='text' name='ProductBrand' value='" . htmlspecialchars($productDetails['ProductBrand']) . "' required /><br/>";
+                    echo "<b>Product Category:</b> <input type='text' name='ProductCategory' value='" . htmlspecialchars($productDetails['ProductCategory']) . "' required /><br/>";
+                    echo "<b>Product Image URL:</b> <input type='text' name='ProductImage' value='" . htmlspecialchars($productDetails['ProductImage']) . "' required /><br/>";
+                    echo "<b>Product Weight:</b> <input type='number' name='ProductWeight' value='" . htmlspecialchars($productDetails['ProductWeight']) . "' required /><br/>";
+                    echo "<b>Price (£):</b> <input type='number' name='ProductPrice' value='" . htmlspecialchars($productDetails['ProductPrice']) . "' required /><br/>";
+                    echo "<b>In Stock:</b> <input type='number' name='InStock' value='" . htmlspecialchars($productDetails['InStock']) . "' required /><br/>";
+                    echo "<button class='account' type='submit'>Save Changes</button>";
+                    echo "</form>";
+                } else {
+                    // Normal user can only add to basket
+                    echo "<form action='basketAdd.php' method='POST'>
+                            <input type='hidden' name='product_id' value='" . $productDetails['ProductID']."'/>
+                            <input type='hidden' name='product_name' value='" . htmlspecialchars($productDetails['ProductName'])."' />
+                            <input type='hidden' name='product_price' value='" . htmlspecialchars($productDetails['ProductPrice'])."'/>
+                            <button class='account' type='submit'>Add to Basket</button>
+                          </form>";
                 }
-            
+
                 echo "</td>";
                 echo "</tr>";
                 echo "</table>";
@@ -149,8 +177,6 @@ if ($productIdentifier > 0) {
                 <li><a href="index.php">Home</a></li>
                 <li><a href="">Contact Us</a></li>
                 <li><a href="">Contact us</a></li>
-                
-                
             </ul>
         </nav>
     </div>
