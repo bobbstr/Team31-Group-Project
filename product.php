@@ -97,7 +97,7 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
         </center>
 
         <div class="section">
-            <p><a href="search.php?q=sweets">Sweets</a> <a href="search.php?q=chocolate">Chocolate</a> <a href="search.php?q=savoury">Savoury</a> <a href="search.php?q=sweets mix">Pick-N-mix</a> <a href="search.php?q=drinks">Drinks</a> <a href="search.php?q=biscuits">Biscuits</a> <a href="search.php?q=">All</a></p>
+            <p><a href="search.php?q=sweets">Sweets</a> <a href="search.php?q=chocolate">Chocolate</a> <a href="search.php?q=savoury">Savoury</a> <a href="search.php?q=drinks">Drinks</a> <a href="search.php?q=biscuits">Biscuits</a> <a href="search.php?q=">All</a></p>
         </div>
     </div>
     <br/>
