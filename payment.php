@@ -153,7 +153,7 @@ if (!isset($_SESSION['basket'])) {
           <label for="cvv">CVV:</label>
           <input type="text" id="cvv" name="cvv" required class="cvv"><br><br>
 
-          <button type="submit" class="account">Submit Payment</button>
+          <a href="success.php"><button type="submit" class="account">Submit Payment</button></a>
         </form>
       </div>
     </div>
