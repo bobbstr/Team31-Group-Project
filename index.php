@@ -84,30 +84,34 @@
 
 
 
-    <div class = "description">
-        <div class = "desc1">
+    <div class="description">
+    <div class="desc1">
         <p>
             Welcome to SugarRush, your ultimate online destination for all things delicious! Discover a world of irresistible treats,<br> 
             from classic candies and gourmet chocolates to unique, handcrafted sweets. Whether you're looking to indulge, gift, or celebrate,<br>
-             our curated collection has something to delight every sweet tooth. Shop now and let the sweetness come to you!
+            our curated collection has something to delight every sweet tooth. Shop now and let the sweetness come to you!
         </p>
-        </div>  
-        <div class = "pic_buy">
-            <img src="Screenshot2.png" alt="into_img" class="log1">
-            <p class="buy">Special Sweet pack<br>£25</p>
-            <button class="account">BUY NOW</button>
-        </div>
-
+    </div>  
+    <div class="pic_buy">
+        <img src="Screenshot2.png" alt="into_img" class="log1">
+        <p class="buy">Special Sweet pack<br>£25</p>
+        <form action="basketAdd.php" method="POST">
+            <input type="hidden" name="product_id" value="43" />
+            <input type="hidden" name="product_name" value="Special Sweet pack" />
+            <input type="hidden" name="product_price" value="25" />
+            <button class="account" type="submit">BUY NOW</button>
+        </form>
     </div>
+</div>
 
+<div>
     <div>
-        <div>
-        <h1 class = "sec_header">
+        <h1 class="sec_header">
             Pick-n-Mix
         </h1>
-        </div> 
-        <div class = "pick_section">
-        <div class= "pick_desc">
+    </div> 
+    <div class="pick_section">
+        <div class="pick_desc">
             <p>
                 Explore our Pick-n-Mix section and create your perfect sweet blend!<br>
                 Choose from a wide selection of candies—from chewy gummies and fizzy sour treats to classic chocolates.<br>
@@ -115,67 +119,94 @@
                 packed just the way you like it.
             </p>
         </div>
-        <div class = "pic_img">
+        <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue and Pink Mix 1kg<br>£20</p>
-            <button class="account">BUY NOW</button>
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="40" />
+                <input type="hidden" name="product_name" value="Blue and Pink Mix 1kg" />
+                <input type="hidden" name="product_price" value="20" />
+                <button class="account" type="submit">BUY NOW</button>
+            </form>
         </div> 
-        <div class = "pic_img">
+        <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Blue and Red Mix 1kg<br>£20</p>
-            <button class="account">BUY NOW</button>
-
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="41" />
+                <input type="hidden" name="product_name" value="Blue and Red Mix 1kg" />
+                <input type="hidden" name="product_price" value="20" />
+                <button class="account" type="submit">BUY NOW</button>
+            </form>
         </div> 
-        <div class = "pic_img">
+        <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Red and Pink Mix 1kg<br>£20</p>
-            <button class="account">BUY NOW</button>
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="42" />
+                <input type="hidden" name="product_name" value="Red and Pink Mix 1kg" />
+                <input type="hidden" name="product_price" value="20" />
+                <button class="account" type="submit">BUY NOW</button>
+            </form>
         </div> 
-        </div>
-
     </div>
+</div>
 
-    <div>
-        
-        <div class = "pick_section">
-        <div class = "pic_img">
+<div>
+    <div class="pick_section">
+        <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Cold Mix 1kg<br>£15</p>
-            <button class="account">BUY NOW</button>
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="44" />
+                <input type="hidden" name="product_name" value="Cold Mix 1kg" />
+                <input type="hidden" name="product_price" value="15" />
+                <button class="account" type="submit">BUY NOW</button>
+            </form>
         </div> 
-        <div class = "pic_img">
+        <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Fizzy Mix 1kg<br>£15</p>
-            <button class="account">BUY NOW</button>
-
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="45" />
+                <input type="hidden" name="product_name" value="Fizzy Mix 1kg" />
+                <input type="hidden" name="product_price" value="15" />
+                <button class="account" type="submit">BUY NOW</button>
+            </form>
         </div> 
-        <div class = "pic_img">
+        <div class="pic_img">
             <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
             <p class="buy1">Sour Mix 1kg<br>£15</p>
-            <button class="account">BUY NOW</button>
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="46" />
+                <input type="hidden" name="product_name" value="Sour Mix 1kg" />
+                <input type="hidden" name="product_price" value="15" />
+                <button class="account" type="submit">BUY NOW</button>
+            </form>
         </div> 
-        </div>
-
     </div>
-    
+</div>
 
-    <div class = "description2">
-        <div class = "pic_buy2">
-            <img src="Screenshot4.png" alt="into_img" class="log3">
-            <p class="buy1">Drink Mix 1kg<br>£25</p>
-            <button class="account">BUY NOW</button>
-        </div>  
-        <div class = "desc2">
-            <p>
-                Quench your thirst with our Drink section! Discover a range of unique, refreshing beverages,<br>
-                 from classic sodas and fruity fizz to rare international flavors.<br>
-                  Perfect for pairing with your favorite sweets or enjoying on their own,<br>
-                   these drinks add an extra splash of fun to your treat experience.
-            </p>
-            
-        </div>
-
+<div class="description2">
+    <div class="pic_buy2">
+        <img src="Screenshot4.png" alt="into_img" class="log3">
+        <p class="buy1">Drink Mix 1kg<br>£25</p>
+        <form action="basketAdd.php" method="POST">
+            <input type="hidden" name="product_id" value="47" />
+            <input type="hidden" name="product_name" value="Drink Mix 1kg" />
+            <input type="hidden" name="product_price" value="25" />
+            <button class="account" type="submit">BUY NOW</button>
+        </form>
+    </div>  
+    <div class="desc2">
+        <p>
+            Quench your thirst with our Drink section! Discover a range of unique, refreshing beverages,<br>
+            from classic sodas and fruity fizz to rare international flavors.<br>
+            Perfect for pairing with your favorite sweets or enjoying on their own,<br>
+            these drinks add an extra splash of fun to your treat experience.
+        </p>
     </div>
+</div>
 
     <h1 class="order"> ORDER SWEETS AND TREATS NOW AND GET THEM DELIVERED IN A RUSH</h1>
 
