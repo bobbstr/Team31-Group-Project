@@ -1,0 +1,96 @@
+.aboutUs h2, .aboutUs p i {
+    text-align: center;
+    padding: 5px;
+    display: block; 
+}
+.aboutUs h1 {
+    text-align: center;
+}
+.mbar {
+    background-color: #38B6FF; 
+    min-height: 100px;
+    word-spacing: 50px;
+    
+    
+  }
+  
+  header {
+    position: relative; 
+  }
+  .bar{
+    background-color: #FB5AA6;
+    color:#FB5AA6;
+    height: 10px;
+  
+  }
+  .log {
+    width: 200px; 
+    height: 100px; 
+    left: 0; 
+    bottom: 0;
+    padding-top: 30px;
+    
+  }
+  
+  .section p {
+    margin: 0; 
+    word-spacing: 100px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    
+  }
+  
+  .search_i{
+    width: 50%;
+    margin-left: 50px;
+  
+  }
+  
+  .search{
+    align-items: center;
+    display: flex;
+    justify-content: center; 
+    padding-bottom: 20px;
+    
+  }
+  footer {
+    background-color: #f0f0f0;
+    padding: 2px;
+    text-align: center;   
+  }
+  .footerNav {
+    margin-top: 5px;
+  }
+  .footerNav p {
+    font-size: 14px;
+    text-align: center;
+  }
+  .footerNav ul {
+    padding: 0;
+  }
+  .footerNav ul li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .footerNav ul li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: black;
+  }
+  .footerNav ul li a:hover {
+    background-color: lightpink ;
+  }
+  .footerSocial {
+    margin-top: 10px;
+  }
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .footerCopyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+  }
