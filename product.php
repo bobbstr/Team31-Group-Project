@@ -129,7 +129,8 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Product Details (for Admin, show input fields)
                 echo "<td style='vertical-align: top; padding-left: 15px;'>";
                 echo "<b>" . htmlspecialchars($productDetails['ProductName']) . "</b><br/>";
-                echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
+                echo "<b>Price: </b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
+		echo "<b>Category: </b> " . htmlspecialchars($productDetails['ProductCategory']) . "<br/>";
                 echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
                 echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
 		echo "<b>Weight: </b> " . htmlspecialchars($productDetails['ProductWeight']) . "g<br/>";
