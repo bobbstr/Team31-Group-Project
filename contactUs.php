@@ -150,7 +150,7 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="">Contact Us</a></li>
-                <li><a href="">Contact us</a></li>
+                <li><a href="aboutUs.html">About us</a></li>
                 
                 
             </ul>
