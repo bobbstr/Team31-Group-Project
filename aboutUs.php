@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Sugar Rush</title>
-    <link rel="stylesheet" type="text/css" href="aboutus.css" />
+    <link rel="stylesheet" type="text/css" href="aboutUs.css" />
 </head>
 <body>
 
