@@ -132,6 +132,8 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
                 echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
                 echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
+		echo "<b>Weight: </b> " . htmlspecialchars($productDetails['ProductWeight']) . "g<br/>";
+		echo "<b>In Stock: </b> " . htmlspecialchars($productDetails['InStock']) . "<br/>";
 
                 if ($anAdmin) {
                     // Admin can edit product details
