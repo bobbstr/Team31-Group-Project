@@ -11,9 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="image.css" />
 </head>
-<body>
+<body class="wrapper_main">
     <header>
         <div class="mbar">
             <div class = "bar">
@@ -39,7 +38,7 @@
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                 <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                     <input id="search" type="text" class="search_i" placeholder="Search...">
-                    <input type="submit" value="Search" class="account">
+                    <input type="submit" value="Search" class="account" id="search_button">
                 </form>
                
             </div>
