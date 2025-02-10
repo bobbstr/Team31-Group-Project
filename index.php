@@ -44,12 +44,12 @@
             </div>
 	    </center>
             <div class="section">
-                <p><a href="search.php?q=sweets">Sweets</a>
-                <a href="search.php?q=chocolate">Chocolate</a>
-                <a href="search.php?q=savoury">Savoury</a>     
-                <a href="search.php?q=drinks">Drinks</a>       
-                <a href="search.php?q=biscuits">Biscuits</a>	
-                <a href="search.php?q=">All</a></p>
+                <p><a href="search.php?q=sweets" class="filter_button" id="sweets">Sweets</a> <!-- "id=" is used to control background colour independently for each filter button.-->
+                <a href="search.php?q=chocolate" class="filter_button" id="chocolate">Chocolate</a>
+                <a href="search.php?q=savoury" class="filter_button" id="savoury">Savoury</a>
+                <a href="search.php?q=drinks" class="filter_button" id="drinks">Drinks</a>
+                <a href="search.php?q=biscuits" class="filter_button" id="biscuits">Biscuits</a>
+                <a href="search.php?q=" class="filter_button" id="all">All</a></p>
             </div>
 
         </div>
