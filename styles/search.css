@@ -29,18 +29,12 @@ a, u {
     color: black;
 }
 
-.account{
-    font-weight: 600;
-    margin: 0 10px;
-    width: 100px;
-    padding: 10px 0;
-    cursor: pointer;
-    border: 0;
-    border-radius: 4px;
-    transition: 0.4s;
+.filter_button {
+    text-decoration: none;
     color: white;
-    background-color: #FB5AA6;
-    border-radius: 4px;
+    font-weight: 600;
+    border-radius: 42px;
+    padding: 5px;
     border: 3px solid rgb(0, 0, 0);
 }
 
@@ -49,3 +43,21 @@ a, u {
     width:110px;
     box-shadow: 0 0 20px #FB5AA6;
   }
+
+@media only screen and (max-width: 500px) { /* MOBILE PHONE LAYOUT PROPERTIES GO HERE */
+    .filter_button {
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 42px;
+        padding: 0px; /* Changes button padding to zero to make them smaller for small screens. */
+        border: 3px solid rgb(0, 0, 0);
+    }
+
+}
+
+@media only screen and (max-width: 800px) { /* TABLET LAYOUT PROPERTIES GO HERE */
+
+
+
+}

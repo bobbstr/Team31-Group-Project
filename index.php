@@ -11,9 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="image.css" />
 </head>
-<body>
+<body class="wrapper_main">
     <header>
         <div class="mbar">
             <div class = "bar">
@@ -39,18 +38,18 @@
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                 <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                     <input id="search" type="text" class="search_i" placeholder="Search...">
-                    <input type="submit" value="Search" class="account">
+                    <input type="submit" value="Search" class="account" id="search_button">
                 </form>
                
             </div>
 	    </center>
             <div class="section">
-                <p><a href="search.php?q=sweets">Sweets</a>
-                <a href="search.php?q=chocolate">Chocolate</a>
-                <a href="search.php?q=savoury">Savoury</a>     
-                <a href="search.php?q=drinks">Drinks</a>       
-                <a href="search.php?q=biscuits">Biscuits</a>	
-                <a href="search.php?q=">All</a></p>
+                <p><a href="search.php?q=sweets" class="filter_button" id="sweets">Sweets</a> <!-- "id=" is used to control background colour independently for each filter button.-->
+                <a href="search.php?q=chocolate" class="filter_button" id="chocolate">Chocolate</a>
+                <a href="search.php?q=savoury" class="filter_button" id="savoury">Savoury</a>
+                <a href="search.php?q=drinks" class="filter_button" id="drinks">Drinks</a>
+                <a href="search.php?q=biscuits" class="filter_button" id="biscuits">Biscuits</a>
+                <a href="search.php?q=" class="filter_button" id="all">All</a></p>
             </div>
 
         </div>
