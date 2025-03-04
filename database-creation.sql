@@ -1,4 +1,3 @@
-CREATE OR REPLACE USER 'db_user'@'localhost' IDENTIFIED BY 'password';
 
 CREATE OR REPLACE DATABASE sugarrush;
 
