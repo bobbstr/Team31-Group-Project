@@ -21,7 +21,6 @@ body {
     }
     
     .contactform {
-       font-family: Impact, fantasy;
       margin-top: 20px;
       padding: 20px;
       background-color: white;
@@ -100,6 +99,7 @@ body {
     
   }
   footer {
+    font-family: Impact, fantasy;
     background-color: #f0f0f0;
     padding: 2px;
     text-align: center;   
