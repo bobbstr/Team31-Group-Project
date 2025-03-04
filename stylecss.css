@@ -21,6 +21,7 @@ body {
     }
     
     .contactform {
+      font-family: Impact, fantasy;
       margin-top: 20px;
       padding: 20px;
       background-color: white;
