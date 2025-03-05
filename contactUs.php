@@ -134,7 +134,7 @@
             </textarea>
             
             <div class="submit">
-              <input type="submit" value="Submit" onclick="validateAndSubmit()">
+              <input type="submit" value="Submit" onclick="showConfirmation(event)">
             </div>
             
       </div>
