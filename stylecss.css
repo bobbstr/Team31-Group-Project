@@ -23,7 +23,7 @@ body {
     .contactform {
       margin-top: 20px;
       padding: 20px;
-      background-color: white;
+      background-color: rgb(255, 255, 255);
       border-radius: 10px;
       width: 50%; 
       margin-left: auto; 
