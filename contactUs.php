@@ -5,6 +5,23 @@
     <head>
         <title>Contact us</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+        function showConfirmation(event) {
+
+let message = `
+First Name: ${document.getElementById("FirstName").value}
+Last Name: ${document.getElementById("lname").value}
+Email: ${document.getElementById("email").value}
+Confirm Email: ${document.getElementById("confirmemail").value}
+Contact Number: ${document.getElementById("ContactNumber").value}
+Preferred Contact Date: ${document.getElementById("contact").value}
+Enquiry: ${document.getElementById("Enquire").value}`;
+
+alert(message);
+}
+    </script>
+
     </head>
 
 <body>
