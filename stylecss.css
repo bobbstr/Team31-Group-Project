@@ -49,15 +49,8 @@ body {
       padding: 20px;
       text-align: center;
   }
-  
-  .mbar {
-    background-color: #38B6FF; 
-    min-height: 100px;
-    word-spacing: 50px;
-    
-    
-  }
-  
+
+  /*
   header {
     position: relative; 
   }
@@ -84,20 +77,19 @@ body {
     padding-left: 100px;
     
   }
-  
-  .search_i{
-    width: 50%;
-    margin-left: 50px;
-  
-  }
-  
-  .search{
-    align-items: center;
+
+  */
+
+.search_i{
+    /* align-items: center; */
     display: flex;
-    justify-content: center; 
-    padding-bottom: 20px;
-    
-  }
+    width: 50%;
+    /* margin-left: 10px; */
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
   footer {
     background-color: #f0f0f0;
     padding: 2px;
