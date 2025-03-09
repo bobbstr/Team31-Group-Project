@@ -105,4 +105,5 @@ foreach ($productDetails as $product) {
             </a>
         </div>
 </body>
+
 </html>

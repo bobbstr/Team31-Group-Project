@@ -61,7 +61,9 @@ mysqli_close($conn); // Close the database connection
 <body>
     
     <header id="mainHeader">
-        <img src="Logo.jpg.png" alt="Sugar Rush Logo" class="logo">
+        <a href="index.php">
+            <img src="Logo.jpg.png" alt="Sugar Rush Logo" class="logo">
+        </a>
         <h1>Sugar Rush</h1>
     </header>
 
