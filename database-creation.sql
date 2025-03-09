@@ -65,13 +65,13 @@ VALUES
 ('Haribo', 'Haribo Tangfastics', 'Sweets', 'images/Sweets/Haribo-Tangfastics.avif', 180, 1.50, 1),
 ('Nerds', 'Nerds Gummy Clusters', 'Sweets', 'images/Sweets/Nerds-Gummy-Clusters.avif', 200, 1.70, 1),
 ('Rowntrees', 'Rowntrees Randoms', 'Sweets', 'images/Sweets/Rowntrees-Randoms.avif', 300, 1.70, 1),
-('Sugar Rush', 'Blue and Pink Mix 1kg', 'Mix', 'images/Mix/pink-blue-sour.webp', 1000, 20.00, 1),
-('Sugar Rush', 'Blue and Red Mix 1kg', 'Mix', 'images/Mix/red-blue-sour.webp', 1000, 20.00, 1),
-('Sugar Rush', 'Red and Pink Mix 1kg', 'Mix', 'images/Mix/red-pink.webp', 1000, 20.00, 1),
-('Sugar Rush', 'Special Pack 1kg', 'Mix', 'images/Mix/special-pack.webp', 1000, 25.00, 1),
-('Sugar Rush', 'Cold Mix 1kg', 'Mix', 'images/Mix/ice-cubes.jpg', 1000,15.00, 1),
-('Sugar Rush', 'Fizzy Mix 1kg', 'Mix', 'images/Mix/sour-sweets-assortment.webp', 1000, 15.00, 1),
-('Sugar Rush', 'Sour Mix 1kg', 'Mix', 'images/Mix/fizzy-cola.jpg', 1000, 15.00, 1),
+('Sugar Rush', 'Blue and Pink Mix 1kg', 'Sweets', 'images/Mix/pink-blue-sour.webp', 1000, 20.00, 1),
+('Sugar Rush', 'Blue and Red Mix 1kg', 'Sweets', 'images/Mix/red-blue-sour.webp', 1000, 20.00, 1),
+('Sugar Rush', 'Red and Pink Mix 1kg', 'Sweets', 'images/Mix/red-pink.webp', 1000, 20.00, 1),
+('Sugar Rush', 'Special Pack 1kg', 'Sweets', 'images/Mix/special-pack.webp', 1000, 25.00, 1),
+('Sugar Rush', 'Cold Mix 1kg', 'Sweets', 'images/Mix/ice-cubes.jpg', 1000,15.00, 1),
+('Sugar Rush', 'Fizzy Mix 1kg', 'Sweets', 'images/Mix/sour-sweets-assortment.webp', 1000, 15.00, 1),
+('Sugar Rush', 'Sour Mix 1kg', 'Sweets', 'images/Mix/fizzy-cola.jpg', 1000, 15.00, 1),
 ('Sugar Rush', 'Drink Mix 1kg', 'Drinks', 'images/Mix/multipack-drinks.jpeg', 1000, 25.00, 1);
 
 CREATE TABLE product_descriptions (
