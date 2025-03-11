@@ -1,4 +1,3 @@
-CREATE OR REPLACE USER 'db_user'@'localhost' IDENTIFIED BY 'password';
 
 CREATE OR REPLACE DATABASE sugarrush;
 
@@ -66,26 +65,14 @@ VALUES
 ('Haribo', 'Haribo Tangfastics', 'Sweets', 'images/Sweets/Haribo-Tangfastics.avif', 180, 1.50, 1),
 ('Nerds', 'Nerds Gummy Clusters', 'Sweets', 'images/Sweets/Nerds-Gummy-Clusters.avif', 200, 1.70, 1),
 ('Rowntrees', 'Rowntrees Randoms', 'Sweets', 'images/Sweets/Rowntrees-Randoms.avif', 300, 1.70, 1),
-
-
-('Sugar Rush', 'Blue and Pink Mix 1kg', 'Mix', 'images/Mix/Blue-Pink-Mix.jpg', 1000, 20.00, 1),
-('Sugar Rush', 'Blue and Red Mix 1kg', 'Mix', 'images/Mix/Blue-Red-Mix.jpg', 1000, 20.00, 1),
-('Sugar Rush', 'Red and Pink Mix 1kg', 'Mix', 'images/Mix/Red-Pink-Mix.jpg', 1000, 20.00, 1),
-('Sugar Rush', 'Special Pack 1kg', 'Mix', 'images/Mix/Special-Pack.jpg', 1000, 25.00, 1),
-('Sugar Rush', 'Cold Mix 1kg', 'Mix', 'images/Mix/Cold-Mix.jpg', 1000,15.00, 1),
-('Sugar Rush', 'Fizzy Mix 1kg', 'Mix', 'images/Mix/Fizzy-Mix.jpg', 1000, 15.00, 1),
-('Sugar Rush', 'Sour Mix 1kg', 'Mix', 'images/Mix/Fizzy-Mix.jpg', 1000, 15.00, 1),
-('Sugar Rush', 'Drink Mix 1kg', 'Drinks', 'images/Mix/Chocolate-Mix.jpg', 1000, 25.00, 1);
-
-
-
-
-
-
-
-
-
-
+('Sugar Rush', 'Blue and Pink Mix 1kg', 'Sweets', 'images/Mix/pink-blue-sour.webp', 1000, 20.00, 1),
+('Sugar Rush', 'Blue and Red Mix 1kg', 'Sweets', 'images/Mix/red-blue-sour.webp', 1000, 20.00, 1),
+('Sugar Rush', 'Red and Pink Mix 1kg', 'Sweets', 'images/Mix/red-pink.webp', 1000, 20.00, 1),
+('Sugar Rush', 'Special Pack 1kg', 'Sweets', 'images/Mix/special-pack.webp', 1000, 25.00, 1),
+('Sugar Rush', 'Cold Mix 1kg', 'Sweets', 'images/Mix/ice-cubes.jpg', 1000,15.00, 1),
+('Sugar Rush', 'Fizzy Mix 1kg', 'Sweets', 'images/Mix/sour-sweets-assortment.webp', 1000, 15.00, 1),
+('Sugar Rush', 'Sour Mix 1kg', 'Sweets', 'images/Mix/fizzy-cola.jpg', 1000, 15.00, 1),
+('Sugar Rush', 'Drink Mix 1kg', 'Drinks', 'images/Mix/multipack-drinks.jpeg', 1000, 25.00, 1);
 
 CREATE TABLE product_descriptions (
     DescriptionID int NOT NULL PRIMARY KEY,
@@ -138,9 +125,14 @@ VALUES
 (37, "Fizzy Fruit Flavour, Cola Flavour and Sweet Foam Gums.", "Glucose Syrup, Sugar, Gelatine, Dextrose, Acids: Citric Acid, Malic Acid, Acidity Regulators: Calcium Citrates, Sodium Hydrogen Malate, Caramelised Sugar Syrup, Fruit and Plant Concentrates: Apple, Aronia, Blackcurrant, Carrot, Elderberry, Grape, Hibiscus, Kiwi, Lemon, Mango, Orange, Passion Fruit, Safflower, Spirulina, Flavouring, Elderberry Extract, Glazing Agent: Carnauba Wax."),
 (38, "Nerds Candy SWTS Gummy CLSTRS Fruits 113g.", "Glucose Syrup*, Sugar, Dextrose, Gelatine (Pork), Modified Maize Starch*, Acids (Malic Acid, Citric Acid), Water, Acidity Regulator (Sodium Citrate), Concentrated Fruit Juices (Apple, Watermelon), Plant and Vegetable Concentrates (Black Carrot, Spirulina, Red Radish), Flavourings, Thickener (Gum Arabic), Glazing Agent (Carnauba Wax), Colour (Curcumin), *Contains Glucose Syrup and Starch From Genetically Modified Maize."),
 (39, "Assorted Fruit Flavoured Jellies.", "Glucose Syrup, Sugar, Gelatine, Concentrated Fruit Juices (1.3%) (Apple, Blueberry, Black Carrot, Orange, Lemon, Raspberry, Mandarin, Strawberry), Acids (Citric Acid, Malic Acid, Tartaric Acid, Lactic Acid, Acetic Acid), Fructose, Humectant (Glycerol), Vegetable Oils (Palm, Coconut, Rapeseed), Fruit and Vegetable Concentrates (Black Carrot, Carrot, Safflower, Hibiscus), Natural Flavourings, Acidity Regulators (Sodium Ascorbate, Sodium Citrate), Stabilisers (Carageenan, Locust Bean Gum), Salt, Spirulina Concentrate, Glazing Agent (Carnauba Wax), Invert Sugar Syrup, Colours (Paprika Extract, Beta-Carotene, Chlorophylls and Chloropyllins, Curcumin)."),
-(40, "A mixture of sour sweets.", "Glucose Syrup, Sugar, Gelatine, Dextrose, Acids: Citric Acid, Malic Acid, Acidity Regulators: Calcium Citrates, Sodium Hydrogen Malate, Caramelised Sugar Syrup, Fruit and Plant Concentrates: Apple, Aronia, Blackcurrant, Carrot, Elderberry, Grape, Hibiscus, Kiwi, Lemon, Mango, Orange, Passion Fruit, Safflower, Spirulina, Flavouring, Elderberry Extract, Glazing Agent: Carnauba Wax."),
-(41, "A mixture of hard sweets.", "Glucose Syrup, Sugar, Gelling Agent: Gelatine, Modified Starch, Acidity Regulators: Citric Acid, Trisodium Citrate, Flavourings, Pectin, Glazing Agent: Carnaubawax, Colour: Anthocyanin."),
-(42, "A mixture of liquorice sweets.", "Sugar, Molasses, Glucose Syrup (contains Sulphites), Wheat Flour (with added Calcium, Niacin, Iron, Thiamin), Desiccated Coconut, Starch, Gelatine, Fat-Reduced Cocoa Powder, Liquorice Extract, Colours (Plain Caramel, Beetroot Red, Paprika Extract, Curcumin, Vegetable Carbon, Anthocyanins, Lutein), Caramel Sugar Syrup, Flavourings, Coconut Oil, Concentrated Vegetable Extract (Spirulina), Glazing Agent (Carnauba Wax).");
+(40, "Sweets carefully formulated to only reflect pink and blue hues from the visible spectrum.", "Glucose Syrup*, Sugar, Dextrose, Gelatine (Pork), Modified Maize Starch*, Acids (Malic Acid, Citric Acid), Water, Acidity Regulator (Sodium Citrate), Concentrated Fruit Juices (Apple, Watermelon), Plant and Vegetable Concentrates (Black Carrot, Spirulina, Red Radish), Flavourings, Thickener (Gum Arabic), Glazing Agent (Carnauba Wax), Colour (Curcumin), *Contains Glucose Syrup and Starch From Genetically Modified Maize."),
+(41, "Red sweet, or blue sweet. Which one will you try first?", "Glucose Syrup*, Sugar, Dextrose, Gelatine (Pork), Modified Maize Starch*, Acids (Malic Acid, Citric Acid), Water, Acidity Regulator (Sodium Citrate), Concentrated Fruit Juices (Apple, Watermelon), Plant and Vegetable Concentrates (Black Carrot, Spirulina, Red Radish), Flavourings, Thickener (Gum Arabic), Glazing Agent (Carnauba Wax), Colour (Curcumin), *Contains Glucose Syrup and Starch From Genetically Modified Maize."),
+(42, "Romantic colours. Could make a nice valentines day gift?", "Glucose Syrup*, Sugar, Dextrose, Gelatine (Pork), Modified Maize Starch*, Acids (Malic Acid, Citric Acid), Water, Acidity Regulator (Sodium Citrate), Concentrated Fruit Juices (Apple, Watermelon), Plant and Vegetable Concentrates (Black Carrot, Spirulina, Red Radish), Flavourings, Thickener (Gum Arabic), Glazing Agent (Carnauba Wax), Colour (Curcumin), *Contains Glucose Syrup and Starch From Genetically Modified Maize."),
+(43, "Nobody is sure what is in these.", "idk"),
+(44, "Isn't this literally just a bag of ice??", "water"),
+(45, "See title.", "Glucose Syrup*, Sugar, Dextrose, Gelatine (Pork), Modified Maize Starch*, Acids (Malic Acid, Citric Acid), Water, Acidity Regulator (Sodium Citrate), Concentrated Fruit Juices (Apple, Watermelon), Plant and Vegetable Concentrates (Black Carrot, Spirulina, Red Radish), Flavourings, Thickener (Gum Arabic), Glazing Agent (Carnauba Wax), Colour (Curcumin), *Contains Glucose Syrup and Starch From Genetically Modified Maize."),
+(46, "Makes your tongue go funny. Try it.", "Glucose Syrup*, Sugar, Dextrose, Gelatine (Pork), Modified Maize Starch*, Acids (Malic Acid, Citric Acid), Water, Acidity Regulator (Sodium Citrate), Concentrated Fruit Juices (Apple, Watermelon), Plant and Vegetable Concentrates (Black Carrot, Spirulina, Red Radish), Flavourings, Thickener (Gum Arabic), Glazing Agent (Carnauba Wax), Colour (Curcumin), *Contains Glucose Syrup and Starch From Genetically Modified Maize."),
+(47, "Sweets are good, and staying hydrated is also good.", "Glucose Syrup*, Sugar, Dextrose, Gelatine (Pork), Modified Maize Starch*, Acids (Malic Acid, Citric Acid), Water, Acidity Regulator (Sodium Citrate), Concentrated Fruit Juices (Apple, Watermelon), Plant and Vegetable Concentrates (Black Carrot, Spirulina, Red Radish), Flavourings, Thickener (Gum Arabic), Glazing Agent (Carnauba Wax), Colour (Curcumin), *Contains Glucose Syrup and Starch From Genetically Modified Maize.");
 
 /* CREATION OF USER ACCOUNTS TABLE */
 
