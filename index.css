@@ -79,14 +79,16 @@ header {
 }
 
 .section p {
-    margin: 0; /* Remove default margin from paragraph */
-    /* Add some padding if needed */
-    word-spacing: 100px;
-    text-align: center;
+    justify-content: center;
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0; 
+    word-spacing: 10%;
+    text-align: left;
     padding-bottom: 20px;
-    padding-left: 100px;
-    
-}
+    padding-left: 5%;
+  }
 
 .search_i{
     /* align-items: center;
@@ -315,14 +317,6 @@ header {
     margin-left: 100px;
 }
 
-/* tfgyuiouutyfughiojuytuuyuiouiytuyghuijouiy */
-
-/* .pic_row{
-    align-items: center;
-    width: auto;
-    height: 200px;
-
-} */
 
 .pick_section1{
     display: flex;
@@ -330,10 +324,6 @@ header {
     align-items:center;
     display: flex;
     margin: 70px;
-    /* display: flex;
-    align-items: center;
-    gap: 20px; */
-    
 }
 .order{
     color:#FB5AA6;
@@ -383,38 +373,39 @@ footer {
     color: #888;
 }
 
+.section p {
+    justify-content: center; 
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0; 
+    word-spacing: 10%;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-left: 5%;
+  }
+
 .filter_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: white;
     font-weight: 600;
-    border-radius: 42px;
-    padding: 5px;
+    border-radius: 62px;
+    padding: 1px; 
     border: 3px solid rgb(0, 0, 0);
+    width: 100px; 
+    height: 30px; 
 }
 
-#sweets {
-    background-color: brown;
-}
-
-#chocolate {
-    background-color: brown;
-}
-
-#savoury {
-    background-color: brown;
-}
-
-#drinks {
-    background-color: brown;
-}
-
-#biscuits {
-    background-color: brown;
+#sweets, #chocolate, #savoury, #drinks, #biscuits {
+    background-color: #8252b8 ;
 }
 
 #all {
     color: black;
-    background-image: linear-gradient(yellow, red 100%);
+     background-image: linear-gradient(#8252b8, hotpink 100%); /* This fades from the food button colours to the fucntion button colours */
 }
 
 @media only screen and (max-width: 500px) { /* MOBILE PHONE LAYOUT PROPERTIES GO HERE */
@@ -466,24 +457,6 @@ footer {
 
   #search_button {
       display: inline-block;
-  }
-
-  .section p {
-      margin: 0; /* Remove default margin from paragraph */
-      /* Add some padding if needed */
-      word-spacing: 10%;
-      text-align: left;
-      padding-bottom: 20px;
-      padding-left: 5%;
-  }
-
-  .filter_button {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      border-radius: 42px;
-      padding: 0px; /* Changes button padding to zero to make them smaller for small screens. */
-      border: 3px solid rgb(0, 0, 0);
   }
 
   .description {
