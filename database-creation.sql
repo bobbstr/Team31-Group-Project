@@ -178,6 +178,38 @@ CREATE TABLE userid (
 INSERT INTO `userid` (`id`, `firstname`, `lastname`, `email`, `password`, `admin`) VALUES
 (1, 'Admin', 'Account', 'admin@admin.com', '$2y$10$UjH0ueH4My0PHPREOXChi.wFcKBIr3QbsAR8mH95kps7QqvPBXND6', 1); -- Email: admin@admin.com, Password: admin123!
 
+CREATE TABLE order_contents (
+    orderContentsID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    productID int NOT NULL,
+    productQuantity int NOT NULL,
+    productPrice decimal(8, 2) NOT NULL,
+    parentOrder int NOT NULL
+);
+
+INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
+VALUES
+(12, 15, 50.00, 1); -- test valuesCREATE TABLE orders
+
+CREATE TABLE orders (
+    orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    customerID int NOT NULL,
+    orderContentsID int NOT NULL,
+    orderDate date DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_order_contents_association
+        FOREIGN KEY (orderContentsID)
+        REFERENCES order_contents (orderContentsID)
+        ON DELETE CASCADE
+    /*CONSTRAINT fk_customer_association
+        FOREIGN KEY (customerID)
+        REFERENCES userid(id)*/
+);
+
+INSERT INTO orders (customerID, orderContentsID)
+VALUES
+(1, 1); --This is just dummy data for testing
+
+
+
 --
 -- Indexes for dumped tables
 --
