@@ -1,6 +1,8 @@
 <?php
 include("database.php");
 session_start();
+
+global $conn;
 ?>
 
 <!DOCTYPE html>
@@ -35,28 +37,32 @@ session_start();
 
         <center>
             <div class="search">
-                <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
+                <form class="search_i" action="/orders.php" method="GET" onsubmit="window.location = 'orders.php?q=' + search.value.replace(/ /g, '+'); return false;">
                     <input id="search" type="text" class="search_i" placeholder="Search...">
                     <input type="submit" value="Search" class="account">
                 </form>
             </div>
         </center>
-
-
     </div>
 </header>
 
+<center><b></b><h1>CUSTOMER ORDERS:</h1></b></center></center>
 <div class="query-results">
     <?php
+
+    // This is where orders are displayed. Admins can see the orders from all customers, and customers can see their own.
+
     if (isset($_GET['q'])) {
         $searchQuery = $_GET['q'];
 
-
-
         // Use prepared statements to avoid SQL injection
-        $sqlQuery1 = "SELECT * FROM orders WHERE  LIKE ? OR ProductName LIKE ? OR ProductCategory LIKE ?";
-        $sqlQuery2 = "SELECT * FROM orders WHERE  LIKE ? OR ProductName LIKE ? OR ProductCategory LIKE ?";
-        if ($stmt = $conn->prepare($sqlQuery)) {
+
+        // This statement enables resolving names and email addresses to their associated user ids.
+        // Having associated user IDs allows us to search through the orders table, and find all orders associated with a particular user (or users, if an admin is performing the search).
+
+        $queryIdentifiers = "SELECT * FROM userid WHERE firstname LIKE ? OR lastname LIKE ? OR email LIKE ?";
+
+        if ($stmt = $conn->prepare($queryIdentifiers)) {
             $searchTerm = "%$searchQuery%";
             $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
             $stmt->execute();
@@ -64,18 +70,19 @@ session_start();
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<div class='pic_img'>";
-                    echo "<a href='product.php?id=".$row['ProductID']."'>";
-                    echo "<img src='".$row['ProductImage']."' alt='".$row['ProductName']."' class='log2'/>";
-                    echo "<p class='buy1'>".$row['ProductName']."</p>";
-                    echo "</a></br>";
-                    echo "\n\nPrice: £".$row['ProductPrice'];
+                    echo "<b>".$row['firstname']."<b> ";
+                    echo "<b>".$row['lastname']."<b>";
+                    echo "</br></br>";
+                    echo "<b>(".$row['email'].")<b>";
+                    echo "</br></br>";
+
 
                     // Debugging: Output hidden inputs
                     echo "<form action='basketAdd.php' method='POST'>";
                     echo "<input type='hidden' name='product_id' value='".$row['ProductID']."' />";
                     echo "<input type='hidden' name='product_name' value='".htmlspecialchars($row['ProductName'])."' />";
                     echo "<input type='hidden' name='product_price' value='".htmlspecialchars($row['ProductPrice'])."' />";
-                    echo "<button class='account' type='submit'>Add to Basket</button>";
+                    echo "<button class='account' type='submit'>View Orders</button>";
                     echo "</form>";
 
 
@@ -91,15 +98,11 @@ session_start();
 </div>
 
 <footer>
-
-
     <div class="footerLogo">
         <a href="index.php">
             <img src="Logo.jpg.png" alt="logo" width="100" height="100">
         </a>
     </div>
-
-
     <div class="footerNav">
         <h2>Our Pages</h2>
         <p>Use the links below to navigate between different pages:</p>
