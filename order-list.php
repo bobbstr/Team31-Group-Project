@@ -13,7 +13,7 @@ global $conn;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="styles/orders.css" />
+    <link rel="stylesheet" type="text/css" href="styles/order-list.css" />
 </head>
 <body>
 
@@ -46,54 +46,41 @@ global $conn;
     </div>
 </header>
 
-<center><b></b><h1>CUSTOMER ORDERS:</h1></b></center></center>
-<div class="query-results">
-    <?php
+<?php
+if (isset($_GET['u'])) {
 
-    // This is where orders are displayed. Admins can see the orders from all customers, and customers can see their own.
+    // Use prepared statements to avoid SQL injection
+    // The 'u' URL parameter represents the userid.
 
-    if (isset($_GET['q'])) {
-        $searchQuery = $_GET['q'];
+    $userId = $_GET['u'];
 
-        // Use prepared statements to avoid SQL injection
+    $queryUser = "SELECT * FROM userid WHERE id = ?";
 
-        // This statement enables resolving names and email addresses to their associated user ids.
-        // Having associated user IDs allows us to search through the orders table, and find all orders associated with a particular user (or users, if an admin is performing the search).
-
-        $queryIdentifiers = "SELECT * FROM userid WHERE firstname LIKE ? OR lastname LIKE ? OR email LIKE ?";
-
-        if ($stmt = $conn->prepare($queryIdentifiers)) {
-            $searchTerm = "%$searchQuery%";
-            $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<div class='pic_img'>";
-                    echo "<b>".$row['firstname']."<b> ";
-                    echo "<b>".$row['lastname']."<b>";
-                    echo "</br></br>";
-                    echo "<b>(".$row['email'].")<b>";
-                    echo "</br></br>";
-
-                    // Debugging: Output hidden inputs
-                    echo "<form action='order-list.php?u=".$row['id']."', method='POST'>";
-                    echo "<input type='hidden' name='product_id' value='".$row['ProductID']."' />";
-                    echo "<button class='account' type='submit'>View Orders</button>";
-                    echo "</form>";
+    if ($stmt = $conn->prepare($queryUser)) {
+        $searchTerm = $userId;
+        $stmt->bind_param("s", $searchTerm);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<center><b></b><h1>".$row['firstname']."'s Orders:</h1></b></center>";
+                // Debugging: Output hidden inputs
+                echo "<form action='order-list.php?p=".$row['id']."', method='POST'>";
+                echo "<input type='hidden' name='product_id' value='".$row['ProductID']."' />";
+                echo "<button class='account' type='submit'>View Orders</button>";
+                echo "</form>";
 
 
-                    echo "</div>";
-                }
-            } else {
-                echo "No results found";
+                echo "</div>";
             }
-            $stmt->close();
+        } else {
+            echo "No results found";
         }
+        $stmt->close();
     }
-    ?>
-</div>
+}
 
+?>
 <footer>
     <div class="footerLogo">
         <a href="index.php">
