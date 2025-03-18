@@ -56,7 +56,7 @@
     </header>
 
 
-    <div >
+    <div>
     <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
     <script>
         const images = [
@@ -65,14 +65,14 @@
             "Untitled3.png"
         ];
 
-        let currenti = 0;
+        let currenti = 1;
 
         function changImages() {
             currenti = (currenti + 1) % images.length; 
             document.getElementById('image').src = images[currenti];
         }
 
-        interval(changImages, 3000);
+        setInterval(changImages, 3000);
     </script>
     </div>
 
