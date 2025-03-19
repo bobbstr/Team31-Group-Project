@@ -26,6 +26,7 @@ global $conn;
             <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
             <div class="log_sin">
                 <?php if (isset($_SESSION['email'])): ?>
+                    <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
                     <a href="Basket.php"><button class="account">Basket</button></a>
                 <?php else: ?>

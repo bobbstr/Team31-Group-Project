@@ -78,8 +78,9 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
             <div class="log_sin">
                 <?php if (isset($_SESSION['email'])):?>
+                    <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
-		    <a href="Basket.php"><button class="account">Basket</button></a>
+		            <a href="Basket.php"><button class="account">Basket</button></a>
                 <?php else: ?>
                     <a href="login.php"><button class="account">Log In</button></a>  
                     <a href="signup.php"><button class="account">sign Up</button></a>

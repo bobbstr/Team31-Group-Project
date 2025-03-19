@@ -26,6 +26,7 @@ global $conn;
             <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
             <div class="log_sin">
                 <?php if (isset($_SESSION['email'])): ?>
+                    <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
                     <a href="Basket.php"><button class="account">Basket</button></a>
                 <?php else: ?>
@@ -64,14 +65,6 @@ if (isset($_GET['u'])) {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<center><b></b><h1>".$row['firstname']."'s Orders:</h1></b></center>";
-                // Debugging: Output hidden inputs
-                echo "<form action='order-list.php?p=".$row['id']."', method='POST'>";
-                echo "<input type='hidden' name='product_id' value='".$row['ProductID']."' />";
-                echo "<button class='account' type='submit'>View Orders</button>";
-                echo "</form>";
-
-
-                echo "</div>";
             }
         } else {
             echo "No results found";
@@ -81,6 +74,100 @@ if (isset($_GET['u'])) {
 }
 
 ?>
+
+<div class="query-results">
+
+
+<?php
+
+
+    function getProductName($productId) { // All this code does is resolve the product_id in order contents to the product's name.
+        global $conn;
+        $productTableQuery = "SELECT productName FROM products WHERE productID = ?";
+        if ($stmt_product = $conn->prepare($productTableQuery)) {
+            $stmt_product->bind_param("i", $productId);
+            $stmt_product->execute();
+            $result = $stmt_product->get_result();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    return $row['productName'];
+                }
+            }
+        }
+        else
+            return false;{
+        }
+        return false;
+    }
+
+    if (isset($_GET['u'])) {
+        $userId = $_GET['u'];
+
+        // Use prepared statements to avoid SQL injection
+        $sqlQuery = "SELECT * FROM orders WHERE customerID = ?";
+        if ($stmt = $conn->prepare($sqlQuery)) {
+            $stmt->bind_param("s", $userId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $orderID = $row['orderID'];
+                    $orderContentsID = $row['orderContentsID'];
+                    $orderDate = $row['orderDate'];
+
+                    echo "<div class='pic_img'>";
+                    echo "<b>Order ID: </b>$orderID<br>";
+                    echo "<b>Order Date: </b>$orderDate</br></br>";
+                    echo "<b>Order Contents: </b><br><br>";
+
+                    // Uhhhhhhhhh this is getting confusing. I probably should have put this 'Inner'/nested part into its own function.
+
+                    $sqlInnerQuery = "SELECT * FROM order_contents WHERE orderContentsID = ?";
+
+                    if ($stmtInner = $conn->prepare($sqlInnerQuery)) { // This inner bit of code queries the order_contents table. This contains the actual product number, and its price and stuff.
+                        $stmtInner->bind_param("s", $orderContentsID);
+                        $stmtInner->execute();
+                        $resultInner = $stmtInner->get_result();
+
+                        if ($resultInner->num_rows > 0) {
+                            while ($row_inner = $resultInner->fetch_assoc()) {
+
+                                $productPrice = $row_inner['productPrice'];
+                                $productQuantity = $row_inner['productQuantity'];
+                                $productID = $row_inner['productID'];
+
+                                if ($productName = getProductName($productID)) {
+                                    echo "";
+                                }
+                                else {
+                                    echo "Error: no product with ID $productID.";
+                                }
+
+                                echo "<b>Product Name: </b> $productName</br>";
+                                echo "<b>Quantity: </b> $productQuantity</br>";
+                                echo "<b>Total: </b> $productPrice </br>";
+                            }
+                        } else {
+                            echo "No products found.<br>";
+                        }
+                        $stmtInner->close();
+                    } else {
+                        echo "Error: database query failed.<br>";
+                    }
+                    echo "</div>";
+                }
+            } else {
+                echo "No orders found for this user.";
+            }
+            $stmt->close();
+        } else {
+            echo "Error preparing statement.";
+        }
+    }
+    ?>
+</div>
+
 <footer>
     <div class="footerLogo">
         <a href="index.php">
