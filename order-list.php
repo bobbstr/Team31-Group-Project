@@ -84,10 +84,10 @@ if (isset($_GET['u'])) {
     function getProductName($productId) { // All this code does is resolve the product_id in order contents to the product's name.
         global $conn;
         $productTableQuery = "SELECT productName FROM products WHERE productID = ?";
-        if ($stmt_product = $conn->prepare($productTableQuery)) {
-            $stmt_product->bind_param("i", $productId);
-            $stmt_product->execute();
-            $result = $stmt_product->get_result();
+        if ($stmtProduct = $conn->prepare($productTableQuery)) {
+            $stmtProduct->bind_param("i", $productId);
+            $stmtProduct->execute();
+            $result = $stmtProduct->get_result();
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     return $row['productName'];
