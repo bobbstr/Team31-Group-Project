@@ -207,14 +207,7 @@ CREATE TABLE orders (
     orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     customerID int NOT NULL,
     orderContentsID int NOT NULL,
-    orderDate date DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_order_contents_association
-        FOREIGN KEY (orderContentsID)
-        REFERENCES order_contents (orderContentsID)
-        ON DELETE CASCADE
-    /*CONSTRAINT fk_customer_association
-        FOREIGN KEY (customerID)
-        REFERENCES userid(id)*/
+    orderDate date DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO orders (customerID, orderContentsID)
