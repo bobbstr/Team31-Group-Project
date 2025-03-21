@@ -60,7 +60,7 @@
         <p>The website is designed to cater to the needs of customers interested in purchasing products from the sweet and confectionery industry. By providing a variety of sweets on a single platform, the website provides an intuitive interface, which enables customers to seamlessly browse through, select, and purchase from a wide range of products. The platform features a user-friendly design, with secure payment and delivery options. </p>
 
       <h3> Our Story </h3>
-      <p>This website is found by a group of Cybersecurity and Computer science students during their team project module where they designed and </p>
+      <p>This website is found by a group of Cybersecurity and Computer science students during their team project module where they designed, tested and created a website which is fully functional and user appealing.</p>
 
       <h3> Our team and locations</h3>
       <p>We have a team of 50 people that manufacture the sweets at our own Warehouse located in Birmingham and delivering our products all around the UK.</p>
