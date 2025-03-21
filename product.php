@@ -230,7 +230,14 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
 
-
+        <div class="footerLegal">
+            <div class="legalLinks">
+                <a href="Privacy policy.pdf">Privacy Policy</a>
+                <span>|</span>
+                <a href="Terms and Conditions.pdf">Terms & Conditions</a>
+            </div>
+        </div>
+        
         <div class="footerCopyright">
             <p>© Copyright - SugarRush.com 2024. All rights reserved.</p>
         </div>
