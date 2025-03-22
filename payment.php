@@ -54,28 +54,27 @@ if (!isset($_SESSION['basket'])) {
         ];
     }
 
-function getParentOrder($conn)
-{
-    // This function fetches the last recorded order contents ID, and adds 1 to it for the next order contents entry to be identified.
-    // IDK if this is a good idea or not. It probably isn't, but it is the only way I can think of.
+    function getParentOrder($conn)
+    {
+        // IDK if this is a good idea or not. It probably isn't, but it is the only way I can think of.
 
-    $idQuery = "SELECT orderID FROM orders ORDER BY orderContentsID DESC LIMIT 1";
+        $idQuery = "SELECT orderID FROM orders ORDER BY orderContentsID DESC LIMIT 1";
 
-    $stmt = $conn->prepare($idQuery);
+        $stmt = $conn->prepare($idQuery);
 
-    $stmt->execute();
+        $stmt->execute();
 
-    $result = $stmt->get_result();
-    if ($row = $result->fetch_assoc()) {
-        $latestID = $row['orderID'];
-    } else {
-        $latestID = null;
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $latestID = $row['orderID'];
+        } else {
+            $latestID = null;
+        }
+
+        $stmt->close();
+
+        return $latestID;
     }
-
-    $stmt->close();
-
-    return $latestID;
-}
 
     function getOrderContentsID($conn)
     {
@@ -119,6 +118,7 @@ function getParentOrder($conn)
 
         return $ProductID;
     }
+
     function getCustomerID($conn, $email)
     {
         $idQuery = "SELECT id FROM userid WHERE email = ?";
@@ -139,40 +139,47 @@ function getParentOrder($conn)
         return $customerID;
     }
 
-    $email1 = $_SESSION['email'];
+    function processOrder ($conn, $email, $address, $totalPrice, $basketItems)
+    {
+        $email1 = $_SESSION['email'];
 
+        foreach ($basketItems as $item) {
 
+            // This all goes in the orders and order_contents tables
 
-    foreach ($basketItems as $item) {
+            $productName = $item['name'];
+            $productQuantity = $item['quantity'];
+            $productPrice = $item['price'];
+            $productTotal = $item['total'];
+            $productIDentifier = getProductID($conn, $productName);
+            $orderContentsIdentifier = getOrderContentsID($conn);
+            $customerIDentifier = getCustomerID($conn, $email1);
 
-        // This all goes in the orders and order_contents tables
+            // Now we perform the INSERTION MANEUVER (very exciting)
 
-        $productName = $item['name'];
-        $productQuantity = $item['quantity'];
-        $productPrice = $item['price'];
-        $productTotal = $item['total'];
-        $productIDentifier = getProductID($conn, $productName);
-        $orderContentsIdentifier = getOrderContentsID($conn);
-        $customerIDentifier = getCustomerID($conn, $email1);
+            // echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
 
-        // Now we perform the INSERTION MANEUVER (very exciting)
+            $insertionQuery = "INSERT INTO orders (customerID, orderContentsID) VALUES (?, ?)";
+            $stmt = $conn->prepare($insertionQuery);
+            $stmt->bind_param("ss", $customerIDentifier, $orderContentsIdentifier);
+            $stmt->execute();
 
-        // echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
+            $parentOrderIDentifier = getParentOrder($conn);
 
-        $insertionQuery = "INSERT INTO orders (customerID, orderContentsID) VALUES (?, ?)";
-        $stmt = $conn->prepare($insertionQuery);
-        $stmt->bind_param("ss", $customerIDentifier, $orderContentsIdentifier);
-        $stmt->execute();
+            $insertionQuery2 = "INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder) VALUES (?, ?, ?, ?)";
+            $stmt2 = $conn->prepare($insertionQuery2);
+            $stmt2->bind_param("ssss", $productIDentifier, $productQuantity, $totalPrice, $parentOrderIDentifier);
+            $stmt2->execute();
 
-        $parentOrderIDentifier = getParentOrder($conn);
-
-        $insertionQuery2 = "INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder) VALUES (?, ?, ?, ?)";
-        $stmt2 = $conn->prepare($insertionQuery2);
-        $stmt2->bind_param("ssss", $productIDentifier, $productQuantity, $totalPrice, $parentOrderIDentifier);
-        $stmt2->execute();
-
-        $stmt->close();
+            $stmt->close();
+        }
     }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_submit'])) {
+        processOrder($conn, $email, $address, $totalPrice, $basketItems);
+        header("Location: success.php");
+    }
+
 
 ?>
 
@@ -214,9 +221,6 @@ function getParentOrder($conn)
                 <?php endif; ?>
                 </div>
             </div>
-
-
-
 	    <center>
             <div class="search">
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
@@ -283,30 +287,29 @@ function getParentOrder($conn)
           <button type="submit" class="account">Update Basket</button>
         </form>
       </div>
-
       <!-- Payment Form -->
-      <div class="payment-form">
-        <form action="success.php" method="POST" class="inf">
-          <input type="hidden" name="email" value="<?= $email ?>">
-          <input type="hidden" name="address" value="<?= $address ?>">
+        <div class="payment-form">
+            <form action="payment.php" method="POST" class="inf">
+                <input type="hidden" name="email" value="<?= $email ?>">
+                <input type="hidden" name="address" value="<?= $address ?>">
 
-          <label for="cardNumber">Card Holder Name:</label>
-          <input type="text" id="cardName" name="cardName" required class="exp"><br><br>
+                <label for="cardName">Card Holder Name:</label>
+                <input type="text" id="cardName" name="cardName" required class="exp"><br><br>
 
-          <label for="cardNumber">Card Number:</label>
-          <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234 1234" required class="num" pattern="\d{4} \d{4} \d{4} \d{4}"><br><br>
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234 1234" required class="num" pattern="\d{4} \d{4} \d{4} \d{4}"><br><br>
 
-          <label for="expiry">Expiry Date:</label><br>
-          <input type="month" id="expiry" name="expiry" required class="exp"  placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}"><br><br>
+                <label for="expiry">Expiry Date:</label><br>
+                <input type="month" id="expiry" name="expiry" required class="exp" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}"><br><br>
 
-          <label for="cvv">CVV:</label><br>
-          <input type="text" id="cvv" name="cvv" required class="cvv" placeholder="123" pattern="\d{3}"><br><br>
+                <label for="cvv">CVV:</label><br>
+                <input type="text" id="cvv" name="cvv" required class="cvv" placeholder="123" pattern="\d{3}"><br><br>
 
-          <a href="success.php"><button type="submit" class="account">Submit Payment</button></a>
-        </form>
-      </div>
+                <button name="order_submit" type="submit" class="account">Submit Payment</button>
+            </form>
+        </div>
     </div>
-  </div>
+    </div>
 
     <footer>
 
