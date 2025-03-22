@@ -1,3 +1,20 @@
+.footerLegal {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .legalLinks {
+    align-items: center;
+  }
+  .legalLinks a {
+    color: #000000; 
+  }
+  .legalLinks a:hover {
+    text-decoration: underline;
+  }
+  .legalLinks span {
+    color: #000000;
+  }
+  
 .mbar {
     background-color: #38B6FF; /* Set the background color to blue */
     /* text-align: center; Center-align text */
