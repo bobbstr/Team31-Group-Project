@@ -99,3 +99,40 @@ input[type="number"] {
     width:110px;
     box-shadow: 0 0 20px #FB5AA6;
   }
+
+  @media screen and (max-width: 500px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .payment-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .basket, .payment-form {
+        width: 100%;
+    }
+
+    .sub {
+        width: 80%;
+        max-width: 180px;
+    }
+
+    .account {
+        width: 90px;
+        font-size: 14px;
+    }
+
+    .account:hover {
+        width: 100px;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
