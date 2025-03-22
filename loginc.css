@@ -170,3 +170,45 @@ footer {
     align-items: center;
 
 }
+
+@media screen and (max-width: 500px) {
+    #mainHeader {
+        padding: 15px;
+    }
+
+    .logo {
+        height: 60px;
+        left: 10px;
+    }
+
+    #mainHeader h1 {
+        margin-left: 60px;
+        font-size: 20px;
+    }
+
+    .login {
+        padding: 50px;
+    }
+
+    .login input[type="submit"] {
+        font-size: 14px;
+    }
+
+    .account {
+        width: 90px;
+        font-size: 14px;
+    }
+
+    .account:hover {
+        width: 100px;
+    }
+
+    .footerNav p {
+        font-size: 12px;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
