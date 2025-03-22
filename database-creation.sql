@@ -175,8 +175,21 @@ CREATE TABLE userid (
     admin tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Creation of admin user, along with insertion of dummy data for demo purposes. Accounts 2-11 intentionally cannot be signed in to.
+
 INSERT INTO `userid` (`id`, `firstname`, `lastname`, `email`, `password`, `admin`) VALUES
-(1, 'Admin', 'Account', 'admin@admin.com', '$2y$10$UjH0ueH4My0PHPREOXChi.wFcKBIr3QbsAR8mH95kps7QqvPBXND6', 1); -- Email: admin@admin.com, Password: admin123!
+(1, 'Admin', 'Account', 'admin@admin.com', '$2y$10$UjH0ueH4My0PHPREOXChi.wFcKBIr3QbsAR8mH95kps7QqvPBXND6', 1), -- Email: admin@admin.com, Password: admin123!
+(2, "Josh", "Daniels", "josh@email.com", " ", 0),
+(3, "Steve", "Jackson", "steve@email.com", " ", 0),
+(4, "Janet", "Torvolds", "janet@email.com", " ", 0),
+(5, "Heather", "Sebastian", "heather@email.com", " ", 0),
+(6, "Bob", "Stevenson", "bob@email.com", " ", 0),
+(7, "William", "Marsh", "will@hotmail.co.uk", " ", 0),
+(8, "Tim", "Cook", "tim@apple.com", " ", 0),
+(9, "Beverly", "Rhodes", "beverly@email.com", " ", 0),
+(10, "Keanu", "Mullen", "keanu@email.com", " ", 0),
+(11, "Kate", "Cook", "kate@email.com", " ", 0);
+
 
 CREATE TABLE order_contents (
     orderContentsID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -186,28 +199,79 @@ CREATE TABLE order_contents (
     parentOrder int NOT NULL
 );
 
+--This is just dummy data for testing
+
 INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
 VALUES
-(12, 15, 50.00, 1); -- test valuesCREATE TABLE orders
+(12, 15, 50.00, 1),
+(4, 2, 50.00, 1),
+(30, 3, 50.00, 1),
+(18, 4, 50.00, 2),
+(12, 7, 50.00, 2),
+(30, 2, 50.00, 3),
+(10, 15, 50.00, 4),
+(15, 12, 50.00, 5),
+(14, 11, 50.00, 6),
+(17, 12, 50.00, 7),
+(28, 17, 50.00, 7),
+(24, 18, 50.00, 8),
+(22, 3, 50.00, 8),
+(17, 4, 50.00, 9),
+(31, 8, 50.00, 10),
+(29, 10, 50.00, 11),
+(7, 1, 50.00, 11);
 
 CREATE TABLE orders (
     orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     customerID int NOT NULL,
     orderContentsID int NOT NULL,
-    orderDate date DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_order_contents_association
-        FOREIGN KEY (orderContentsID)
-        REFERENCES order_contents (orderContentsID)
-        ON DELETE CASCADE
-    /*CONSTRAINT fk_customer_association
-        FOREIGN KEY (customerID)
-        REFERENCES userid(id)*/
+    orderDate date DEFAULT CURRENT_TIMESTAMP
 );
+
+--This is just dummy data for testing
 
 INSERT INTO orders (customerID, orderContentsID)
 VALUES
-(1, 1); --This is just dummy data for testing
+(2, 1),
+(2, 2),
 
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+
+(4, 3),
+(4, 4),
+
+(5, 1),
+(5, 2),
+(5, 3),
+(5, 4),
+
+(6, 1),
+(6, 2),
+(6, 3),
+(6, 4),
+(6, 1),
+(6, 2),
+(6, 3),
+(6, 4),
+
+(7, 1),
+(7, 2),
+(7, 3),
+(7, 4),
+(7, 1),
+(7, 2),
+(7, 3),
+(7, 4),
+
+(8, 1),
+(8, 2);
 
 
 --
