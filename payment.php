@@ -1,5 +1,8 @@
 <?php
+include("database.php");
 session_start();
+
+global $conn;
 
 if (!isset($_SESSION['basket'])) {
     $_SESSION['basket'] = [
@@ -40,6 +43,137 @@ if (!isset($_SESSION['basket'])) {
     foreach ($_SESSION['basket'] as $item) {
         $totalPrice += $item['quantity'] * $item['price'];
     }
+
+    $basketItems = [];
+
+    foreach ($_SESSION['basket'] as $item) {
+        $basketItems[] = [
+            'name' => $item['name'],
+            'quantity' => $item['quantity'],
+            'price' => $item['price'],
+        ];
+    }
+
+function getParentOrder($conn)
+{
+    // This function fetches the last recorded order contents ID, and adds 1 to it for the next order contents entry to be identified.
+    // IDK if this is a good idea or not. It probably isn't, but it is the only way I can think of.
+
+    $idQuery = "SELECT orderID FROM orders ORDER BY orderContentsID DESC LIMIT 1";
+
+    $stmt = $conn->prepare($idQuery);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    if ($row = $result->fetch_assoc()) {
+        $latestID = $row['orderID'];
+    } else {
+        $latestID = null;
+    }
+
+    $stmt->close();
+
+    return $latestID;
+}
+
+    function getOrderContentsID($conn)
+    {
+        // This function fetches the last recorded order contents ID, and adds 1 to it for the next order contents entry to be identified.
+        // IDK if this is a good idea or not. It probably isn't, but it is the only way I can think of.
+
+        $idQuery = "SELECT orderContentsID FROM orders ORDER BY orderContentsID DESC LIMIT 1";
+
+        $stmt = $conn->prepare($idQuery);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $latestID = $row['orderContentsID'];
+        } else {
+            $latestID = null;
+        }
+
+        $stmt->close();
+
+        return $latestID += 1;
+    }
+
+    function getProductID($conn, $productName)
+    {
+        $idQuery = "SELECT ProductID FROM products WHERE ProductName = ?";
+
+        $stmt = $conn->prepare($idQuery);
+        $stmt->bind_param("s", $productName);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $ProductID = $row['ProductID'];
+        } else {
+            $ProductID = null;
+        }
+
+        $stmt->close();
+
+        return $ProductID;
+    }
+    function getCustomerID($conn, $email)
+    {
+        $idQuery = "SELECT id FROM userid WHERE email = ?";
+
+        $stmt = $conn->prepare($idQuery);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $customerID = $row['id'];
+        } else {
+            $customerID = null;
+        }
+
+        $stmt->close();
+
+        return $customerID;
+    }
+
+    $email1 = $_SESSION['email'];
+
+
+
+    foreach ($basketItems as $item) {
+
+        // This all goes in the orders and order_contents tables
+
+        $productName = $item['name'];
+        $productQuantity = $item['quantity'];
+        $productPrice = $item['price'];
+        $productTotal = $item['total'];
+        $productIDentifier = getProductID($conn, $productName);
+        $orderContentsIdentifier = getOrderContentsID($conn);
+        $customerIDentifier = getCustomerID($conn, $email1);
+
+        // Now we perform the INSERTION MANEUVER (very exciting)
+
+        // echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
+
+        $insertionQuery = "INSERT INTO orders (customerID, orderContentsID) VALUES (?, ?)";
+        $stmt = $conn->prepare($insertionQuery);
+        $stmt->bind_param("ss", $customerIDentifier, $orderContentsIdentifier);
+        $stmt->execute();
+
+        $parentOrderIDentifier = getParentOrder($conn);
+
+        $insertionQuery2 = "INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder) VALUES (?, ?, ?, ?)";
+        $stmt2 = $conn->prepare($insertionQuery2);
+        $stmt2->bind_param("ssss", $productIDentifier, $productQuantity, $totalPrice, $parentOrderIDentifier);
+        $stmt2->execute();
+
+        $stmt->close();
+    }
+
 ?>
 
 <!DOCTYPE html>

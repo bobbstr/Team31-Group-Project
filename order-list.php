@@ -122,8 +122,7 @@ if (isset($_GET['u'])) {
 
                     echo "<div class='pic_img'>";
                     echo "<b>Order ID: </b>$orderID<br>";
-                    echo "<b>Order Date: </b>$orderDate</br></br>";
-                    echo "<b>Order Contents: </b><br><br>";
+                    echo "<b>Order Date: </b>$orderDate</br>";
 
                     // Uhhhhhhhhh this is getting confusing. I probably should have put this 'Inner'/nested part into its own function.
 

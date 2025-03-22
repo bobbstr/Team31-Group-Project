@@ -201,7 +201,7 @@ CREATE TABLE order_contents (
 
 --This is just dummy data for testing
 
-INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
+/*INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
 VALUES
 (12, 15, 50.00, 1),
 (4, 2, 50.00, 1),
@@ -219,7 +219,7 @@ VALUES
 (17, 4, 50.00, 9),
 (31, 8, 50.00, 10),
 (29, 10, 50.00, 11),
-(7, 1, 50.00, 11);
+(7, 1, 50.00, 11);*/
 
 CREATE TABLE orders (
     orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -230,7 +230,7 @@ CREATE TABLE orders (
 
 --This is just dummy data for testing
 
-INSERT INTO orders (customerID, orderContentsID)
+/*INSERT INTO orders (customerID, orderContentsID)
 VALUES
 (2, 1),
 (2, 2),
@@ -271,7 +271,7 @@ VALUES
 (7, 4),
 
 (8, 1),
-(8, 2);
+(8, 2);*/
 
 
 --
