@@ -1,5 +1,5 @@
 <?php
-require 'database.php'; 
+require 'database.php';
 session_start();
 
 if (isset($_POST["submit"])) {
@@ -7,13 +7,20 @@ if (isset($_POST["submit"])) {
     $lname = trim($_POST["LastName"]);
     $email = trim($_POST["Email"]);
     $password = $_POST["Password"];
+    
+    // Get account type from form
+    $accountType = isset($_POST["accountType"]) ? intval($_POST["accountType"]) : 0;
+    
+    // Validate account type (0 for customer, 1 for admin, 2 for business)
+    if ($accountType != 0 && $accountType != 2) {
+        $accountType = 0; // Default to customer if invalid
+    }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email format!";
         exit;
     }
-
- 
+    
     if (strlen($password) < 8) {
         echo "Password must be at least 8 characters long!";
         exit;
@@ -21,26 +28,28 @@ if (isset($_POST["submit"])) {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Securely hash password
 
-    // bind the MySQLi statement
-    $query = "INSERT INTO userid (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+    // Update query to include the admin column
+    $query = "INSERT INTO userid (firstname, lastname, email, password, admin) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
 
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $email, $hashed_password);
+        // Add the accountType parameter to the bind_param part
+        mysqli_stmt_bind_param($stmt, "ssssi", $fname, $lname, $email, $hashed_password, $accountType);
 
         if (mysqli_stmt_execute($stmt)) {
             $_SESSION['user'] = [
                 'firstname' => $fname,
                 'lastname' => $lname,
-                'email' => $email
+                'email' => $email,
+                'admin' => $accountType // This will store account type in session
             ];
-            echo "<script> alert('Successfully creatd an account!');
+            echo "<script> alert('Successfully created an account!');
             window.location.href = 'index.php';
             </script>";
         } else {
             echo "<script> alert('Error creating account');
             window.location.href = 'index.php';
-            </script>"; 
+            </script>";
         }
     } else {
         echo "Failed to prepare statement: ";
@@ -87,6 +96,13 @@ mysqli_close($conn); // Close the database connection
                 <div>
                     <label for="Password">Password</label>
                     <input type="password" id="Password" name="Password" placeholder="Password" required>
+                </div>
+                <div>
+                <label for="accountType">Account Type</label>
+                    <select id="accountType" name="accountType">
+                        <option value="0">Customer</option>
+                        <option value="2">Business</option>
+                    </select>
                 </div>
                 
                 <div class="Sign up">
