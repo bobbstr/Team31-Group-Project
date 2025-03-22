@@ -1,10 +1,3 @@
-<?php
-include("database.php");
-session_start();
-
-global $conn;
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +37,51 @@ global $conn;
                 <?php endif; ?>
             </div>
         </div>
+<?php
+    include("database.php");
+    session_start();
+    global $conn;
 
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+
+    $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+    $anAdmin = isset($_SESSION['admin']) && $_SESSION['admin'];
+    $prodIDentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    function getCustomerID($conn, $email)
+    {
+        $idQuery = "SELECT id FROM userid WHERE email = ?";
+
+        $stmt = $conn->prepare($idQuery);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $customerID = $row['id'];
+        } else {
+            $customerID = null;
+        }
+
+        $stmt->close();
+
+        return $customerID;
+    }
+
+    $email = $_SESSION['email'];
+    $customerIDentifier = getCustomerID($conn, $email);
+
+    if (!$anAdmin)
+    {
+        header("Location: order-list.php?u=$customerIDentifier");
+    }
+
+
+?>
+        <!-- Start of admin viewable elements -->
         <center>
             <div class="search">
                 <form class="search_i" action="/orders.php" method="GET" onsubmit="window.location = 'orders.php?q=' + search.value.replace(/ /g, '+'); return false;">
@@ -103,6 +140,8 @@ global $conn;
     }
     ?>
 </div>
+
+<!-- End of admin viewable elements -->
 
 <footer>
     <div class="footerLogo">
