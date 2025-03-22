@@ -78,6 +78,7 @@ header {
     bottom: 0;
     padding-top: 30px;
     
+    
 }
 
 .section p {
@@ -447,6 +448,20 @@ footer {
         display: inline-block;
     }
     
+    .log {
+        width: 200px; 
+        height: auto; 
+        left: 0; 
+        bottom: 0;
+        padding-top: 30px;
+        
+        
+    }
+    #flexLogo{
+        display: flex;
+        flex-direction: row;
+        align-items: auto;
+    } 
     /* Style the dropdown button */
     .dropbtn {
         font-weight: 600;
