@@ -15,7 +15,7 @@
 
 .query-results {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1px));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1px));
     gap: 1rem;
     padding: 1rem;
 }

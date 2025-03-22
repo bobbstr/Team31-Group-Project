@@ -23,8 +23,9 @@ session_start();
             <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
             <div class="log_sin">
                 <?php if (isset($_SESSION['email'])): ?>
+                    <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
-	            <a href="Basket.php"><button class="account">Basket</button></a>
+	                <a href="Basket.php"><button class="account">Basket</button></a>
                 <?php else: ?>
                     <a href="Basket.php" aria-label="Basket" class="Basket">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
