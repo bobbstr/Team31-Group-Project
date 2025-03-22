@@ -11,9 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="image.css" />
 </head>
-<body>
+<body class="wrapper_main">
     <header>
         <div class="mbar">
             <div class = "bar">
@@ -39,25 +38,61 @@
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                 <form action="search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
                     <input id="search" type="text" class="search_i" placeholder="Search...">
-                    <input type="submit" value="Search" class="account">
+                    <input type="submit" value="Search" class="account" id="search_button">
                 </form>
+
+                <div class="dropdown">
+                    <button class="dropbtn">Menu</button>
+                    <div class="dropdown-content">
+                        <!-- <a href="#">Option 1</a>
+                        <a href="#">Option 2</a>
+                        <a href="#">Option 3</a> -->
+                        <p><a href="search.php?q=sweets" class="filter_button" id="sweets">Sweets</a> <!-- "id=" is used to control background colour independently for each filter button.-->
+                            <a href="search.php?q=chocolate" class="filter_button" id="chocolate">Chocolate</a>
+                            <a href="search.php?q=savoury" class="filter_button" id="savoury">Savoury</a>
+                            <a href="search.php?q=drinks" class="filter_button" id="drinks">Drinks</a>
+                            <a href="search.php?q=biscuits" class="filter_button" id="biscuits">Biscuits</a>
+                            <a href="search.php?q=" class="filter_button" id="all">All</a></p>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const dropdown = document.querySelector(".dropdown");
+                            const dropdownContent = document.querySelector(".dropdown-content");
+                        
+                            // Toggle dropdown visibility on button click
+                            dropdown.querySelector(".dropbtn").addEventListener("click", function(event) {
+                                event.stopPropagation(); // Prevent immediate closing when clicking the button
+                                dropdownContent.classList.toggle("show");
+                            });
+                        
+                            // Hide dropdown when clicking outside of it
+                            document.addEventListener("click", function(event) {
+                                if (!dropdown.contains(event.target)) {
+                                    dropdownContent.classList.remove("show");
+                                }
+                            });
+                        });
+                        </script>
+                        
+                </div>
+            
                
             </div>
 	    </center>
             <div class="section">
-                <p><a href="search.php?q=sweets">Sweets</a>
-                <a href="search.php?q=chocolate">Chocolate</a>
-                <a href="search.php?q=savoury">Savoury</a>     
-                <a href="search.php?q=drinks">Drinks</a>       
-                <a href="search.php?q=biscuits">Biscuits</a>	
-                <a href="search.php?q=">All</a></p>
+                <p><a href="search.php?q=sweets" class="filter_button" id="sweets">Sweets</a> <!-- "id=" is used to control background colour independently for each filter button.-->
+                <a href="search.php?q=chocolate" class="filter_button" id="chocolate">Chocolate</a>
+                <a href="search.php?q=savoury" class="filter_button" id="savoury">Savoury</a>
+                <a href="search.php?q=drinks" class="filter_button" id="drinks">Drinks</a>
+                <a href="search.php?q=biscuits" class="filter_button" id="biscuits">Biscuits</a>
+                <a href="search.php?q=" class="filter_button" id="all">All</a></p>
             </div>
 
         </div>
     </header>
 
 
-    <div >
+    <div>
     <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
     <script>
         const images = [
@@ -66,14 +101,14 @@
             "Untitled3.png"
         ];
 
-        let currenti = 0;
+        let currenti = 1;
 
         function changImages() {
             currenti = (currenti + 1) % images.length; 
             document.getElementById('image').src = images[currenti];
         }
 
-        interval(changImages, 3000);
+        setInterval(changImages, 3000);
     </script>
     </div>
 
@@ -150,36 +185,38 @@
 
 <div>
     <div class="pick_section">
-        <div class="pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-           <p class="buy1">Cold Mix 1kg<br>£15</p>
-            <form action="basketAdd.php" method="POST">
-                <input type="hidden" name="product_id" value="44" />
-                <input type="hidden" name="product_name" value="Cold Mix 1kg" />
-                <input type="hidden" name="product_price" value="15" />
-             <button class="account" type="submit">BUY NOW</button>
-            </form>
-        </div> 
-        <div class="pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Fizzy Mix 1kg<br>£15</p>
-            <form action="basketAdd.php" method="POST">
-                <input type="hidden" name="product_id" value="45" />
-                <input type="hidden" name="product_name" value="Fizzy Mix 1kg" />
-                <input type="hidden" name="product_price" value="15" />
+        
+            <div class="pic_img">
+                <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
+            <p class="buy1">Cold Mix 1kg<br>£15</p>
+                <form action="basketAdd.php" method="POST">
+                    <input type="hidden" name="product_id" value="44" />
+                    <input type="hidden" name="product_name" value="Cold Mix 1kg" />
+                    <input type="hidden" name="product_price" value="15" />
                 <button class="account" type="submit">BUY NOW</button>
-            </form>
-        </div> 
-        <div class="pic_img">
-            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Sour Mix 1kg<br>£15</p>
-            <form action="basketAdd.php" method="POST">
-                <input type="hidden" name="product_id" value="46" />
-                <input type="hidden" name="product_name" value="Sour Mix 1kg" />
-                <input type="hidden" name="product_price" value="15" />
-                <button class="account" type="submit">BUY NOW</button>
-            </form>
-        </div> 
+                </form>
+            </div> 
+            <div class="pic_img">
+                <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
+                <p class="buy1">Fizzy Mix 1kg<br>£15</p>
+                <form action="basketAdd.php" method="POST">
+                    <input type="hidden" name="product_id" value="45" />
+                    <input type="hidden" name="product_name" value="Fizzy Mix 1kg" />
+                    <input type="hidden" name="product_price" value="15" />
+                    <button class="account" type="submit">BUY NOW</button>
+                </form>
+            </div> 
+            <div class="pic_img">
+                <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
+                <p class="buy1">Sour Mix 1kg<br>£15</p>
+                <form action="basketAdd.php" method="POST">
+                    <input type="hidden" name="product_id" value="46" />
+                    <input type="hidden" name="product_name" value="Sour Mix 1kg" />
+                    <input type="hidden" name="product_price" value="15" />
+                    <button class="account" type="submit">BUY NOW</button>
+                </form>
+            </div> 
+      
     </div>
 </div>
 
@@ -223,7 +260,7 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
             <li><a href="contactUs.php">Contact Us</a></li>
-            <li><a href="aboutUs.html">About us</a></li>
+            <li><a href="aboutUs.php">About us</a></li>
                     
                     
                 </ul>
@@ -255,15 +292,15 @@
                         <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
                     </svg>
                 </a>
-                <a href="https://twitter.com/?lang=en-gb" aria-label="Twitter" class="socialIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                <a href="https://www.twitter.com/" aria-label="Twitter" class="socialIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16" width="25" height="25">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"></path>
                     </svg>
                 </a>
             </div>
         </div>
-        
-        
+
+
         <div class="footerCopyright">
             <p>© Copyright - SugarRush.com 2024. All rights reserved.</p>
         </div>

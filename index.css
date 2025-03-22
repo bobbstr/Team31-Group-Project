@@ -4,10 +4,14 @@
     /* padding: 20px; Add some padding for better spacing */
     min-height: 70px;
     word-spacing: 50px;
-    
+    text-align: left;
+    margin-left: -10px;
+    padding-right: 20px;
     
 }
-
+.dropdown{
+    display: none;
+}
 .account{
     font-weight: 600;
     margin: 0 10px;
@@ -28,6 +32,15 @@
     width:110px;
     box-shadow: 0 0 20px #FB5AA6;
   }
+
+.swi_img{
+    /* width: 1000px; */
+    width: 90%;
+    height: 500px;
+    margin-left: 100px;
+    margin-top: 50px;
+
+}
 
 #login{
     position: relative;
@@ -68,14 +81,16 @@ header {
 }
 
 .section p {
-    margin: 0; /* Remove default margin from paragraph */
-    /* Add some padding if needed */
-    word-spacing: 100px;
-    text-align: center;
+    justify-content: center;
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0; 
+    word-spacing: 10%;
+    text-align: left;
     padding-bottom: 20px;
-    padding-left: 100px;
-    
-}
+    padding-left: 5%;
+  }
 
 .search_i{
     /* align-items: center;
@@ -225,6 +240,16 @@ header {
     max-width: 500px;
     margin:20px;
 }
+.pic_img1{
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin:20px;
+}
 .pic_img:hover{
     transform: translateY(-5px); /* Subtle upward movement on hover */
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
@@ -248,6 +273,19 @@ header {
     transition: background-color 0.3s ease;
 }
 .now2:hover {
+    background-color: #1d87cc;
+}
+.now3{
+    background-color: #38B6FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.now3:hover {
     background-color: #1d87cc;
 }
 
@@ -304,14 +342,6 @@ header {
     margin-left: 100px;
 }
 
-/* tfgyuiouutyfughiojuytuuyuiouiytuyghuijouiy */
-
-/* .pic_row{
-    align-items: center;
-    width: auto;
-    height: 200px;
-
-} */
 
 .pick_section1{
     display: flex;
@@ -319,10 +349,6 @@ header {
     align-items:center;
     display: flex;
     margin: 70px;
-    /* display: flex;
-    align-items: center;
-    gap: 20px; */
-    
 }
 .order{
     color:#FB5AA6;
@@ -372,7 +398,232 @@ footer {
     color: #888;
 }
 
-a, u {
+.section p {
+    justify-content: center; 
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0; 
+    word-spacing: 10%;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-left: 5%;
+  }
+
+.filter_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 62px;
+    padding: 1px; 
+    border: 3px solid rgb(0, 0, 0);
+    width: 100px; 
+    height: 30px; 
+}
+
+#sweets, #chocolate, #savoury, #drinks, #biscuits {
+    background-color: #8252b8 ;
+}
+
+#all {
     color: black;
+     background-image: linear-gradient(#8252b8, hotpink 100%); /* This fades from the food button colours to the fucntion button colours */
+}
+@media only screen and (max-width: 500px) {
+    .log_sin a[href="login.php"], 
+    .log_sin a[href="signup.php"],
+    .log_sin a[href="logout.php"],
+    .log_sin a[href="Basket.php"]{
+        display: none;
+    }
+    .section {
+        display: none;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    /* Style the dropdown button */
+    .dropbtn {
+        font-weight: 600;
+        margin: 0 10px;
+        width: 80px;
+        padding: 10px 0px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: 0.4s;
+        color: white;
+        background-color: #FB5AA6;
+        border: 3px solid rgb(0, 0, 0);
+    }
+    
+    /* Style the dropdown content (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    .dropdown-content.show{
+        display: block;
+    }
+    
+    /* Style the dropdown links */
+    .dropdown-content a {
+        color: black;
+        padding: 10px 12px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    /* Show dropdown when hovering */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    
+}
+@media only screen and (max-width: 500px) { /* MOBILE PHONE LAYOUT PROPERTIES GO HERE */
+
+  .wrapper_main {
+      width: 100%;
+  }
+
+  .log_sin {
+      display: flex;
+      margin-left: 5%;
+      margin-top: 20%;
+      gap: 5px;
+      flex-direction: column;
+  }
+
+  .search_i {
+      /* align-items: center;
+      display: flex; */
+      width: 70%;
+      /* margin-left: 10px; */
+      border-radius: 10px;
+      padding: 5px;
+      gap: 10px;
+      display: flex;
+
+  }
+
+  .account {
+      font-weight: 600;
+      margin: 0 10px;
+      width: 80px;
+      padding: 10px 0px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: 0.4s;
+      color: white;
+      background-color: #FB5AA6;
+      border-radius: 4px;
+      border: 3px solid rgb(0, 0, 0);
+  }
+
+  .swi_img {
+      width: 70%;
+      height: 175px;
+      margin-left: 53px;
+      margin-top: 40px;
+  }
+
+  #search_button {
+      display: inline-block;
+  }
+
+  .description {
+    display: block;
+    justify-content: center;
+    margin-top: 50px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .pick_desc{
+      background-color: #fff; /* White background to create contrast */
+      padding: 40px 50px; /* Ample padding for comfort */
+      border-radius: 15px; /* Rounded corners for modern look */
+      max-width: 80%; /* Keep width within reasonable limits */
+      color: #333; /* Dark color for text */
+      font-family: 'Poppins', sans-serif; /* Clean, modern sans-serif font */
+      font-size: 1.2em; /* Larger text for readability */
+      text-align: center; /* Center text */
+      line-height: 1.8; /* Increase line height for better spacing */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      position: absolute;
+      z-index: 1;
+  }
+
+  .pick_section{
+    display: block;
+      align-items: center;
+      align-items:center;
+      display: block;
+      margin: 0,0,0,0;
+      /* display: flex;
+      align-items: center;
+      gap: 20px; */
+    }
+}
+/* product page */
+@media only screen and (max-width: 500px) { /* TABLET LAYOUT PROPERTIES GO HERE */
+    .pick_section1{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        align-items:center;
+        display: flex;
+        /* margin: 70px; */
+    }
+    .pic_img1{
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-height: 100px;
+        margin: 20px;
+        margin-bottom:5px;
+        display: flex;
+        flex-direction: row;
+    }
+    .log2{
+        width: 30%;
+        height: auto;
+        border-radius: 10px;
+        /* margin-bottom: 15px; */
+        margin-right: 10px;
+    
+    }
+    .now3{
+        background-color: #38B6FF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        /* margin-bottom: 80%; */
+    }
+    .now3:hover {
+        background-color: #1d87cc;
+    }
+
 }
