@@ -175,7 +175,7 @@ CREATE TABLE userid (
     admin tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Creation of admin user, along with insertion of dummy data for demo purposes. Accounts 2-11 intentionally cannot be signed in to.
+/* Creation of admin user, along with insertion of dummy data for demo purposes. Accounts 2-11 intentionally cannot be signed in to. */
 
 INSERT INTO `userid` (`id`, `firstname`, `lastname`, `email`, `password`, `admin`) VALUES
 (1, 'Admin', 'Account', 'admin@admin.com', '$2y$10$UjH0ueH4My0PHPREOXChi.wFcKBIr3QbsAR8mH95kps7QqvPBXND6', 1), -- Email: admin@admin.com, Password: admin123!
@@ -199,9 +199,9 @@ CREATE TABLE order_contents (
     parentOrder int NOT NULL
 );
 
---This is just dummy data for testing
+/* This is just dummy data for testing */
 
-/*INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
+INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
 VALUES
 (12, 15, 50.00, 1),
 (4, 2, 50.00, 1),
@@ -219,7 +219,7 @@ VALUES
 (17, 4, 50.00, 9),
 (31, 8, 50.00, 10),
 (29, 10, 50.00, 11),
-(7, 1, 50.00, 11);*/
+(7, 1, 50.00, 11);
 
 CREATE TABLE orders (
     orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -227,53 +227,6 @@ CREATE TABLE orders (
     orderContentsID int NOT NULL,
     orderDate date DEFAULT CURRENT_TIMESTAMP
 );
-
---This is just dummy data for testing
-
-/*INSERT INTO orders (customerID, orderContentsID)
-VALUES
-(2, 1),
-(2, 2),
-
-(3, 1),
-(3, 2),
-(3, 3),
-(3, 4),
-(3, 1),
-(3, 2),
-(3, 3),
-(3, 4),
-
-(4, 3),
-(4, 4),
-
-(5, 1),
-(5, 2),
-(5, 3),
-(5, 4),
-
-(6, 1),
-(6, 2),
-(6, 3),
-(6, 4),
-(6, 1),
-(6, 2),
-(6, 3),
-(6, 4),
-
-(7, 1),
-(7, 2),
-(7, 3),
-(7, 4),
-(7, 1),
-(7, 2),
-(7, 3),
-(7, 4),
-
-(8, 1),
-(8, 2);*/
-
-
 --
 -- Indexes for dumped tables
 --
