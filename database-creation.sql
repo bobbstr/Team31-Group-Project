@@ -199,28 +199,6 @@ CREATE TABLE order_contents (
     parentOrder int NOT NULL
 );
 
-/* This is just dummy data for testing */
-
-INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
-VALUES
-(12, 15, 50.00, 1),
-(4, 2, 50.00, 1),
-(30, 3, 50.00, 1),
-(18, 4, 50.00, 2),
-(12, 7, 50.00, 2),
-(30, 2, 50.00, 3),
-(10, 15, 50.00, 4),
-(15, 12, 50.00, 5),
-(14, 11, 50.00, 6),
-(17, 12, 50.00, 7),
-(28, 17, 50.00, 7),
-(24, 18, 50.00, 8),
-(22, 3, 50.00, 8),
-(17, 4, 50.00, 9),
-(31, 8, 50.00, 10),
-(29, 10, 50.00, 11),
-(7, 1, 50.00, 11);
-
 CREATE TABLE orders (
     orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     customerID int NOT NULL,
