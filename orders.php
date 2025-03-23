@@ -71,12 +71,20 @@
         return $customerID;
     }
 
+    if ($email === null) {
+        // If User is not logged in at all
+        header("Location: login.php"); // Redirect to login page
+        exit();
+    }
+
     $email = $_SESSION['email'];
     $customerIDentifier = getCustomerID($conn, $email);
+    
 
     if (!$anAdmin)
     {
         header("Location: order-list.php?u=$customerIDentifier");
+        exit();
     }
 
 
@@ -125,7 +133,6 @@
 
                     // Debugging: Output hidden inputs
                     echo "<form action='order-list.php?u=".$row['id']."', method='POST'>";
-                    echo "<input type='hidden' name='product_id' value='".$row['ProductID']."' />";
                     echo "<button class='account' type='submit'>View Orders</button>";
                     echo "</form>";
 
