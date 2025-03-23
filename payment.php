@@ -155,7 +155,7 @@ if (!isset($_SESSION['basket'])) {
 
             // Now we perform the INSERTION MANEUVER (very exciting)
 
-            echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
+            // echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
 
             $insertionQuery = "INSERT INTO orders (customerID, orderContentsID) VALUES (?, ?)";
             $stmt = $conn->prepare($insertionQuery);
