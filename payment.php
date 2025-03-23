@@ -6,9 +6,7 @@ global $conn;
 
 if (!isset($_SESSION['basket'])) {
     $_SESSION['basket'] = [
-        ['name' => 'Chocolate Bar', 'quantity' => 2, 'price' => 1.99],
-        ['name' => 'Gummy Bears', 'quantity' => 1, 'price' => 3.50],
-        ['name' => 'Lollipop', 'quantity' => 3, 'price' => 0.99]
+        ['name' => 'Starmix', 'quantity' => 2, 'price' => 1.99]
     ];
     }
     $totalPrice = 0;
@@ -157,7 +155,7 @@ if (!isset($_SESSION['basket'])) {
 
             // Now we perform the INSERTION MANEUVER (very exciting)
 
-            // echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
+            echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
 
             $insertionQuery = "INSERT INTO orders (customerID, orderContentsID) VALUES (?, ?)";
             $stmt = $conn->prepare($insertionQuery);
