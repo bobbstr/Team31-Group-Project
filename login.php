@@ -20,7 +20,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (password_verify($password, $db_password)) {
             session_start();
             $_SESSION['email'] =$email;
-            $_SESSION['admin'] =$admin;
+            $_SESSION['admin'] = ($admin == 1) ? true : false;
+            $_SESSION['business'] = ($admin == 2) ? true : false;
             header("Location: index.php");
             exit();
         }
