@@ -1,3 +1,4 @@
+-- Active: 1742739117290@@127.0.0.1@3306@sugarrush
 
 CREATE OR REPLACE DATABASE sugarrush;
 
