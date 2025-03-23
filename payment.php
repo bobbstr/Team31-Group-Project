@@ -1,6 +1,7 @@
 <?php
 include("database.php");
 session_start();
+$isBusinessAccount = isset($_SESSION['business']) && $_SESSION['business'];
 
 global $conn;
 
@@ -11,7 +12,12 @@ if (!isset($_SESSION['basket'])) {
     }
     $totalPrice = 0;
     foreach ($_SESSION['basket'] as $item) {
-        $totalPrice += $item['quantity'] * $item['price'];
+        if ($isBusinessAccount) {
+            $totalPrice += $item['quantity'] * (0.85 * $item['price']);
+        }
+        else{
+            $totalPrice += $item['quantity'] * $item['price'];
+        }
     }
 
     $_SESSION['total_price'] = $totalPrice;
@@ -39,7 +45,11 @@ if (!isset($_SESSION['basket'])) {
 
     $totalPrice = 0;
     foreach ($_SESSION['basket'] as $item) {
-        $totalPrice += $item['quantity'] * $item['price'];
+        if ($isBusinessAccount) {
+            $totalPrice += $item['quantity'] * (0.85 * $item['price']);
+        }else{
+            $totalPrice += $item['quantity'] * $item['price'];
+        }
     }
 
     $basketItems = [];
