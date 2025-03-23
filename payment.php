@@ -14,8 +14,9 @@ if (!isset($_SESSION['basket'])) {
     foreach ($_SESSION['basket'] as $item) {
         if ($isBusinessAccount) {
             $totalPrice += $item['quantity'] * (0.85 * $item['price']);
-        }else{
-        $totalPrice += $item['quantity'] * $item['price'];
+        }
+        else{
+            $totalPrice += $item['quantity'] * $item['price'];
         }
     }
 
@@ -44,7 +45,11 @@ if (!isset($_SESSION['basket'])) {
 
     $totalPrice = 0;
     foreach ($_SESSION['basket'] as $item) {
-        $totalPrice += $item['quantity'] * $item['price'];
+        if ($isBusinessAccount) {
+            $totalPrice += $item['quantity'] * (0.85 * $item['price']);
+        }else{
+            $totalPrice += $item['quantity'] * $item['price'];
+        }
     }
 
     $basketItems = [];
