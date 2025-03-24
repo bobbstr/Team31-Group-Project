@@ -22,14 +22,19 @@
             	<a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
                 <div class="log_sin">
                 <?php if (isset($_SESSION['email'])):?>
+                    <a href="Basket.php" aria-label="Basket" class="Basket">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
+                      </svg>
+                    </a>
+                    <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
-		    <a href="Basket.php"><button class="account">Basket</button></a>
                 <?php else: ?>
                     <a href="Basket.php" aria-label="Basket" class="Basket">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
-                     <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
                       </svg>
-                </a>
+                    </a>
                     <a href="login.php"><button class="account">Log In</button></a>  
                     <a href="signup.php"><button class="account">Sign Up</button></a>
                 <?php endif; ?>                    
@@ -45,42 +50,6 @@
                     <input id="search" type="text" class="search_i" placeholder="Search...">
                     <input type="submit" value="Search" class="account" id="search_button">
                 </form>
-
-                <div class="dropdown">
-                    <button class="dropbtn">Menu</button>
-                    <div class="dropdown-content">
-                        <!-- <a href="#">Option 1</a>
-                        <a href="#">Option 2</a>
-                        <a href="#">Option 3</a> -->
-                        <p><a href="search.php?q=sweets" class="filter_button" id="sweets">Sweets</a> <!-- "id=" is used to control background colour independently for each filter button.-->
-                            <a href="search.php?q=chocolate" class="filter_button" id="chocolate">Chocolate</a>
-                            <a href="search.php?q=savoury" class="filter_button" id="savoury">Savoury</a>
-                            <a href="search.php?q=drinks" class="filter_button" id="drinks">Drinks</a>
-                            <a href="search.php?q=biscuits" class="filter_button" id="biscuits">Biscuits</a>
-                            <a href="search.php?q=" class="filter_button" id="all">All</a></p>
-                    </div>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const dropdown = document.querySelector(".dropdown");
-                            const dropdownContent = document.querySelector(".dropdown-content");
-                        
-                            // Toggle dropdown visibility on button click
-                            dropdown.querySelector(".dropbtn").addEventListener("click", function(event) {
-                                event.stopPropagation(); // Prevent immediate closing when clicking the button
-                                dropdownContent.classList.toggle("show");
-                            });
-                        
-                            // Hide dropdown when clicking outside of it
-                            document.addEventListener("click", function(event) {
-                                if (!dropdown.contains(event.target)) {
-                                    dropdownContent.classList.remove("show");
-                                }
-                            });
-                        });
-                        </script>
-                        
-                </div>
-            
                
             </div>
 	    </center>
@@ -98,7 +67,7 @@
 
 
     <div>
-    <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img">
+    <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
     <script>
         const images = [
             "Untitled1.png",
@@ -190,38 +159,36 @@
 
 <div>
     <div class="pick_section">
-        
-            <div class="pic_img">
-                <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-            <p class="buy1">Cold Mix 1kg<br>£15</p>
-                <form action="basketAdd.php" method="POST">
-                    <input type="hidden" name="product_id" value="44" />
-                    <input type="hidden" name="product_name" value="Cold Mix 1kg" />
-                    <input type="hidden" name="product_price" value="15" />
+        <div class="pic_img">
+            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
+           <p class="buy1">Cold Mix 1kg<br>£15</p>
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="44" />
+                <input type="hidden" name="product_name" value="Cold Mix 1kg" />
+                <input type="hidden" name="product_price" value="15" />
+             <button class="account" type="submit">BUY NOW</button>
+            </form>
+        </div> 
+        <div class="pic_img">
+            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
+            <p class="buy1">Fizzy Mix 1kg<br>£15</p>
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="45" />
+                <input type="hidden" name="product_name" value="Fizzy Mix 1kg" />
+                <input type="hidden" name="product_price" value="15" />
                 <button class="account" type="submit">BUY NOW</button>
-                </form>
-            </div> 
-            <div class="pic_img">
-                <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-                <p class="buy1">Fizzy Mix 1kg<br>£15</p>
-                <form action="basketAdd.php" method="POST">
-                    <input type="hidden" name="product_id" value="45" />
-                    <input type="hidden" name="product_name" value="Fizzy Mix 1kg" />
-                    <input type="hidden" name="product_price" value="15" />
-                    <button class="account" type="submit">BUY NOW</button>
-                </form>
-            </div> 
-            <div class="pic_img">
-                <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
-                <p class="buy1">Sour Mix 1kg<br>£15</p>
-                <form action="basketAdd.php" method="POST">
-                    <input type="hidden" name="product_id" value="46" />
-                    <input type="hidden" name="product_name" value="Sour Mix 1kg" />
-                    <input type="hidden" name="product_price" value="15" />
-                    <button class="account" type="submit">BUY NOW</button>
-                </form>
-            </div> 
-      
+            </form>
+        </div> 
+        <div class="pic_img">
+            <img src="Screenshot1.png" alt="Pick-a-mix" class="log2">
+            <p class="buy1">Sour Mix 1kg<br>£15</p>
+            <form action="basketAdd.php" method="POST">
+                <input type="hidden" name="product_id" value="46" />
+                <input type="hidden" name="product_name" value="Sour Mix 1kg" />
+                <input type="hidden" name="product_price" value="15" />
+                <button class="account" type="submit">BUY NOW</button>
+            </form>
+        </div> 
     </div>
 </div>
 
@@ -305,6 +272,13 @@
             </div>
         </div>
 
+        <div class="footerLegal">
+            <div class="legalLinks">
+                <a href="Privacy policy.pdf">Privacy Policy</a>
+                <span>|</span>
+                <a href="Terms and Conditions.pdf">Terms & Conditions</a>
+            </div>
+        </div>
 
         <div class="footerCopyright">
             <p>© Copyright - SugarRush.com 2024. All rights reserved.</p>
