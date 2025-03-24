@@ -72,6 +72,10 @@
 
       <h3>Our products</h3>
       <p>Our wesbsite offers wide range of high quality products that our customers can select. Our product range includes sweets, chocolates, savoury, picn-n-mix, drinks and biscuits. </p>
+
+      <h3>UPDATES</h3>
+      <p>- Sugar rush is expanding to Europe in 2025</p>
+      <p>- Sugar rush is expanding its online presence</p>
 </div>
 
     <footer>
