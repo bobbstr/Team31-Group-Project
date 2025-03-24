@@ -1,16 +1,23 @@
 <?php
+include("database.php");
 session_start();
+$isBusinessAccount = isset($_SESSION['business']) && $_SESSION['business'];
+
+global $conn;
 
 if (!isset($_SESSION['basket'])) {
     $_SESSION['basket'] = [
-        ['name' => 'Chocolate Bar', 'quantity' => 2, 'price' => 1.99],
-        ['name' => 'Gummy Bears', 'quantity' => 1, 'price' => 3.50],
-        ['name' => 'Lollipop', 'quantity' => 3, 'price' => 0.99]
+        ['name' => 'Starmix', 'quantity' => 2, 'price' => 1.99]
     ];
     }
     $totalPrice = 0;
     foreach ($_SESSION['basket'] as $item) {
-        $totalPrice += $item['quantity'] * $item['price'];
+        if ($isBusinessAccount) {
+            $totalPrice += $item['quantity'] * (0.85 * $item['price']);
+        }
+        else{
+            $totalPrice += $item['quantity'] * $item['price'];
+        }
     }
 
     $_SESSION['total_price'] = $totalPrice;
@@ -38,8 +45,150 @@ if (!isset($_SESSION['basket'])) {
 
     $totalPrice = 0;
     foreach ($_SESSION['basket'] as $item) {
-        $totalPrice += $item['quantity'] * $item['price'];
+        if ($isBusinessAccount) {
+            $totalPrice += $item['quantity'] * (0.85 * $item['price']);
+        }else{
+            $totalPrice += $item['quantity'] * $item['price'];
+        }
     }
+
+    $basketItems = [];
+
+    foreach ($_SESSION['basket'] as $item) {
+        $basketItems[] = [
+            'name' => $item['name'],
+            'quantity' => $item['quantity'],
+            'price' => $item['price'],
+        ];
+    }
+
+    function getParentOrder($conn)
+    {
+        // IDK if this is a good idea or not. It probably isn't, but it is the only way I can think of.
+
+        $idQuery = "SELECT orderID FROM orders ORDER BY orderContentsID DESC LIMIT 1";
+
+        $stmt = $conn->prepare($idQuery);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $latestID = $row['orderID'];
+        } else {
+            $latestID = null;
+        }
+
+        $stmt->close();
+
+        return $latestID;
+    }
+
+    function getOrderContentsID($conn)
+    {
+        // This function fetches the last recorded order contents ID, and adds 1 to it for the next order contents entry to be identified.
+        // IDK if this is a good idea or not. It probably isn't, but it is the only way I can think of.
+
+        $idQuery = "SELECT orderContentsID FROM orders ORDER BY orderContentsID DESC LIMIT 1";
+
+        $stmt = $conn->prepare($idQuery);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $latestID = $row['orderContentsID'];
+        } else {
+            $latestID = null;
+        }
+
+        $stmt->close();
+
+        return $latestID += 1;
+    }
+
+    function getProductID($conn, $productName)
+    {
+        $idQuery = "SELECT ProductID FROM products WHERE ProductName = ?";
+
+        $stmt = $conn->prepare($idQuery);
+        $stmt->bind_param("s", $productName);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $ProductID = $row['ProductID'];
+        } else {
+            $ProductID = null;
+        }
+
+        $stmt->close();
+
+        return $ProductID;
+    }
+
+    function getCustomerID($conn, $email)
+    {
+        $idQuery = "SELECT id FROM userid WHERE email = ?";
+
+        $stmt = $conn->prepare($idQuery);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $customerID = $row['id'];
+        } else {
+            $customerID = null;
+        }
+
+        $stmt->close();
+
+        return $customerID;
+    }
+
+    function processOrder ($conn, $email, $address, $totalPrice, $basketItems)
+    {
+        $email1 = $_SESSION['email'];
+
+        foreach ($basketItems as $item) {
+
+            // This all goes in the orders and order_contents tables
+
+            $productName = $item['name'];
+            $productQuantity = $item['quantity'];
+            $productPrice = $item['price'];
+            $productTotal = $item['total'];
+            $productIDentifier = getProductID($conn, $productName);
+            $orderContentsIdentifier = getOrderContentsID($conn);
+            $customerIDentifier = getCustomerID($conn, $email1);
+
+            // Now we perform the INSERTION MANEUVER (very exciting)
+
+            // echo "Product: $productName, Quantity: $productQuantity, Price: $productPrice, Total: $totalPrice, ID: $customerIDentifier, Product ID: $productIDentifier, Order Contents ID: $orderContentsIdentifier <br>";
+
+            $insertionQuery = "INSERT INTO orders (customerID, orderContentsID) VALUES (?, ?)";
+            $stmt = $conn->prepare($insertionQuery);
+            $stmt->bind_param("ss", $customerIDentifier, $orderContentsIdentifier);
+            $stmt->execute();
+
+            $parentOrderIDentifier = getParentOrder($conn);
+
+            $insertionQuery2 = "INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder) VALUES (?, ?, ?, ?)";
+            $stmt2 = $conn->prepare($insertionQuery2);
+            $stmt2->bind_param("ssss", $productIDentifier, $productQuantity, $totalPrice, $parentOrderIDentifier);
+            $stmt2->execute();
+
+            $stmt->close();
+        }
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_submit'])) {
+        processOrder($conn, $email, $address, $totalPrice, $basketItems);
+        header("Location: success.php");
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -62,8 +211,13 @@ if (!isset($_SESSION['basket'])) {
             	<a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
                 <div class="log_sin">
                 <?php if (isset($_SESSION['email'])):?>
+                    <a href="Basket.php" aria-label="Basket" class="Basket">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
+                        </svg>
+                    </a>
+                    <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
-		    <a href="Basket.php"><button class="account">Basket</button></a>
                 <?php else: ?>
                     <a href="Basket.php" aria-label="Basket" class="Basket">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
@@ -75,9 +229,6 @@ if (!isset($_SESSION['basket'])) {
                 <?php endif; ?>
                 </div>
             </div>
-
-
-
 	    <center>
             <div class="search">
                 <form class="search_i" action="/search.php" method="GET" onsubmit="window.location = 'search.php?q=' + search.value.replace(/ /g, '+'); return false;">
@@ -144,30 +295,29 @@ if (!isset($_SESSION['basket'])) {
           <button type="submit" class="account">Update Basket</button>
         </form>
       </div>
-
       <!-- Payment Form -->
-      <div class="payment-form">
-        <form action="success.php" method="POST" class="inf">
-          <input type="hidden" name="email" value="<?= $email ?>">
-          <input type="hidden" name="address" value="<?= $address ?>">
+        <div class="payment-form">
+            <form action="payment.php" method="POST" class="inf">
+                <input type="hidden" name="email" value="<?= $email ?>">
+                <input type="hidden" name="address" value="<?= $address ?>">
 
-          <label for="cardNumber">Card Holder Name:</label>
-          <input type="text" id="cardName" name="cardName" required class="exp"><br><br>
+                <label for="cardName">Card Holder Name:</label>
+                <input type="text" id="cardName" name="cardName" required class="exp"><br><br>
 
-          <label for="cardNumber">Card Number:</label>
-          <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234 1234" required class="num" pattern="\d{4} \d{4} \d{4} \d{4}"><br><br>
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234 1234" required class="num" pattern="\d{4} \d{4} \d{4} \d{4}"><br><br>
 
-          <label for="expiry">Expiry Date:</label><br>
-          <input type="month" id="expiry" name="expiry" required class="exp"  placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}"><br><br>
+                <label for="expiry">Expiry Date:</label><br>
+                <input type="month" id="expiry" name="expiry" required class="exp" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}"><br><br>
 
-          <label for="cvv">CVV:</label><br>
-          <input type="text" id="cvv" name="cvv" required class="cvv" placeholder="123" pattern="\d{3}"><br><br>
+                <label for="cvv">CVV:</label><br>
+                <input type="text" id="cvv" name="cvv" required class="cvv" placeholder="123" pattern="\d{3}"><br><br>
 
-          <a href="success.php"><button type="submit" class="account">Submit Payment</button></a>
-        </form>
-      </div>
+                <button name="order_submit" type="submit" class="account">Submit Payment</button>
+            </form>
+        </div>
     </div>
-  </div>
+    </div>
 
     <footer>
 

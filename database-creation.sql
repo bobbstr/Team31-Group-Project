@@ -175,8 +175,21 @@ CREATE TABLE userid (
     admin tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/* Creation of admin user, along with insertion of dummy data for demo purposes. Accounts 2-11 intentionally cannot be signed in to. */
+
 INSERT INTO `userid` (`id`, `firstname`, `lastname`, `email`, `password`, `admin`) VALUES
-(1, 'Admin', 'Account', 'admin@admin.com', '$2y$10$UjH0ueH4My0PHPREOXChi.wFcKBIr3QbsAR8mH95kps7QqvPBXND6', 1); -- Email: admin@admin.com, Password: admin123!
+(1, 'Admin', 'Account', 'admin@admin.com', '$2y$10$UjH0ueH4My0PHPREOXChi.wFcKBIr3QbsAR8mH95kps7QqvPBXND6', 1), -- Email: admin@admin.com, Password: admin123!
+(2, "Josh", "Daniels", "josh@email.com", " ", 0),
+(3, "Steve", "Jackson", "steve@email.com", " ", 0),
+(4, "Janet", "Torvolds", "janet@email.com", " ", 0),
+(5, "Heather", "Sebastian", "heather@email.com", " ", 0),
+(6, "Bob", "Stevenson", "bob@email.com", " ", 0),
+(7, "William", "Marsh", "will@hotmail.co.uk", " ", 0),
+(8, "Tim", "Cook", "tim@apple.com", " ", 0),
+(9, "Beverly", "Rhodes", "beverly@email.com", " ", 0),
+(10, "Keanu", "Mullen", "keanu@email.com", " ", 0),
+(11, "Kate", "Cook", "kate@email.com", " ", 0);
+
 
 CREATE TABLE order_contents (
     orderContentsID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -186,30 +199,12 @@ CREATE TABLE order_contents (
     parentOrder int NOT NULL
 );
 
-INSERT INTO order_contents (productID, productQuantity, productPrice, parentOrder)
-VALUES
-(12, 15, 50.00, 1); -- test valuesCREATE TABLE orders
-
 CREATE TABLE orders (
     orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     customerID int NOT NULL,
     orderContentsID int NOT NULL,
-    orderDate date DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_order_contents_association
-        FOREIGN KEY (orderContentsID)
-        REFERENCES order_contents (orderContentsID)
-        ON DELETE CASCADE
-    /*CONSTRAINT fk_customer_association
-        FOREIGN KEY (customerID)
-        REFERENCES userid(id)*/
+    orderDate date DEFAULT CURRENT_TIMESTAMP
 );
-
-INSERT INTO orders (customerID, orderContentsID)
-VALUES
-(1, 1); --This is just dummy data for testing
-
-
-
 --
 -- Indexes for dumped tables
 --

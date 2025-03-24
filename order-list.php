@@ -1,3 +1,10 @@
+<?php
+include("database.php");
+session_start();
+
+global $conn;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SugarRush</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="styles/orders.css" />
+    <link rel="stylesheet" type="text/css" href="styles/order-list.css" />
 </head>
 <body>
 
@@ -27,69 +34,12 @@
                     <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
                 <?php else: ?>
-                    <a href="Basket.php" aria-label="Basket" class="Basket">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
-                     <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
-                      </svg>
-                </a>
                     <a href="login.php"><button class="account">Log In</button></a>
                     <a href="signup.php"><button class="account">Sign Up</button></a>
                 <?php endif; ?>
             </div>
         </div>
-<?php
-    include("database.php");
-    session_start();
-    global $conn;
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-
-    $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
-    $anAdmin = isset($_SESSION['admin']) && $_SESSION['admin'];
-    $prodIDentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
-
-    function getCustomerID($conn, $email)
-    {
-        $idQuery = "SELECT id FROM userid WHERE email = ?";
-
-        $stmt = $conn->prepare($idQuery);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-        if ($row = $result->fetch_assoc()) {
-            $customerID = $row['id'];
-        } else {
-            $customerID = null;
-        }
-
-        $stmt->close();
-
-        return $customerID;
-    }
-
-    if ($email === null) {
-        // If User is not logged in at all
-        header("Location: login.php"); // Redirect to login page
-        exit();
-    }
-
-    $email = $_SESSION['email'];
-    $customerIDentifier = getCustomerID($conn, $email);
-    
-
-    if (!$anAdmin)
-    {
-        header("Location: order-list.php?u=$customerIDentifier");
-        exit();
-    }
-
-
-?>
-        <!-- Start of admin viewable elements -->
         <center>
             <div class="search">
                 <form class="search_i" action="/orders.php" method="GET" onsubmit="window.location = 'orders.php?q=' + search.value.replace(/ /g, '+'); return false;">
@@ -101,54 +51,125 @@
     </div>
 </header>
 
-<center><b></b><h1>CUSTOMER ORDERS:</h1></b></center></center>
+<?php
+if (isset($_GET['u'])) {
+
+    // Use prepared statements to avoid SQL injection
+    // The 'u' URL parameter represents the userid.
+
+    $userId = $_GET['u'];
+
+    $queryUser = "SELECT * FROM userid WHERE id = ?";
+
+    if ($stmt = $conn->prepare($queryUser)) {
+        $searchTerm = $userId;
+        $stmt->bind_param("s", $searchTerm);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<center><b></b><h1>".$row['firstname']."'s Orders:</h1></b></center>";
+            }
+        } else {
+            echo "No results found";
+        }
+        $stmt->close();
+    }
+}
+
+?>
+
 <div class="query-results">
-    <?php
 
-    // This is where orders are displayed. Admins can see the orders from all customers, and customers can see their own.
 
-    if (isset($_GET['q'])) {
-        $searchQuery = $_GET['q'];
+<?php
 
-        // Use prepared statements to avoid SQL injection
 
-        // This statement enables resolving names and email addresses to their associated user ids.
-        // Having associated user IDs allows us to search through the orders table, and find all orders associated with a particular user (or users, if an admin is performing the search).
-
-        $queryIdentifiers = "SELECT * FROM userid WHERE firstname LIKE ? OR lastname LIKE ? OR email LIKE ?";
-
-        if ($stmt = $conn->prepare($queryIdentifiers)) {
-            $searchTerm = "%$searchQuery%";
-            $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
-            $stmt->execute();
-            $result = $stmt->get_result();
+    function getProductName($productId) { // All this code does is resolve the product_id in order contents to the product's name.
+        global $conn;
+        $productTableQuery = "SELECT productName FROM products WHERE productID = ?";
+        if ($stmtProduct = $conn->prepare($productTableQuery)) {
+            $stmtProduct->bind_param("i", $productId);
+            $stmtProduct->execute();
+            $result = $stmtProduct->get_result();
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    return $row['productName'];
+                }
+            }
+        }
+        else
+            return false;{
+        }
+        return false;
+    }
+
+    if (isset($_GET['u'])) {
+        $userId = $_GET['u'];
+
+        // Use prepared statements to avoid SQL injection
+        $sqlQuery = "SELECT * FROM orders WHERE customerID = ?";
+        if ($stmt = $conn->prepare($sqlQuery)) {
+            $stmt->bind_param("s", $userId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $orderID = $row['orderID'];
+                    $orderContentsID = $row['orderContentsID'];
+                    $orderDate = $row['orderDate'];
+
                     echo "<div class='pic_img'>";
-                    echo "<b>".$row['firstname']."<b> ";
-                    echo "<b>".$row['lastname']."<b>";
-                    echo "</br></br>";
-                    echo "<b>(".$row['email'].")<b>";
-                    echo "</br></br>";
+                    echo "<b>Order ID: </b>$orderID<br>";
+                    echo "<b>Order Date: </b>$orderDate</br>";
 
-                    // Debugging: Output hidden inputs
-                    echo "<form action='order-list.php?u=".$row['id']."', method='POST'>";
-                    echo "<button class='account' type='submit'>View Orders</button>";
-                    echo "</form>";
+                    // Uhhhhhhhhh this is getting confusing. I probably should have put this 'Inner'/nested part into its own function.
 
+                    $sqlInnerQuery = "SELECT * FROM order_contents WHERE orderContentsID = ?";
 
+                    if ($stmtInner = $conn->prepare($sqlInnerQuery)) { // This inner bit of code queries the order_contents table. This contains the actual product number, and its price and stuff.
+                        $stmtInner->bind_param("s", $orderContentsID);
+                        $stmtInner->execute();
+                        $resultInner = $stmtInner->get_result();
+
+                        if ($resultInner->num_rows > 0) {
+                            while ($row_inner = $resultInner->fetch_assoc()) {
+
+                                $productPrice = $row_inner['productPrice'];
+                                $productQuantity = $row_inner['productQuantity'];
+                                $productID = $row_inner['productID'];
+
+                                if ($productName = getProductName($productID)) {
+                                    echo "";
+                                }
+                                else {
+                                    echo "Error: no product with ID $productID.";
+                                }
+
+                                echo "<b>Product Name: </b> $productName</br>";
+                                echo "<b>Quantity: </b> $productQuantity</br>";
+                                echo "<b>Total: </b> $productPrice </br>";
+                            }
+                        } else {
+                            echo "No products found.<br>";
+                        }
+                        $stmtInner->close();
+                    } else {
+                        echo "Error: database query failed.<br>";
+                    }
                     echo "</div>";
                 }
             } else {
-                echo "No results found";
+                echo "No orders found for this user.";
             }
             $stmt->close();
+        } else {
+            echo "Error preparing statement.";
         }
     }
     ?>
 </div>
-
-<!-- End of admin viewable elements -->
 
 <footer>
     <div class="footerLogo">
@@ -203,13 +224,6 @@
         </div>
     </div>
 
-    <div class="footerLegal">
-            <div class="legalLinks">
-                <a href="Privacy policy.pdf">Privacy Policy</a>
-                <span>|</span>
-                <a href="Terms and Conditions.pdf">Terms & Conditions</a>
-            </div>
-        </div>
 
     <div class="footerCopyright">
         <p>© Copyright - SugarRush.com 2024. All rights reserved.</p>

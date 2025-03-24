@@ -119,3 +119,39 @@ body {
     width:110px;
     box-shadow: 0 0 20px #FB5AA6;
   }
+  
+  @media only screen and (max-width: 500px) {
+    #mainHeader {
+        padding: 15px;
+    }
+
+    .logo {
+        height: 60px;
+        left: 10px;
+    }
+
+    #mainHeader h1 {
+        font-size: 20px;
+    }
+
+    .signup {
+        padding: 15px;
+    }
+
+    .signup input {
+        font-size: 40px;
+    }
+
+    #regSubmit {
+        font-size: 40px;
+    }
+
+    .account {
+        width: 90px;
+        font-size: 40px;
+    }
+
+    .account:hover {
+        width: 100px;
+    }
+}

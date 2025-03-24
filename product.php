@@ -9,6 +9,7 @@ if ($conn->connect_error) {
 
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
 $anAdmin = isset($_SESSION['admin']) && $_SESSION['admin'];
+$isBusinessAccount = isset($_SESSION['business']) && $_SESSION['business'];
 $prodIDentifier = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 $productDetails = null;
@@ -78,8 +79,13 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.php"><img src="Logo.jpg.png" alt="Sugar Rush Logo" class="log"></a>
             <div class="log_sin">
                 <?php if (isset($_SESSION['email'])):?>
+                    <a href="Basket.php" aria-label="Basket" class="Basket">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
+                        </svg>
+                    </a>
+                    <a href="orders.php?q="><button class="account">Orders</button></a>
                     <a href="logout.php"><button class="account">Log Out</button></a>
-		    <a href="Basket.php"><button class="account">Basket</button></a>
                 <?php else: ?>
                     <a href="Basket.php" aria-label="Basket" class="Basket">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
@@ -139,7 +145,13 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Product Details (for Admin, show input fields)
                 echo "<td style='vertical-align: top; padding-left: 15px;'>";
                 echo "<b>" . htmlspecialchars($productDetails['ProductName']) . "</b><br/>";
-                echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
+                $displayPrice = $productDetails['ProductPrice'];
+                if ($isBusinessAccount) {
+                    $displayPrice = $displayPrice * 0.85; // 15% discount
+                    echo "<b>Price:</b> <strike>£" . htmlspecialchars($productDetails['ProductPrice']) . "</strike> £" . htmlspecialchars(number_format($displayPrice, 2)) . " (15% Business Discount)<br/>";
+                } else {
+                    echo "<b>Price:</b> £" . htmlspecialchars($productDetails['ProductPrice']) . "<br/>";
+                }
                 echo "<b>Description: </b> " . htmlspecialchars($description) . "<br/>";
                 echo "<b>Ingredients: </b> " . htmlspecialchars($ingredients) . "<br/>";
 
@@ -157,12 +169,25 @@ if ($anAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "</form>";
                 } else {
                     // Normal user can only add to basket
-                    echo "<form action='basketAdd.php' method='POST'>
-                            <input type='hidden' name='product_id' value='" . $productDetails['ProductID']."'/>
-                            <input type='hidden' name='product_name' value='" . htmlspecialchars($productDetails['ProductName'])."' />
-                            <input type='hidden' name='product_price' value='" . htmlspecialchars($productDetails['ProductPrice'])."'/>
-                            <button class='account' type='submit'>Add to Basket</button>
-                          </form>";
+                    echo "<form action='basketAdd.php' method='POST'>";
+                    echo "<input type='hidden' name='product_id' value='" . $productDetails['ProductID']."'/>";
+                    echo "<input type='hidden' name='product_name' value='" . htmlspecialchars($productDetails['ProductName'])."' />";
+                    echo "<input type='hidden' name='product_price' value='" . htmlspecialchars($productDetails['ProductPrice'])."'/>";
+
+                    // Apply 15% discount for business accounts
+                    $price = $productDetails['ProductPrice'];
+                    if ($isBusinessAccount) {
+                        $price = $price * 0.85; // 10% discount
+                        echo "<p><strong>Business discount applied: 10% off</strong></p>";
+                    }
+
+                    // Set quantity limits based on account type
+                    $maxQty = $isBusinessAccount ? 100 : 5;
+                    echo "<label for='quantity'>Quantity (max $maxQty):</label>";
+                    echo "<input type='number' id='quantity' name='quantity' min='1' max='$maxQty' value='1'><br>";
+                    
+                    echo "<button class='account' type='submit'>Add to Basket</button>";
+                    echo "</form>";
                 }
 
                 echo "</td>";
