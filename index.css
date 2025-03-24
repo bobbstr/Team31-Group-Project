@@ -31,7 +31,9 @@
     padding-right: 20px;
     
 }
-
+.dropdown{
+    display: none;
+}
 .account{
     font-weight: 600;
     margin: 0 10px;
@@ -53,12 +55,13 @@
     box-shadow: 0 0 20px #FB5AA6;
   }
 
-  .swi_img {
-    display: block;         
-    margin: 40px auto;     
-    padding: 10px;          
-    width: auto;        
-    height: 600px;           
+.swi_img{
+    /* width: 1000px; */
+    width: 90%;
+    height: 500px;
+    margin-left: 100px;
+    margin-top: 50px;
+
 }
 
 #login{
@@ -96,6 +99,7 @@ header {
     left: 0; 
     bottom: 0;
     padding-top: 30px;
+    
     
 }
 
@@ -259,6 +263,16 @@ header {
     max-width: 500px;
     margin:20px;
 }
+.pic_img1{
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin:20px;
+}
 .pic_img:hover{
     transform: translateY(-5px); /* Subtle upward movement on hover */
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
@@ -282,6 +296,19 @@ header {
     transition: background-color 0.3s ease;
 }
 .now2:hover {
+    background-color: #1d87cc;
+}
+.now3{
+    background-color: #38B6FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.now3:hover {
     background-color: #1d87cc;
 }
 
@@ -428,7 +455,77 @@ footer {
     color: black;
      background-image: linear-gradient(#8252b8, hotpink 100%); /* This fades from the food button colours to the fucntion button colours */
 }
-
+@media only screen and (max-width: 500px) {
+    .log_sin a[href="login.php"], 
+    .log_sin a[href="signup.php"],
+    .log_sin a[href="logout.php"],
+    .log_sin a[href="Basket.php"]{
+        display: none;
+    }
+    .section {
+        display: none;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .log {
+        width: 200px; 
+        height: auto; 
+        left: 0; 
+        bottom: 0;
+        padding-top: 30px;
+        
+        
+    }
+    #flexLogo{
+        display: flex;
+        flex-direction: row;
+        align-items: auto;
+    } 
+    /* Style the dropdown button */
+    .dropbtn {
+        font-weight: 600;
+        margin: 0 10px;
+        width: 80px;
+        padding: 10px 0px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: 0.4s;
+        color: white;
+        background-color: #FB5AA6;
+        border: 3px solid rgb(0, 0, 0);
+    }
+    
+    /* Style the dropdown content (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    .dropdown-content.show{
+        display: block;
+    }
+    
+    /* Style the dropdown links */
+    .dropdown-content a {
+        color: black;
+        padding: 10px 12px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    /* Show dropdown when hovering */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    
+}
 @media only screen and (max-width: 500px) { /* MOBILE PHONE LAYOUT PROPERTIES GO HERE */
 
   .wrapper_main {
@@ -519,9 +616,51 @@ footer {
       gap: 20px; */
     }
 }
-
-@media only screen and (max-width: 800px) { /* TABLET LAYOUT PROPERTIES GO HERE */
-
-
+/* product page */
+@media only screen and (max-width: 500px) { /* TABLET LAYOUT PROPERTIES GO HERE */
+    .pick_section1{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        align-items:center;
+        display: flex;
+        /* margin: 70px; */
+    }
+    .pic_img1{
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-height: 100px;
+        margin: 20px;
+        margin-bottom:5px;
+        display: flex;
+        flex-direction: row;
+    }
+    .log2{
+        width: 30%;
+        height: auto;
+        border-radius: 10px;
+        /* margin-bottom: 15px; */
+        margin-right: 10px;
+    
+    }
+    .now3{
+        background-color: #38B6FF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        /* margin-bottom: 80%; */
+    }
+    .now3:hover {
+        background-color: #1d87cc;
+    }
 
 }
