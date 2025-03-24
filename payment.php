@@ -42,16 +42,6 @@ if (!isset($_SESSION['basket'])) {
     $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
     $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
 
-
-    $totalPrice = 0;
-    foreach ($_SESSION['basket'] as $item) {
-        if ($isBusinessAccount) {
-            $totalPrice += $item['quantity'] * (0.85 * $item['price']);
-        }else{
-            $totalPrice += $item['quantity'] * $item['price'];
-        }
-    }
-
     $basketItems = [];
 
     foreach ($_SESSION['basket'] as $item) {
