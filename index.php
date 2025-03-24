@@ -93,7 +93,7 @@
 
 
     <div>
-    <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img" >
+    <img id="image" src="Untitled2.png" alt="Switching Image" class="swi_img">
     <script>
         const images = [
             "Untitled1.png",
