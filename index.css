@@ -55,15 +55,6 @@
     box-shadow: 0 0 20px #FB5AA6;
   }
 
-.swi_img{
-    /* width: 1000px; */
-    width: 90%;
-    height: 500px;
-    margin-left: 100px;
-    margin-top: 50px;
-
-}
-
 #login{
     position: relative;
     top: 20px;
@@ -567,11 +558,12 @@ footer {
   }
 
   .swi_img {
-      width: 70%;
-      height: 175px;
-      margin-left: 53px;
-      margin-top: 40px;
-  }
+    display: block;         
+    margin: 40px auto;    
+    padding: 10px;          
+    width: 70%;             
+    height: auto;           
+}
 
   #search_button {
       display: inline-block;
