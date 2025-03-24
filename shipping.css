@@ -47,3 +47,59 @@
     width:110px;
     box-shadow: 0 0 20px #FB5AA6;
   }
+
+.section p {
+    justify-content: center;
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0; 
+    word-spacing: 10%;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-left: 5%;
+  }
+
+  #sweets, #chocolate, #savoury, #drinks, #biscuits {
+    background-color: #8252b8 ;
+}
+
+@media only screen and (max-width: 500px) {
+    .ship_log {
+        width: 80%;
+        padding: 10px;
+        margin-right: 100px;
+        background-color: #f0f0f0; /* Keep your desired background */
+        border-radius: 15px;
+    }
+    .row{
+        margin-left: -40%;
+        margin-right: 25%;
+        
+       }
+
+    .sub1 {
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .account {
+        width: 80px;
+        padding: 6px 0;
+        font-size: 12px;
+    }
+
+    .account:hover {
+        width: 90px;
+    }
+
+    .section p {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    #sweets, #chocolate, #savoury, #drinks, #biscuits {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
